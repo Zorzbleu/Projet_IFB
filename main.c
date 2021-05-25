@@ -5,7 +5,7 @@
 
 
 int main() {
-    int i, nb_bateaux = 5, shootX, shootY, type_missile, hauteur, largeur;
+    int i, nb_bateaux = 5, shootX, shootY, type_missile, hauteur, largeur, difficulte;
     char shoot[3];
     tableau boat_grid, user_grid;
     boat_grid.hauteur = 10;
@@ -13,6 +13,7 @@ int main() {
     user_grid.hauteur = 10;
     user_grid.largeur = 10;
     bateau *liste_bateaux = NULL;
+    missile liste_missile;
     liste_bateaux = malloc(sizeof(bateau) * nb_bateaux);
     if(liste_bateaux == NULL)
         exit(1);
@@ -26,8 +27,14 @@ int main() {
     initialization_grille(&user_grid);
     initialization_grille(&boat_grid);
     //generation_flotte(&liste_bateaux,boat_grid,nb_bateaux);
+
+    liste_missile.nb_missile_artillerie = 10;
+    liste_missile.nb_missile_bombe = 10;
+    liste_missile.nb_missile_default = 10;
+    liste_missile.nb_missile_tactique = 10;
+
     for(i = 0; i < nb_bateaux; i++) {
-       generation_bateau(&liste_bateaux[i], &boat_grid);
+        generation_bateau(&liste_bateaux[i], &boat_grid);
     }
 
     do {
@@ -40,19 +47,15 @@ int main() {
             {printf("Le bateau %c est de longueur %d et a %d points de vie.\n", liste_bateaux[i].id_dead,liste_bateaux[i].length, liste_bateaux[i].pv);}
         }
         do{
-            printf("Quel missile voulez-vous tirer ?\n1 - Missile normal : x restant\n2 - Missile tactique : x restant\n3 - Bombe : x restant\n4 - Missile d'artillerie : x restant");
+            printf("Quel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
+                   liste_missile.nb_missile_default, liste_missile.nb_missile_tactique, liste_missile.nb_missile_bombe, liste_missile.nb_missile_artillerie);
             scanf("%d", &type_missile);
-        } while( type_missile < 1 || type_missile > 3);
+        } while( type_missile < 0 || type_missile > 4);
+
         do {
-            printf("\nOu voulez-vous tirer ? Exemple : C7\n");
-
+            printf("Ou voulez-vous tirer ? Exemple : C7\n");
+            fflush(stdin);
             gets(shoot);
-
-
-
-
-
-
             shootY = shoot[0] - 'A';
             shootX = shoot[1] - '1';
             if (shootX == 1) {
@@ -60,28 +63,27 @@ int main() {
                     shootX = 9;
             }
         } while (shootX > 10 || shootX <= -1 || shootY > 10 || shootY <= -1);
-        //printf("%d,%d", shootX, shootY);
+
         switch (type_missile) {
             case 1 :
-                fire_missile(shootX,shootY,&boat_grid,&user_grid,liste_bateaux);
+                fire_missile(shootX,shootY,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
                 break;
             case 2 :
-                fire_tactical(shootX,shootY,&boat_grid,&user_grid,liste_bateaux);
+                fire_tactical(shootX,shootY,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
                 break;
-            //case 3 :
-                fire_bomb(shootX,shootY,&boat_grid,&user_grid,liste_bateaux);
+            case 3 :
+                fire_bomb(shootX,shootY,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
                 break;
             case 4 :
-                fire_artillery(shootX,shootY,&boat_grid,&user_grid,liste_bateaux);
+                fire_artillery(shootX,shootY,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
                 break;
             default :
                 printf("Erreur : valeur 'type missile' invalide");
                 exit(0);
         }
-        fire_artillery(shootX,shootY,&boat_grid, &user_grid,liste_bateaux);
+
 
     } while(win(liste_bateaux, nb_bateaux) != 0);
 
     return (0);
 }
-
