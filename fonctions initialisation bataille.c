@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define N 10
+
 
 int verification_emplacement_bateau(bateau * boat, tableau * grid) {
     int X = boat->CooX, Y = boat->CooY;
@@ -118,31 +118,36 @@ void debug_coo(bateau * boat){
 
 int hitscan(int X, int Y, tableau *boat_grid, tableau *user_grid, bateau  liste[]) {
     int i;
-    if(boat_grid->grid[X][Y] == '_'){
+    if (boat_grid->grid[X][Y] == '_') {
         user_grid->grid[X][Y] = 'X';
-        return(-1);
+        boat_grid->grid[X][Y] = 'X';
+        return (-1);
     } else {
-        for(i=0; i < 5; i++) { //use nb_bateaux
-            if (boat_grid->grid[X][Y] == liste[i].id) {
-                printf("Le bateau %c est touche!\n", i + 'A');
-                liste[i].pv--;
-                if (liste[i].pv == 0 )
-                    printf("Le bateau coule !\n");
-                user_grid->grid[X][Y] = 'O';
-                boat_grid->grid[X][Y] = 'A' + i;
-                return(i);
-            }
-            else {
-                if(boat_grid->grid[X][Y] == liste[i].id_dead){
-                    printf("Tu as deja touche le bateau %c a cet endroit!\n", i + 'A');
+        if (boat_grid->grid[X][Y] == 'X') { printf("Tu as déjà tiré à cet endroit !"); }
+        else {
+
+            for (i = 0; i < 5; i++) { //use nb_bateaux
+                if (boat_grid->grid[X][Y] == liste[i].id) {
+                    printf("Le bateau %c est touche en %c%d!\n", i + 'A', Y + 'A', X + 1);
+                    liste[i].pv--;
+                    if (liste[i].pv == 0)
+                        printf("Le bateau coule !\n");
                     user_grid->grid[X][Y] = 'O';
-                    return(-2);
+                    boat_grid->grid[X][Y] = 'A' + i;
+                    return (i);
+                } else {
+                    if (boat_grid->grid[X][Y] == liste[i].id_dead) {
+                        printf("Tu as deja touche le bateau %c en %c%d!\n", i + 'A', Y + 'A', X + 1);
+                        user_grid->grid[X][Y] = 'O';
+                        return (-2);
+                    }
                 }
+
+
             }
-
-
         }
-    } return(-1);
+        return (-1);
+    }
 }
 
 void fire_missile(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[],  missile *liste_missile){
@@ -172,7 +177,7 @@ void fire_artillery(int X, int Y, tableau  * boat_grid, tableau * user_grid, bat
     if(liste_missile->nb_missile_artillerie == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");
     } else {
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < N; i++) {
             hitscan(X, i, boat_grid, user_grid, liste);
             if (i != X)
                 hitscan(i, Y, boat_grid, user_grid, liste);
@@ -231,3 +236,18 @@ void fire_bomb(int X, int Y, tableau * boat, tableau * user_grid, bateau liste[]
     }
 }
 
+void clear_text(int lines) {
+    if (lines == 0) {
+        for (int i = 0; i < 50 ; ++i) {
+            printf("\n");
+        }
+    } else {
+        for (int i = 0; i < lines; ++i) {
+            printf("\n");
+        }
+    }
+}
+
+void error_message(char variable) {
+    printf("Erreur : variable '%c' non valable", variable);
+}
