@@ -214,28 +214,28 @@ int main() {
 
             FILE* f=fopen("sauvegarde.text","w");
             if(f != NULL){
-                fprintf(f, "%d\n" , sauvegarde.mode_rep_save);
+                fprintf(f, "%d" , sauvegarde.mode_rep_save);
 
                 for (i=0 ; i<25 ; i++){
                 printf(f, "%d", sauvegarde.boat_live_save[i]);
                 }
-                fprintf(f,"\n");
+                fprintf(f,"");
 
                 for( i=0 ; i< 3 ; i++){
                 fprintf(f, "%d",sauvegarde.inventory_save[i] );
                 }
-                fprintf(f,"\n");
+
 
                 for( i=0 ; i< 200 ; i++){
                     fprintf(f, "%d",sauvegarde.grid_save[i] );
                 }
-                fprintf(f,"\n");
+
 
 
                 for( i=0 ; i< 10 ; i++){
                     fprintf(f,"%d",sauvegarde.Coo_save[i]);
                 }
-                fprintf(f,"\n");
+
 
 
 
