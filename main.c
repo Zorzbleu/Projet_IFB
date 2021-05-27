@@ -69,8 +69,12 @@ int main() {
                 for (i=0 ; i< 25 ; i++){
                 fscanf(f,"%d", &sauvegarde.boat_live_save[i]);
                 }
+                for ( i=0 ; i<5 ;i++){
+                    fscanf(f,"%d",&sauvegarde.pv_save[i]);
 
-                for (i=0 ; i < 3 ; i++){
+                }
+
+                for (i=0 ; i < 4 ; i++){
                     fscanf(f,"%d",&sauvegarde.inventory_save[i]);
                 }
 
@@ -94,11 +98,13 @@ int main() {
         fclose(f);
 
 
-       for( i=0  ; i < nb_bateaux ; i += 5 ){ //sauvegarder les vie des bateaux
+       for( i=0  ; i < nb_bateaux ; i ++ ){ //sauvegarder les vie des bateaux
            load_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case);
            cinq_case += 5;
        }
-
+       for( i=0 ; i<5 ; i++){
+       liste_bateaux[i].pv=sauvegarde.pv_save[i];
+       }
        load_mode(&mode_rep,&sauvegarde); // sauvegarder le mode de jeux
 
        load_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
@@ -127,6 +133,7 @@ int main() {
        for ( i=0 ; i<nb_bateaux ; i++ ){
            initialisation_pv_detaille(&liste_bateaux[i]); // pas beoins pour la sauvgarde : elle est deja connue
        }
+       inisialisation_pv_save (&sauvegarde); // pour pouvoir decompter les point de vie des bateux
 
 
 
@@ -197,12 +204,15 @@ int main() {
         scanf (  " %c" , &J_Q);
         }while (J_Q != 'O' && J_Q != 'N');
         if ( J_Q == 'N' ){
-            for (i=0 ; i<nb_bateaux ; i++ ){
-            sauvegarde_pv_detaille(&liste_bateaux[i],user_grid);
-            }
-            for( i=0  ; i < nb_bateaux ; i += 1 ){ //sauvegarder les vie des bateaux
+
+
+            for( i=0  ; i < nb_bateaux ; i += 1 ){ //sauvegarder les vie des bateaux et decompter les pv dans la sev
             save_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case,i);
             cinq_case += 5;
+            }
+
+            for (i=0; i< nb_bateaux ; i ++){
+                sauvegarde.pv_save[i] = liste_bateaux[i].pv;
             }
 
             save_mode(mode_rep,&sauvegarde); // sauvegarder le mode de jeux
@@ -224,6 +234,9 @@ int main() {
                 fprintf(f, "%d" , sauvegarde.mode_rep_save);
                 for (i=0 ; i<25 ; i++){
                     fprintf(f, "%d", sauvegarde.boat_live_save[i]);
+                }
+                for (i=0 ;i<5 ;i++){
+                    fprintf(f,"%d", sauvegarde.pv_save[i]);
                 }
                 for (i=0 ; i<3 ; i++){
                     fprintf(f, "%d",sauvegarde.inventory_save[i]);
@@ -288,9 +301,7 @@ int main() {
                 printf("Erreur : valeur 'type_missile' invalide");
                 exit(0);
         }
-        for ( i =0 ;i < nb_bateaux; i++){
-            //sauvegarde_pv_detaille(&liste_bateaux[i],user_grid);
-        }
+
     } while(win(liste_bateaux, nb_bateaux) != 0);
 
     return (0);

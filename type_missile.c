@@ -30,7 +30,7 @@ void fire_tactical(int X, int Y, tableau  * boat_grid, tableau * user_grid, bate
 }
 
 
-void fire_artillery(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[], missile *liste_missile ){
+void fire_artillery(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[], missile *liste_missile){
     int i;
     if(liste_missile->nb_missile_artillerie == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");

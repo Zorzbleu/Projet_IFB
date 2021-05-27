@@ -64,3 +64,5 @@ void load_caracteristique_grid (tableau * grid , save * sauvegarde , int cent_ca
 
 
 }
+
+

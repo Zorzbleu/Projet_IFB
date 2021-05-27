@@ -11,6 +11,6 @@ void save_mode (int rep_mode, save * sauvegarde);
 void save_inventory (missile * liste,  save * sauvegarde );
 void save_Coo (bateau  *liste, save * sauvegarde,int deux_case);
 void save_caracteristique_grid (tableau * user_grid , save * sauvegarde , int cent_case);
-void inisialisation_pv_save (bateau * liste , save * sauvgarde);
+void inisialisation_pv_save (save * sauvgarde);
 
 #endif //PROJET_IFB_SAUVEGARDE_H
