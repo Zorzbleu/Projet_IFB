@@ -61,11 +61,28 @@ int main() {
         FILE* f=fopen("sauvegarde.text","r");
             if ( f != NULL ){
 
-                sauvegarde.mode_rep_save=fscanf(sauvegarde.mode_rep_save,1,f);
-                sauvegarde.boat_live_save=fscanf(sauvegarde.boat_live_save,25,f);
-                sauvegarde.inventory_save= fscanf(sauvegarde.inventory_save,int 3,f);
-                sauvegarde.grid_save= fgets(sauvegarde.grid_save,200,f);
-                sauvegarde.Coo_save= fscanf(sauvegarde.Coo_save,10,f);
+                sauvegarde.mode_rep_save=fscanf(f,"%d",&sauvegarde.mode_rep_save);
+
+                for (i=0 ; i< 25 ; i++){
+                sauvegarde.boat_live_save[i] =fscanf(f,"%d", &sauvegarde.boat_live_save[i]);
+                }
+
+                for (i=0 ; i < 3 ; i++){
+                    sauvegarde.inventory_save[i] = fscanf(f,"%d",&sauvegarde.inventory_save[i]);
+                }
+
+                for (i=0 ; i < 200 ; i++){
+                    sauvegarde.grid_save[i]= fscanf(f,"%c",&sauvegarde.grid_save[i]);
+                }
+
+                for (i=0 ; i < 10 ; i++){
+                    sauvegarde.Coo_save[i]= fscanf(f,"%d",&sauvegarde.Coo_save[i]);
+                }
+
+
+
+
+
 
             }
         fclose(f);
@@ -197,8 +214,37 @@ int main() {
 
             FILE* f=fopen("sauvegarde.text","w");
             if(f != NULL){
-                fputs(f,"%d\n%d\n%d\n%d" ,&sauvegarde.mode_rep_save,&sauvegarde.boat_live_save,&sauvegarde.inventory_save,&sauvegarde.Coo_save );
-                fprintf("%c\n",&sauvegarde.grid_save);
+                fprintf(f, "%d\n" , sauvegarde.mode_rep_save);
+
+                for (i=0 ; i<25 ; i++){
+                printf(f, "%d", sauvegarde.boat_live_save[i]);
+                }
+                fprintf(f,"\n");
+
+                for( i=0 ; i< 3 ; i++){
+                fprintf(f, "%d",sauvegarde.inventory_save[i] );
+                }
+                fprintf(f,"\n");
+
+                for( i=0 ; i< 200 ; i++){
+                    fprintf(f, "%d",sauvegarde.grid_save[i] );
+                }
+                fprintf(f,"\n");
+
+
+                for( i=0 ; i< 10 ; i++){
+                    fprintf(f,"%d",sauvegarde.Coo_save[i]);
+                }
+                fprintf(f,"\n");
+
+
+
+
+
+
+
+                fprintf(f,"%d%d%d%d" ,sauvegarde.mode_rep_save,sauvegarde.boat_live_save,sauvegarde.inventory_save,sauvegarde.Coo_save , f );
+                fprintf(f,"%s",sauvegarde.grid_save);
             }
             fclose(f);
 
