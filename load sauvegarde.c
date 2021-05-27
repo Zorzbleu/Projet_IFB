@@ -35,7 +35,7 @@ void load_inventory (missile * liste,  save * sauvegarde ){
 
 }
 
-void save_Coo (bateau  * liste, save * sauvegarde,int deux_case){
+void load_Coo (bateau  * liste, save * sauvegarde,int deux_case){
 
     int i = 0;
     for ( i=0 ; i< 2 ; i++ ){

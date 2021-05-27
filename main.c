@@ -58,7 +58,7 @@ int main() {
    }
 
    if (D_C_Q == 2){
-        FILE* f=fopen("sauvegarde.text","r");
+        FILE* f=fopen("dossier_sauvegarde/sauvegarde.jeu","r");
             if ( f != NULL ){
 
                 sauvegarde.mode_rep_save=fscanf(f,"%d",&sauvegarde.mode_rep_save);
@@ -84,11 +84,14 @@ int main() {
 
 
 
-            }
+            }else{
+           printf ( " Erreure  : le fichier sauvegarde.txt pas trouver \n ");
+           return 0;
+       }
         fclose(f);
 
 
-       for( i=0  ; i < 25 ; i += 5 ){ //sauvegarder les vie des bateaux
+       for( i=0  ; i < nb_bateaux ; i += 5 ){ //sauvegarder les vie des bateaux
            load_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case);
            cinq_case += 5;
        }
@@ -97,7 +100,7 @@ int main() {
 
        load_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
 
-       for (i=0 ; i<10 ; i +=2 ){ // sauvegarder les coordonees de chaque bateau
+       for (i=0 ; i<nb_bateaux ; i +=2 ){ // sauvegarder les coordonees de chaque bateau
            load_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
            deux_case += 2;
        }
@@ -124,52 +127,52 @@ int main() {
            initialisation_pv_detaille(&liste_bateaux[i]);
        }
 
+
+
+
+
+
+
+
+       //generation_flotte(&liste_bateaux,boat_grid,nb_bateaux);
+
+
+
+
+
+       /**
+        for (i=0 ; i < nb_bateaux ; i++ ){
+           initialisation_pv_detaille (&liste_bateaux[i] );
+       }
+       */
+
+       printf("Bienvenue ! \n Pret a jouer a la bataille navale ?\n");
+
+
+       printf ("Dans quelle mode de jeux voullez vous jouer ?\n");
+       printf("Choisissez le mode de jeu :\n1. Normal\n2. Blind\n3. Bruh\n");
+       do{
+           scanf ("%d" , &mode_rep);
+           mode_de_jeux( mode_rep);
+       }while( mode_rep <1 || mode_rep > 3);
+
+
+       //clear_text(0);
+
+       printf("Qu'elle difficulte voulez vous ?\n"
+              "1-Facile\n"
+              "2-Moyen\n"
+              "3-Difficile\n"
+              "4- Rapelle des difference entre les modes\n");
+       do{
+           scanf ( "%d" ,  &choix_difficulte_rep);
+           choix_difficulte( choix_difficulte_rep,&liste_missile);
+
+       }while (choix_difficulte_rep <1 || choix_difficulte_rep > 3 );
+
    }
 
 
-
-
-
-
-
-
-
-
-    //generation_flotte(&liste_bateaux,boat_grid,nb_bateaux);
-
-
-
-
-
-    /**
-     for (i=0 ; i < nb_bateaux ; i++ ){
-        initialisation_pv_detaille (&liste_bateaux[i] );
-    }
-    */
-
-    printf("Bienvenue ! \n Pret a jouer a la bataille navale ?\n");
-
-
-    printf ("Dans quelle mode de jeux voullez vous jouer ?\n");
-    printf("Choisissez le mode de jeu :\n1. Normal\n2. Blind\n3. Bruh\n");
-    do{
-        scanf ("%d" , &mode_rep);
-        mode_de_jeux( mode_rep);
-    }while( mode_rep <1 || mode_rep > 3);
-
-
-    //clear_text(0);
-
-    printf("Qu'elle difficulte voulez vous ?\n"
-           "1-Facile\n"
-           "2-Moyen\n"
-           "3-Difficile\n"
-           "4- Rapelle des difference entre les modes\n");
-    do{
-        scanf ( "%d" ,  &choix_difficulte_rep);
-        choix_difficulte( choix_difficulte_rep,&liste_missile);
-
-    }while (choix_difficulte_rep <1 || choix_difficulte_rep > 3 );
 
 
     do{
@@ -194,7 +197,7 @@ int main() {
             for (i=0 ; i<nb_bateaux ; i++ ){
             sauvegarde_pv_detaille(&liste_bateaux[i],user_grid);
             }
-            for( i=0  ; i < 25 ; i += 5 ){ //sauvegarder les vie des bateaux
+            for( i=0  ; i < nb_bateaux ; i += 5 ){ //sauvegarder les vie des bateaux
             save_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case);
             cinq_case += 5;
             }
@@ -203,7 +206,7 @@ int main() {
 
             save_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
 
-            for (i=0 ; i<10 ; i +=2 ){ // sauvegarder les coordonees de chaque bateau
+            for (i=0 ; i<nb_bateaux ; i +=2 ){ // sauvegarder les coordonees de chaque bateau
             save_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
             deux_case += 2;
             }
@@ -212,39 +215,18 @@ int main() {
             cent_case += 100;
             save_caracteristique_grid((&user_grid), &sauvegarde,cent_case); // sauvegard la grille des bateaux
 
-            FILE* f=fopen("sauvegarde.text","w");
+            FILE* f=fopen("dossier_sauvegarde/sauvegarde.jeu","w");
             if(f != NULL){
+
                 fprintf(f, "%d" , sauvegarde.mode_rep_save);
-
-                for (i=0 ; i<25 ; i++){
-                printf(f, "%d", sauvegarde.boat_live_save[i]);
-                }
-                fprintf(f,"");
-
-                for( i=0 ; i< 3 ; i++){
-                fprintf(f, "%d",sauvegarde.inventory_save[i] );
-                }
+                fprintf(f, "%s", sauvegarde.boat_live_save);
+                fprintf(f, "%s",sauvegarde.inventory_save);
+                fprintf(f, "%s",sauvegarde.grid_save );
+                fprintf(f,"%s",sauvegarde.Coo_save);
 
 
-                for( i=0 ; i< 200 ; i++){
-                    fprintf(f, "%d",sauvegarde.grid_save[i] );
-                }
-
-
-
-                for( i=0 ; i< 10 ; i++){
-                    fprintf(f,"%d",sauvegarde.Coo_save[i]);
-                }
-
-
-
-
-
-
-
-
-                fprintf(f,"%d%d%d%d" ,sauvegarde.mode_rep_save,sauvegarde.boat_live_save,sauvegarde.inventory_save,sauvegarde.Coo_save , f );
-                fprintf(f,"%s",sauvegarde.grid_save);
+            }else{
+                printf ( " Erreure  : le fichier sauvegarde.txt pas trouver \n ");
             }
             fclose(f);
 

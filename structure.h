@@ -14,7 +14,7 @@ typedef struct{
     char id;
     char id_dead;
     int pv;
-    int pv_detaille[5];
+    char pv_detaille[5];
 } bateau ;
 
 typedef struct {
@@ -40,10 +40,10 @@ typedef struct{
 
 typedef struct{
     int mode_rep_save;
-    int boat_live_save [25] ;
-    int inventory_save[3];
+    char boat_live_save [25] ;
+    char inventory_save[3];
     char grid_save[200];
-    int Coo_save [10];
+    char Coo_save [10];
 } save ;
 
 

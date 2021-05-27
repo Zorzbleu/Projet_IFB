@@ -48,7 +48,7 @@ void save_Coo (bateau  * liste, save * sauvegarde,int deux_case){
 void save_caracteristique_grid (tableau * grid , save * sauvegarde , int cent_case){
 
     int i = 0,j=0;
-    int dix_case;
+    int dix_case=0;
 
     for (j=0 ; j<10 ; j++ ){
         for ( i= 0 ; i< 10 ; i++ ){
