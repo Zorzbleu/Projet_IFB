@@ -219,10 +219,23 @@ int main() {
             if(f != NULL){
 
                 fprintf(f, "%d" , sauvegarde.mode_rep_save);
-                fprintf(f, "%s", sauvegarde.boat_live_save);
-                fprintf(f, "%s",sauvegarde.inventory_save);
-                fprintf(f, "%s",sauvegarde.grid_save );
-                fprintf(f,"%s",sauvegarde.Coo_save);
+                for (i=0 ; i<25 ; i++){
+                    fprintf(f, "%d", sauvegarde.boat_live_save[i]);
+                }
+                for (i=0 ; i<3 ; i++){
+                    fprintf(f, "%d",sauvegarde.inventory_save);
+                }
+                for (i=0 ; i<200 ; i++){
+                    fprintf(f, "%s",sauvegarde.grid_save );
+                }
+                for (i=0 ; i<10 ; i++){
+                    fprintf(f,"%d",sauvegarde.Coo_save);
+                }
+
+
+
+
+
 
 
             }else{

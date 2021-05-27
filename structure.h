@@ -40,10 +40,10 @@ typedef struct{
 
 typedef struct{
     int mode_rep_save;
-    char boat_live_save [25] ;
-    char inventory_save[3];
+    int boat_live_save [25] ;
+    int  inventory_save[3];
     char grid_save[200];
-    char Coo_save [10];
+    int  Coo_save [10];
 } save ;
 
 
