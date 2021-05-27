@@ -41,9 +41,10 @@ typedef struct{
 typedef struct{
     int mode_rep_save;
     int boat_live_save [25] ;
-    int  inventory_save[3];
+    int  inventory_save[4];
     char grid_save[200];
     int  Coo_save [10];
+    int pv_save [5];
 } save ;
 
 

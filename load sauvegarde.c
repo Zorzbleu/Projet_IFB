@@ -37,13 +37,11 @@ void load_inventory (missile * liste,  save * sauvegarde ){
 
 void load_Coo (bateau  * liste, save * sauvegarde,int deux_case){
 
-    int i = 0;
-    for ( i=0 ; i< 2 ; i++ ){
 
-        liste->CooX=sauvegarde->Coo_save[deux_case + i];
 
-        liste->CooY=sauvegarde->Coo_save[deux_case + i +1];
-    }
+        liste->CooX=sauvegarde->Coo_save[deux_case ];
+        liste->CooY=sauvegarde->Coo_save[deux_case +1];
+
 
 }
 
@@ -51,11 +49,11 @@ void load_Coo (bateau  * liste, save * sauvegarde,int deux_case){
 void load_caracteristique_grid (tableau * grid , save * sauvegarde , int cent_case){
 
     int i = 0,j=0;
-    int dix_case;
+    int dix_case=0;
 
     for (j=0 ; j<10 ; j++ ){
         for ( i= 0 ; i< 10 ; i++ ){
-            grid->grid[1+i][1+j] = sauvegarde->grid_save[cent_case+dix_case+i];
+            grid->grid[i][j] = sauvegarde->grid_save[cent_case+dix_case+i] ;
 
 
         }

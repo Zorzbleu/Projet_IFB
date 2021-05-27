@@ -50,7 +50,9 @@ int main() {
     initialization_grille(&user_grid);
     initialization_grille(&boat_grid);
 
-
+    for (i=0 ; i< nb_bateaux ; i++){
+        generer_caracteristique_bateaux (&liste_bateaux[i],i);
+    }
 
     D_C_Q = choix_demarrage();
    if ( D_C_Q == -1 ){
@@ -58,25 +60,26 @@ int main() {
    }
 
    if (D_C_Q == 2){
-        FILE* f=fopen("dossier_sauvegarde/sauvegarde.jeu","r");
+        FILE* f=fopen("sauvegarde.jeu","r");
             if ( f != NULL ){
 
-                sauvegarde.mode_rep_save=fscanf(f,"%d",&sauvegarde.mode_rep_save);
+
+                fscanf(f,"%d",&sauvegarde.mode_rep_save);
 
                 for (i=0 ; i< 25 ; i++){
-                sauvegarde.boat_live_save[i] =fscanf(f,"%d", &sauvegarde.boat_live_save[i]);
+                fscanf(f,"%d", &sauvegarde.boat_live_save[i]);
                 }
 
                 for (i=0 ; i < 3 ; i++){
-                    sauvegarde.inventory_save[i] = fscanf(f,"%d",&sauvegarde.inventory_save[i]);
+                    fscanf(f,"%d",&sauvegarde.inventory_save[i]);
                 }
 
                 for (i=0 ; i < 200 ; i++){
-                    sauvegarde.grid_save[i]= fscanf(f,"%c",&sauvegarde.grid_save[i]);
+                    fscanf(f,"%c",&sauvegarde.grid_save[i]);
                 }
 
                 for (i=0 ; i < 10 ; i++){
-                    sauvegarde.Coo_save[i]= fscanf(f,"%d",&sauvegarde.Coo_save[i]);
+                    fscanf(f,"%d",&sauvegarde.Coo_save[i]);
                 }
 
 
@@ -100,7 +103,7 @@ int main() {
 
        load_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
 
-       for (i=0 ; i<nb_bateaux ; i +=2 ){ // sauvegarder les coordonees de chaque bateau
+       for (i=0 ; i<nb_bateaux ; i +=1 ){ // sauvegarder les coordonees de chaque bateau
            load_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
            deux_case += 2;
        }
@@ -115,16 +118,14 @@ int main() {
    }else{
 
 
-       for (i=0 ; i< nb_bateaux ; i++){
-           generer_caracteristique_bateaux (&liste_bateaux[i],i);
-       }
+
 
        for (i = 0; i < nb_bateaux; i++) {
-           generation_bateau(&liste_bateaux[i], &boat_grid);
+           generation_bateau(&liste_bateaux[i], &boat_grid); // pas beoins pour la sauvgarde : elle est deja connue
        }
        //fin initialisation grilles et bateaux par default
        for ( i=0 ; i<nb_bateaux ; i++ ){
-           initialisation_pv_detaille(&liste_bateaux[i]);
+           initialisation_pv_detaille(&liste_bateaux[i]); // pas beoins pour la sauvgarde : elle est deja connue
        }
 
 
@@ -192,13 +193,15 @@ int main() {
 
 
         printf( " Voullez vous continuer a jouer ? O/N ?\n ");
+        do{
         scanf (  " %c" , &J_Q);
+        }while (J_Q != 'O' && J_Q != 'N');
         if ( J_Q == 'N' ){
             for (i=0 ; i<nb_bateaux ; i++ ){
             sauvegarde_pv_detaille(&liste_bateaux[i],user_grid);
             }
-            for( i=0  ; i < nb_bateaux ; i += 5 ){ //sauvegarder les vie des bateaux
-            save_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case);
+            for( i=0  ; i < nb_bateaux ; i += 1 ){ //sauvegarder les vie des bateaux
+            save_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case,i);
             cinq_case += 5;
             }
 
@@ -206,16 +209,16 @@ int main() {
 
             save_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
 
-            for (i=0 ; i<nb_bateaux ; i +=2 ){ // sauvegarder les coordonees de chaque bateau
+            for (i=0 ; i<nb_bateaux ; i +=1 ){ // sauvegarder les coordonees de chaque bateau
             save_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
             deux_case += 2;
             }
 
             save_caracteristique_grid(&boat_grid, &sauvegarde,cent_case);// sauvegarde la grid de user
             cent_case += 100;
-            save_caracteristique_grid((&user_grid), &sauvegarde,cent_case); // sauvegard la grille des bateaux
+            save_caracteristique_grid(&user_grid, &sauvegarde,cent_case); // sauvegard la grille des bateaux
 
-            FILE* f=fopen("dossier_sauvegarde/sauvegarde.jeu","w");
+            FILE* f=fopen("sauvegarde.jeu","w");
             if(f != NULL){
 
                 fprintf(f, "%d" , sauvegarde.mode_rep_save);
@@ -223,20 +226,14 @@ int main() {
                     fprintf(f, "%d", sauvegarde.boat_live_save[i]);
                 }
                 for (i=0 ; i<3 ; i++){
-                    fprintf(f, "%d",sauvegarde.inventory_save);
+                    fprintf(f, "%d",sauvegarde.inventory_save[i]);
                 }
                 for (i=0 ; i<200 ; i++){
-                    fprintf(f, "%s",sauvegarde.grid_save );
+                    fprintf(f, "%c",sauvegarde.grid_save[i] );
                 }
                 for (i=0 ; i<10 ; i++){
-                    fprintf(f,"%d",sauvegarde.Coo_save);
+                    fprintf(f,"%d",sauvegarde.Coo_save[i]);
                 }
-
-
-
-
-
-
 
             }else{
                 printf ( " Erreure  : le fichier sauvegarde.txt pas trouver \n ");

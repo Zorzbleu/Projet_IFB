@@ -21,12 +21,16 @@ void save_inventory (missile * liste,  save * sauvegarde ){
 }
 
 
-    void save_life_bateaux (bateau * liste_boat, save * sauvegarde,int cinq_case){ /// la vie des bateaux est sauvegarder dans 5 case (matrice)
+    void save_life_bateaux (bateau * boat, save * sauvegarde,int cinq_case,int a){ /// la vie des bateaux est sauvegarder dans 5 case (matrice)
           int i =0;
           for (i=0 ; i< 5 ; i++){
 
 
-         sauvegarde->boat_live_save[cinq_case+i]= liste_boat->pv_detaille[i];
+         sauvegarde->boat_live_save[cinq_case+i]= boat->pv_detaille[i];
+         if( sauvegarde->boat_live_save[cinq_case+i] = 0 ){
+             sauvegarde->pv_save[a] = sauvegarde->pv_save[a] - 1 ;
+
+         }
     }
 
 
@@ -34,12 +38,11 @@ void save_inventory (missile * liste,  save * sauvegarde ){
 
 void save_Coo (bateau  * liste, save * sauvegarde,int deux_case){
 
-    int i = 0;
-    for ( i=0 ; i< 2 ; i++ ){
-    sauvegarde->Coo_save[deux_case + i] = liste->CooX;
-    sauvegarde->Coo_save[deux_case + i +1] = liste->CooY;
 
-    }
+    sauvegarde->Coo_save[deux_case ] = liste->CooX;
+    sauvegarde->Coo_save[deux_case +1] = liste->CooY;
+
+
 
 }
 
@@ -52,14 +55,13 @@ void save_caracteristique_grid (tableau * grid , save * sauvegarde , int cent_ca
 
     for (j=0 ; j<10 ; j++ ){
         for ( i= 0 ; i< 10 ; i++ ){
-            sauvegarde->grid_save[cent_case+dix_case+i] = grid->grid[1+i][1+j];
+            sauvegarde->grid_save[cent_case+dix_case+i] = grid->grid[i][j];
 
 
         }
     dix_case += 10;
     }
 
-
-
-
 }
+
+void inisialisation_pv_save (bateau * liste , save * sauvgarde);
