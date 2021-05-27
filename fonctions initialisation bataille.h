@@ -7,10 +7,18 @@
 #define N 10
 
 typedef struct {
-    char grid[10][10];
     int largeur;
     int hauteur;
+    char grid[N][N];
 } tableau ;
+
+typedef struct {
+    int largeur;
+    int hauteur;
+    char grid[];
+} grid ;
+
+
 typedef struct{
     int orientation;
     int length;
@@ -43,4 +51,6 @@ int hitscan(int X, int Y, tableau *grid, tableau *user_grid, bateau  liste[]);
 int is_alive();
 int win(bateau liste[], int nb_bateaux);
 int check_inventory(missile *liste_missile, int type_missile);
+void clear_text(int lines);
+void error_message(char variable);
 #endif //PROJET_IFB_FONCTIONS_INITIALISATION_BATAILLE_H
