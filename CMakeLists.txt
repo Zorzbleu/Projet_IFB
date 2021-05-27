@@ -4,4 +4,5 @@ project(Projet_IFB C)
 set(CMAKE_C_STANDARD 11)
 
 
-add_executable(Projet_IFB main.c "fonctions initialisation bataille.c" "fonctions initialisation bataille.h" "tirs missiles.c" "tirs missiles.h")
+add_executable(Projet_IFB main.c "fonctions initialisation bataille.c" "fonctions initialisation bataille.h" "arbitre_de_la_partie.c" "arbitre_de_la_partie.h" "gestion_bateau.c" "gestion_bateau.h"  "initialisation_interface.c" "initialisation_interface.h"  "structure.h" "tire.c" "tire.h" "type_missile.c" "type_missile.h" donnees_du_jeux.c donnees_du_jeux.h sauvegarde.c sauvegarde.h "load sauvegarde.c" "load sauvegarde.h")
+
