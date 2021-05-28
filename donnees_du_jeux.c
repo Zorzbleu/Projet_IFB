@@ -6,6 +6,7 @@
 int choix_demarrage (){
     int rep_D_C_Q ;
     printf ("1- Demarrer une nouvelle partie\n2- Charger une partie existante\n3- Quitter");
+
     scanf(" %d" , &rep_D_C_Q);
     switch ( rep_D_C_Q){
         case  1 :

@@ -107,7 +107,7 @@ int main() {
 
 
 
-    inisialisation_pv_save (&sauvegarde); // pour pouvoir decompter les point de vie des bateux
+   inisialisation_pv_save (&sauvegarde); // pour pouvoir decompter les point de vie des bateux//inutile
 
 
 
@@ -120,34 +120,56 @@ int main() {
         FILE* f=fopen("sauvegarde.jeu","r");
             if ( f != NULL ){
 
-                char savemode  [2] , savelife[26],savepv [6], saveinventory [5],grid [201],saveCoo[11];
-                fgets(savemode,2,f);
-                fgets(savelife,26,f);
-                fgets(savepv,6,f);
-                fgets(saveinventory,5,f);
+              /**  char savemode  [2] , savelife[26],savepv [6], saveinventory [5],savegrid [201],saveCoo[11];
 
-                for (i=0 ; i < 200 ; i++){
-                    fscanf(f,"%c",&sauvegarde.grid_save[i]);
+                fgets(savegrid,202,f);
+                fgets(saveCoo,12,f);
+                fgets(saveinventory,7,f);
+                fgets(savemode,3,f);
+                fgets(savepv,7,f);
+                fgets(savelife,27,f);
+*/
 
-                }
-                    fgets(saveCoo,10,f);
+                  char memoire_tampon [300];
+                  fgets(memoire_tampon,300,f);
+                  printf(" Succe de la charge des fichiers\n");
+
+
+                 for ( i=0 ; i<300 ; i++){
+                      memoire_tampon[i] = memoire_tampon[i] - 48;
+                  }
+
+
+                 for (i=0 ; i < 200 ; i++){
+                        sauvegarde.grid_save[i]= memoire_tampon[i];
+                  }
+
+                   for ( i=200 ; i< 210 ; i++){
+                            sauvegarde.Coo_save[i-200]= memoire_tampon[i];
+                   }
+
+                    for (i=210 ; i<214 ; i++ ){
+                            sauvegarde.inventory_save[i-210]= memoire_tampon[i] ;
+                   }
+                  sauvegarde.mode_rep_save = memoire_tampon[214];
+
+                  for ( i=215 ; i<224 ; i++){
+                           sauvegarde.pv_save[i]=memoire_tampon[i-215] ;
+                  }
+
+
+
 //convertire les char en int
 
-                sauvegarde.mode_rep_save= savemode [0]-48;
+                for(i=224 ; i<249; i++){
+                sauvegarde.boat_live_save[i]= memoire_tampon[i];
+              }
 
-                for(i=0 ; i<25 ; i++){
-                sauvegarde.boat_live_save[i]= savelife[i]-48;
-                }
-                for ( i=0 ; i<5 ; i++){
-                        sauvegarde.pv_save[i]=savepv[i] -48;
-                }
-                for (i=0 ; i<4 ; i++ ){
-                sauvegarde.inventory_save[i]= saveinventory[i] -48;
-                }
 
-                for ( i=0 ; i< 10 ; i++){
-                sauvegarde.Coo_save[i]= saveCoo[i]-48;
-                }
+
+
+
+
 
 
 
@@ -186,6 +208,8 @@ int main() {
            load_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
            deux_case += 2;
        }
+
+       mode_rep = sauvegarde.mode_rep_save;
 
 
 
@@ -282,7 +306,8 @@ int main() {
             cinq_case += 5;
             }
 
-            for (i=0; i< nb_bateaux ; i ++){
+
+            for (i=0; i< nb_bateaux ; i ++){ // pour sauvegarder les pv de chaque bateau
                 sauvegarde.pv_save[i] = liste_bateaux[i].pv;
             }
 
@@ -290,7 +315,7 @@ int main() {
 
             save_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
 
-            for (i=0 ; i<nb_bateaux ; i +=1 ){ // sauvegarder les coordonees de chaque bateau
+            for (i=0 ; i<nb_bateaux ; i ++ ){ // sauvegarder les coordonees de chaque bateau
             save_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
             deux_case += 2;
             }
@@ -302,23 +327,60 @@ int main() {
             FILE* f=fopen("sauvegarde.jeu","w");
             if(f != NULL){
 
+                char memoir_tampon [300];
 
-                fprintf(f, "%d" , sauvegarde.mode_rep_save);
-                for (i=0 ; i<25 ; i++){
-                    fprintf(f, "%d", sauvegarde.boat_live_save[i]);
+
+                for (i=0 ; i < 200 ; i++){
+                    memoir_tampon[i] = sauvegarde.grid_save[i] ;
                 }
-                for (i=0 ;i<5 ;i++){
-                    fprintf(f,"%d", sauvegarde.pv_save[i]);
+
+                for ( i=200 ; i< 210 ; i++){
+                    memoir_tampon[i]=sauvegarde.Coo_save[i-200] ;
                 }
-                for (i=0 ; i<4 ; i++){
-                    fprintf(f, "%d",sauvegarde.inventory_save[i]);
+
+                for (i=210 ; i<214 ; i++ ){
+                    memoir_tampon[i]=sauvegarde.inventory_save[i-210]  ;
                 }
+                memoir_tampon[214] = sauvegarde.mode_rep_save  ;
+
+                for ( i=215 ; i<220; i++){
+                    memoir_tampon[i]= sauvegarde.pv_save[i-215] ;
+                }
+
+
+
+
+
+                for(i=220 ; i<300; i++){
+                    memoir_tampon[i] = sauvegarde.boat_live_save[i-224] ;
+                }
+
+
+                fputs( memoir_tampon,f);
+
+
+/**
+
                 for (i=0 ; i<200 ; i++){
-                    fprintf(f, "%c",sauvegarde.grid_save[i] );
+                    sauvegarde.grid_save[i] memoire_tampon[i]
                 }
                 for (i=0 ; i<10 ; i++){
                     fprintf(f,"%d",sauvegarde.Coo_save[i]);
                 }
+                for (i=0 ; i<4 ; i++){
+                    fprintf(f, "%d",sauvegarde.inventory_save[i]);
+                }
+                fprintf(f, "%d" , sauvegarde.mode_rep_save);
+
+                for (i=0 ;i<5 ;i++){
+                    fprintf(f,"%d", sauvegarde.pv_save[i]);
+                }
+                for (i=0 ; i<25 ; i++){
+                    fprintf(f, "%d", sauvegarde.boat_live_save[i]);
+                }
+
+*/
+
 
             }else{
                 printf ( " Erreure  : le fichier sauvegarde.txt pas trouver \n ");

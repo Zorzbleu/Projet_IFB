@@ -8,10 +8,10 @@ void save_inventory (missile * liste,  save * sauvegarde ){
 
 
 
-    sauvegarde->inventory_save[0] = liste->nb_missile_artillerie;
-    sauvegarde->inventory_save[1] = liste->nb_missile_bombe;
-    sauvegarde->inventory_save[2] = liste->nb_missile_default;
-    sauvegarde->inventory_save[3] = liste->nb_missile_tactique;
+    sauvegarde->inventory_save[0] = liste->nb_missile_artillerie ;
+    sauvegarde->inventory_save[1] = liste->nb_missile_bombe ;
+    sauvegarde->inventory_save[2] = liste->nb_missile_default  ;
+    sauvegarde->inventory_save[3] = liste->nb_missile_tactique ;
 }
 
     void save_mode (int rep_mode, save * sauvegarde){
