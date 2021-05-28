@@ -85,7 +85,7 @@ int verification_emplacement_bateau(bateau * boat, tableau * grid) {
 
 
 
-void generer_caracteristique_bateaux (bateau *  l_bateaux,int i ){
+void generer_caracteristique_bateaux (bateau * l_bateaux,int i){
     if (l_bateaux == NULL){
         exit(1);
         }
@@ -109,7 +109,7 @@ void initialisation_pv_detaille (bateau * baot ){
 }
 
 
-void sauvegarde_pv_detaille (bateau * baot,tableau user){
+void sauvegarde_pv_detaille (bateau * baot,tableau * user){
     int j=0;
 
 
@@ -117,14 +117,14 @@ void sauvegarde_pv_detaille (bateau * baot,tableau user){
         switch (baot->orientation){
             case  1 :
                 for ( j=0 ; j< baot->length ; j++)
-                    if ( user.grid[baot->CooX][baot->CooY+j]  == 'O' ){
+                    if ( user->grid[baot->CooX][baot->CooY+j]  == 'O' ){
 
                         baot->pv_detaille[j] = 0;  // bateau touché sur ca j ieme case
                     }
 
                 break ;
             case 0 :
-                if ( user.grid[baot->CooX+j][baot->CooY] == 'O' ){
+                if ( user->grid[baot->CooX+j][baot->CooY] == 'O' ){
 
                     baot->pv_detaille[j] = 0;  // bateau touché sur ca j ieme case
                 }

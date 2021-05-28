@@ -3,7 +3,7 @@
 //
 
 #include "sauvegarde.h"
-#include "stdio.h"
+
 void save_inventory (missile * liste,  save * sauvegarde ){
 
 
@@ -64,8 +64,8 @@ void save_caracteristique_grid (tableau * grid , save * sauvegarde , int cent_ca
 void inisialisation_pv_save (save * sauvegarde){
 
 
-        sauvegarde->pv_save[0]=1;
-        sauvegarde->pv_save[1]=2;
+        sauvegarde->pv_save[0]=2;
+        sauvegarde->pv_save[1]=3;
         sauvegarde->pv_save[2]=3;
         sauvegarde->pv_save[3]=4;
         sauvegarde->pv_save[4]=5;

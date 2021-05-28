@@ -18,7 +18,7 @@ void generer_caracteristique_bateaux (bateau * l_bateaux,int i );
 
 
 void initialisation_pv_detaille (bateau * baot);
-void sauvegarde_pv_detaille (bateau * baot,tableau user);
+void sauvegarde_pv_detaille (bateau * baot,tableau  * user);
 
 
 

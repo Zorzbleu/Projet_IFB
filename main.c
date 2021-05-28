@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "fonctions initialisation bataille.h"
 
+#include <string.h>
+
 
 
 #include "gestion_bateau.h"
@@ -27,6 +29,23 @@ int main() {
     save sauvegarde;
     int cinq_case = 0, deux_case = 0  , cent_case =0; //// pour sauvegarder les pv des bateaux / pou sauvegarder les Coo des bateaux
 
+
+
+
+    /**
+    Documentaion :
+    L= en vie
+    D=  mort
+    V= verticale
+    H= horisontal
+
+
+
+
+
+
+
+   */
 // ca marche pas t'a grosse merde POC !!!!!!!!!!!!!!!! tu fais de la mre d se f<sbefh g
 /**
  *     printf("Entrez la taille de la grille voulu : hauteur puis largeur\n");
@@ -44,15 +63,53 @@ int main() {
 
     regler_dimention(&boat_grid,&user_grid);
     bateau *liste_bateaux = NULL;
-    liste_bateaux = malloc(sizeof(bateau) * nb_bateaux);
+    liste_bateaux = malloc(sizeof(bateau) * 5);
     liste_bateaux[0].length = 1 + nb_bateaux / 2;
     liste_bateaux[0].pv = liste_bateaux[0].length;
     initialization_grille(&user_grid);
     initialization_grille(&boat_grid);
-
-    for (i=0 ; i< nb_bateaux ; i++){
-        generer_caracteristique_bateaux (&liste_bateaux[i],i);
+/**
+    for (i=0 ; i< nb_bateaux;i++){
+    generer_caracteristique_bateaux (&liste_bateaux[i],i);
     }
+    */
+
+// a remplacer
+    liste_bateaux[0].length = 2;
+    liste_bateaux[0].id = 'a' ;
+    liste_bateaux[0].id_dead = 'A' ;
+    liste_bateaux[0].pv = 2;
+
+    liste_bateaux[1].length = 3;
+    liste_bateaux[1].id = 'b' ;
+    liste_bateaux[1].id_dead = 'B' ;
+    liste_bateaux[1].pv = 3;
+
+
+    liste_bateaux[2].length = 3;
+    liste_bateaux[2].id = 'c' ;
+    liste_bateaux[2].id_dead = 'C' ;
+    liste_bateaux[2].pv = 3;
+
+
+
+    liste_bateaux[3].length = 4;
+    liste_bateaux[3].id = 'd' ;
+    liste_bateaux[3].id_dead = 'D' ;
+    liste_bateaux[3].pv = 4;
+
+    liste_bateaux[4].length = 5;
+    liste_bateaux[4].id = 'e' ;
+    liste_bateaux[4].id_dead = 'E' ;
+    liste_bateaux[4].pv = 5;
+
+
+
+
+
+    inisialisation_pv_save (&sauvegarde); // pour pouvoir decompter les point de vie des bateux
+
+
 
     D_C_Q = choix_demarrage();
    if ( D_C_Q == -1 ){
@@ -63,30 +120,34 @@ int main() {
         FILE* f=fopen("sauvegarde.jeu","r");
             if ( f != NULL ){
 
-
-                fscanf(f,"%d",&sauvegarde.mode_rep_save);
-
-                for (i=0 ; i< 25 ; i++){
-                fscanf(f,"%d", &sauvegarde.boat_live_save[i]);
-                }
-                for ( i=0 ; i<5 ;i++){
-                    fscanf(f,"%d",&sauvegarde.pv_save[i]);
-
-                }
-
-                for (i=0 ; i < 4 ; i++){
-                    fscanf(f,"%d",&sauvegarde.inventory_save[i]);
-                }
+                char savemode  [2] , savelife[26],savepv [6], saveinventory [5],grid [201],saveCoo[11];
+                fgets(savemode,2,f);
+                fgets(savelife,26,f);
+                fgets(savepv,6,f);
+                fgets(saveinventory,5,f);
 
                 for (i=0 ; i < 200 ; i++){
                     fscanf(f,"%c",&sauvegarde.grid_save[i]);
+
+                }
+                    fgets(saveCoo,10,f);
+//convertire les char en int
+
+                sauvegarde.mode_rep_save= savemode [0]-48;
+
+                for(i=0 ; i<25 ; i++){
+                sauvegarde.boat_live_save[i]= savelife[i]-48;
+                }
+                for ( i=0 ; i<5 ; i++){
+                        sauvegarde.pv_save[i]=savepv[i] -48;
+                }
+                for (i=0 ; i<4 ; i++ ){
+                sauvegarde.inventory_save[i]= saveinventory[i] -48;
                 }
 
-                for (i=0 ; i < 10 ; i++){
-                    fscanf(f,"%d",&sauvegarde.Coo_save[i]);
+                for ( i=0 ; i< 10 ; i++){
+                sauvegarde.Coo_save[i]= saveCoo[i]-48;
                 }
-
-
 
 
 
@@ -98,25 +159,34 @@ int main() {
         fclose(f);
 
 
+
+
+
+       load_mode(&mode_rep,&sauvegarde); // sauvegarder le mode de jeux
+
        for( i=0  ; i < nb_bateaux ; i ++ ){ //sauvegarder les vie des bateaux
-           load_life_bateaux(&liste_bateaux[i],&sauvegarde, cinq_case);
+           load_life_bateaux(&liste_bateaux[i],&sauvegarde,cinq_case);
            cinq_case += 5;
        }
+
        for( i=0 ; i<5 ; i++){
        liste_bateaux[i].pv=sauvegarde.pv_save[i];
        }
-       load_mode(&mode_rep,&sauvegarde); // sauvegarder le mode de jeux
+
+
 
        load_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
+
+
+       load_caracteristique_grid(&boat_grid, &sauvegarde,cent_case);// sauvegarde la grid de user
+       cent_case += 100;
+       load_caracteristique_grid(&user_grid, &sauvegarde,cent_case); // sauvegard la grille des bateaux
 
        for (i=0 ; i<nb_bateaux ; i +=1 ){ // sauvegarder les coordonees de chaque bateau
            load_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
            deux_case += 2;
        }
 
-       load_caracteristique_grid(&boat_grid, &sauvegarde,cent_case);// sauvegarde la grid de user
-       cent_case += 100;
-       load_caracteristique_grid(&user_grid, &sauvegarde,cent_case); // sauvegard la grille des bateaux
 
 
 
@@ -132,8 +202,9 @@ int main() {
        //fin initialisation grilles et bateaux par default
        for ( i=0 ; i<nb_bateaux ; i++ ){
            initialisation_pv_detaille(&liste_bateaux[i]); // pas beoins pour la sauvgarde : elle est deja connue
+
+
        }
-       inisialisation_pv_save (&sauvegarde); // pour pouvoir decompter les point de vie des bateux
 
 
 
@@ -227,9 +298,10 @@ int main() {
             save_caracteristique_grid(&boat_grid, &sauvegarde,cent_case);// sauvegarde la grid de user
             cent_case += 100;
             save_caracteristique_grid(&user_grid, &sauvegarde,cent_case); // sauvegard la grille des bateaux
-
+            // toutes les donné son dans la structure save
             FILE* f=fopen("sauvegarde.jeu","w");
             if(f != NULL){
+
 
                 fprintf(f, "%d" , sauvegarde.mode_rep_save);
                 for (i=0 ; i<25 ; i++){
@@ -238,7 +310,7 @@ int main() {
                 for (i=0 ;i<5 ;i++){
                     fprintf(f,"%d", sauvegarde.pv_save[i]);
                 }
-                for (i=0 ; i<3 ; i++){
+                for (i=0 ; i<4 ; i++){
                     fprintf(f, "%d",sauvegarde.inventory_save[i]);
                 }
                 for (i=0 ; i<200 ; i++){
