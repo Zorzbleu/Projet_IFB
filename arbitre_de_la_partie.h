@@ -11,8 +11,9 @@
 //arbitre_de_la_parti
 
 int win(bateau liste[], int nb_bateaux);
-void mode_de_jeux (int mode_rep);
-void choix_difficulte (int difficulte,missile  * liste );
+
+void modifier_nombre_missile (int difficulte, missile * liste );
+int choix_missile_tire( missile * l_missile);
 
 
 #endif //PROJET_IFB_ARBITRE_DE_LA_PARTIE_H

@@ -21,17 +21,9 @@ void save_inventory (missile * liste,  save * sauvegarde ){
 }
 
 
-    void save_life_bateaux (bateau * boat, save * sauvegarde,int cinq_case,int a){ /// la vie des bateaux est sauvegarder dans 5 case (matrice)
-          int i =0;
-
-          for (i=0 ; i< 5 ; i++){
-
-         sauvegarde->boat_live_save[cinq_case+i]= boat->pv_detaille[i];
 
 
-    }
 
-}
 
 void save_Coo (bateau  * liste, save * sauvegarde,int deux_case){
 
@@ -59,15 +51,5 @@ void save_caracteristique_grid (tableau * grid , save * sauvegarde , int cent_ca
     dix_case += 10;
     }
 
-}
-
-void inisialisation_pv_save (save * sauvegarde){
-
-
-        sauvegarde->pv_save[0]=2;
-        sauvegarde->pv_save[1]=3;
-        sauvegarde->pv_save[2]=3;
-        sauvegarde->pv_save[3]=4;
-        sauvegarde->pv_save[4]=5;
 }
 

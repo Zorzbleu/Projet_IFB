@@ -16,27 +16,12 @@ int win(bateau liste[], int nb_bateaux) {
     return(nb_bateau_vivant);
 }
 
-void mode_de_jeux (int mode_rep){
-
-    switch (mode_rep){
-
-        case 1 :
-
-            break;
-        case 2 :
-
-            break;
-        case 3 :
-
-            break;
-        default :
-            printf ( "Erreur : le mode de jeux choisie n'existe pas\n");
-    }
 
 
-}
 
-void choix_difficulte (int difficulte, missile * liste ){
+void modifier_nombre_missile (int difficulte, missile * liste ){
+
+
     switch (difficulte){
         case  1 : // Normal
             liste->nb_missile_artillerie = 10;
@@ -60,7 +45,7 @@ void choix_difficulte (int difficulte, missile * liste ){
 
 
             break;
-        case 4 : // differance des mode de jeux
+        case 4 : // discitife des differances des differentes diffiucultes
             printf (
                     "-1- Facile : 10 de chaque categorie\n"
                     "-2- Moyen :  3 missiles de artilleries, 5 bombes, 5 missiles tactiques, 10 missiles simples\n"
@@ -72,5 +57,23 @@ void choix_difficulte (int difficulte, missile * liste ){
 
 
     }
+}
+
+
+
+int choix_missile_tire( missile * l_missile){
+    int missile ; // stock le choix du joeur
+
+        printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
+               l_missile->nb_missile_default, l_missile->nb_missile_tactique, l_missile->nb_missile_bombe, l_missile->nb_missile_artillerie);
+        scanf(" %d", &missile);
+
+
+    while( missile < 0 || missile > 4){
+        printf ( "Erreur : le type de missile choisie n'existe pas ");
+        scanf(" %d", &missile);
+    }
+
+    return missile;
 }
 

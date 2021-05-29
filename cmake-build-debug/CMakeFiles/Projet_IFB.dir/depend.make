@@ -35,7 +35,6 @@ CMakeFiles/Projet_IFB.dir/main.c.obj: ../load\ sauvegarde.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../main.c
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../sauvegarde.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../structure.h
-CMakeFiles/Projet_IFB.dir/main.c.obj: ../tire.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../type_missile.h
 
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj: ../sauvegarde.c

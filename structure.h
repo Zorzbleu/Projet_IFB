@@ -45,6 +45,7 @@ typedef struct{
     char grid_save[200];
     int  Coo_save [10];
     int pv_save [5];
+    int orientation_save[5];
 } save ;
 
 

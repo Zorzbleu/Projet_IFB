@@ -6,8 +6,10 @@
 #define PROJET_IFB_DONNEES_DU_JEUX_H
 #include "structure.h"
 
-int  choix_demarrage ();
 
+int affichage_menu_difficulte();
+int affichage_menu_mode_de_jeux();
+int affichage_menu_demarrage();
 
 
 #endif //PROJET_IFB_DONNEES_DU_JEUX_H
