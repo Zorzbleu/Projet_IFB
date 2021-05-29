@@ -40,10 +40,10 @@ int affichage_menu_demarrage(){
     int demarrer ;
 
     printf ("1- Demarrer une nouvelle partie\n2- Charger une partie existante\n3- Quitter\n");
-    scanf(" %d" , demarrer);
+    scanf("%d" , &demarrer);
     while (demarrer < 1 || demarrer > 3 ){
-        printf("Erreure ; la saisie est enixistante")
-        scanf(" %d" , demarrer);
+        printf("Erreure ; la saisie est enixistante");
+        scanf(" %d" , &demarrer);
     }
     return demarrer;
 }

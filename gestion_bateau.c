@@ -100,39 +100,3 @@ void generer_caracteristique_bateaux (bateau * l_bateaux,int i){
 }
 
 
-void initialisation_pv_detaille (bateau * baot ){
-    int j=0;
-    for (j=0 ; j<10 ; j++){
-        baot->pv_detaille[j]= 1;
-    }
-
-}
-
-
-void sauvegarde_pv_detaille (bateau * baot,tableau * user){
-    int j=0;
-
-
-    if (baot-> pv != baot->length){ // pour optimiser le programme (si le bateau n'a pas perdu de vie pas besoin de précise la ou il a été toucher ...
-        switch (baot->orientation){
-            case  1 :
-                for ( j=0 ; j< baot->length ; j++)
-                    if ( user->grid[baot->CooX][baot->CooY+j]  == 'O' ){
-
-                        baot->pv_detaille[j] = 0;  // bateau touché sur ca j ieme case
-                    }
-
-                break ;
-            case 0 :
-                if ( user->grid[baot->CooX+j][baot->CooY] == 'O' ){
-
-                    baot->pv_detaille[j] = 0;  // bateau touché sur ca j ieme case
-                }
-
-                break;
-
-
-        }
-    }
-
-}

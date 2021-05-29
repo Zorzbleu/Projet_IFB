@@ -14,6 +14,6 @@ int win(bateau liste[], int nb_bateaux);
 
 void modifier_nombre_missile (int difficulte, missile * liste );
 int choix_missile_tire( missile * l_missile);
-
+int aleatoir_deplacer_ou_pas( int difficulte);
 
 #endif //PROJET_IFB_ARBITRE_DE_LA_PARTIE_H

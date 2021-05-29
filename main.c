@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+
+
+
 #include "fonctions initialisation bataille.h"
-
-
-
-
-
 #include "gestion_bateau.h"
 #include "initialisation_interface.h"
 #include "type_missile.h"
@@ -20,8 +20,9 @@ int main() {
     int i, nb_bateaux=5, shootX, shootY, missile_choisie;
     char shoot[3]; // variable pour stocker les coordone de tire
     int choix_mode_de_jeux,choix_difficulte,choix_demarrage;
+    int deplacer_ou_pas ;
 
-    int Demarrer_Charger_Quitter= 1  ;
+
     char J_Q; /// jouer ou quitter(et sauvegarde)
     save sauvegarde;
     int cinq_case = 0, deux_case = 0  , cent_case =0; //// pour sauvegarder les pv des bateaux / pou sauvegarder les Coo des bateaux
@@ -76,7 +77,7 @@ int main() {
 
 
 
-    choix_demarrage=affichage_menu_demarrage;
+    choix_demarrage=affichage_menu_demarrage();
 
    if ( choix_demarrage == 3 ){ // quitter la partie
        return 0; // interomp le progamme
@@ -126,18 +127,16 @@ int main() {
 
 
        load_inventory (&liste_missile,&sauvegarde); //sauvegarder le nombre de chaque missile
-
        load_caracteristique_grid(&boat_grid, &sauvegarde,cent_case);// sauvegarde la grid de user
        cent_case += 100; //besoin pour la fonction loaad_caracteristique qui utilise une matrice de 200 pour sauvegarder deux fois une tableau dans le même matrice
        load_caracteristique_grid(&user_grid, &sauvegarde,cent_case); // sauvegard la grille des bateaux
-
+       choix_mode_de_jeux = sauvegarde.mode_rep_save;
 
        //load les coordonés de chaque bateau
        for (i=0 ; i<nb_bateaux ; i +=1 ){ // sauvegarder les coordonees de chaque bateau
            load_Coo ( &liste_bateaux[i],&sauvegarde, deux_case);
            deux_case += 2;
        }
-
 
        // load les orientations
        for (i=0 ; i< nb_bateaux ; i++){
@@ -149,9 +148,6 @@ int main() {
        }
 
 
-      choix_mode_de_jeux = sauvegarde.mode_rep_save;
-
-
        i=0;
        do {
            i++;
@@ -159,7 +155,6 @@ int main() {
        } while (boat_grid.grid[liste_bateaux[i].CooX][liste_bateaux[i].CooY] == '_');
        if (i<1)
            printf("%d implementations !\n",i);
-
 
 
    }else{
@@ -170,14 +165,10 @@ int main() {
            generation_bateau(&liste_bateaux[i], &boat_grid); // donne une orientation aleatoire a chaque bateau en controlan que les case sont disponilbe  (fonction: verification_emplacement_bateau) et si elle le sont il place le bateaux sur la grille bateaux (fonction: implentation_bateau)
        }
 
-
-
-        choix_mode_de_jeux= affichage_menu_mode_de_jeux();
-
-        choix_difficulte= affichage_menu_difficulte();
+       choix_mode_de_jeux= affichage_menu_mode_de_jeux();
+       choix_difficulte= affichage_menu_difficulte();
        modifier_nombre_missile (choix_difficulte, &liste_missile );
    }
-
 
 
     do{
@@ -193,12 +184,10 @@ int main() {
         }
 
 
-
         printf( " Voullez vous continuer a jouer ? O/N ?\n ");
         do{
         scanf (  " %c" , &J_Q);
         }while (J_Q != 'O' && J_Q != 'N');
-
 
         if ( J_Q == 'N' ){ //le joueur a choisie d'arete de jouer, donc on sauvegard avant de "fermer" le programme
 
@@ -259,7 +248,6 @@ int main() {
                 }
 
 
-
                 // ecriture des donné dans le fichier
                 for ( i =0 ; i<200 ; i++){
 
@@ -269,9 +257,6 @@ int main() {
 
                     fprintf(fichier_sauvegarde, "%d", memoir_tampon_int[i]);
                 }
-
-
-
 
 
             }else{
@@ -319,6 +304,53 @@ int main() {
                 printf("Erreur : valeur 'type_missile' invalide");
                 exit(0);
         }
+
+        if (choix_mode_de_jeux == 3 ){
+            deplacer_ou_pas  = aleatoir_deplacer_ou_pas(choix_difficulte);
+            if( deplacer_ou_pas == 1 ){
+
+                printf (" Un bateau a ete deplace !!!!\n");
+                int alea1,alea2,alea3,alea4;
+                do{
+                srand(time(0));
+                alea1 = rand () % 2+1;
+                alea2 = rand () % 5 ;
+                alea3 = rand () % 2 + 1  ;
+                alea4 = rand () % 2+1;
+                    if (alea1 == 0){
+
+                        if (alea4 == 1 ){
+                            liste_bateaux[alea2].CooX += alea3;
+                        } else{
+                            liste_bateaux[alea2].CooX -= alea3;
+
+                        }
+
+                    }else{
+
+
+                        if (alea4 == 1 ){
+                            liste_bateaux[alea2].CooY +=  alea3 ;
+                        }else{
+                            liste_bateaux[alea2].CooY -=  alea3 ;
+                        }
+
+                    }
+                    }while(verification_emplacement_bateau(&liste_bateaux[alea1], &boat_grid) != 1);
+                    i=0;
+                    do {
+                        i++;
+                        implentation_bateau(&liste_bateaux[alea1], &boat_grid);
+                    } while (boat_grid.grid[liste_bateaux[alea1].CooX][liste_bateaux[alea1].CooY] == '_');
+
+
+                }
+
+
+
+
+            }
+
 
     } while(win(liste_bateaux, nb_bateaux) != 0);
 

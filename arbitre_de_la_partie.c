@@ -4,6 +4,10 @@
 
 #include "arbitre_de_la_partie.h"
 #include "stdio.h"
+#include <stdlib.h>
+#include <time.h>
+#include "gestion_bateau.h"
+
 int win(bateau liste[], int nb_bateaux) {
     int i, nb_bateau_vivant=0;
 
@@ -76,4 +80,20 @@ int choix_missile_tire( missile * l_missile){
 
     return missile;
 }
+
+int aleatoir_deplacer_ou_pas( int difficulte){
+    int alea;
+    srand(time(0));
+    alea= rand() % 100 +1;
+
+
+
+    if ( alea <= difficulte*20){
+        return 1; // 1 equivau a dire"oui un bateau est deplace"
+    }
+    return 0;
+
+}
+
+
 

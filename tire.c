@@ -16,7 +16,7 @@ int hitscan(int X, int Y, tableau *boat_grid, tableau *user_grid, bateau  liste[
         if (boat_grid->grid[X][Y] == 'X') { printf("Tu as déjà tiré à cet endroit !"); }
         else {
 
-            for (i = 0; i < 5; i++) { //use nb_bateaux
+            for (i = 0; i < 5; i++) {
                 if (boat_grid->grid[X][Y] == liste[i].id) {
                     printf("Le bateau %c est touche en %c%d!\n", i + 'A', Y + 'A', X + 1);
                     liste[i].pv--;
