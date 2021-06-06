@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 
-void initialization_grille(tableau * grid) {
+void initialization_grille(Grid * grid) {
     int x, y;
     for (x = 0; x < grid->largeur; x++) {
         for (y = 0; y < grid->hauteur; y++) {
@@ -15,7 +15,7 @@ void initialization_grille(tableau * grid) {
     }
 }
 
-void show_grid(tableau * grid) {
+void show_grid(Grid * grid) {
     int x, y;
     for(x=0 ; x < grid->largeur; x++) {
         printf("  %d", x+1);
@@ -31,7 +31,7 @@ void show_grid(tableau * grid) {
 
 }
 
-void regler_dimention (tableau * boat, tableau * grid){
+void regler_dimention (Grid * boat, Grid * grid){
 
     boat->hauteur = 10;
     boat->largeur = 10;

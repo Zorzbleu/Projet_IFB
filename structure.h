@@ -15,20 +15,20 @@ typedef struct{
     char id_dead;
     int pv;
     char pv_detaille[5];
-} bateau ;
+} boat ;
 
 typedef struct {
     int largeur;
     int hauteur;
     char grid[N][N];
-} tableau ;
-
+} Grid ;
+/**
 typedef struct {
     int largeur;
     int hauteur;
     char grid[];
 } grid ;
-
+*/
 
 
 typedef struct{
@@ -36,11 +36,11 @@ typedef struct{
     int nb_missile_tactique;
     int nb_missile_default;
     int nb_missile_artillerie;
-} missile;
+} Inventory;
 
 typedef struct{
     int mode_rep_save;
-    int boat_live_save [25] ;
+   // int boat_live_save [25] ;
     int  inventory_save[4];
     char grid_save[200];
     int  Coo_save [10];

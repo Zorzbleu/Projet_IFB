@@ -10,10 +10,11 @@
 
 //arbitre_de_la_parti
 
-int win(bateau liste[], int nb_bateaux);
+int win(boat liste[], int nb_bateaux);
 
-void modifier_nombre_missile (int difficulte, missile * liste );
-int choix_missile_tire( missile * l_missile);
+void modifier_nombre_missile (int difficulte, Inventory * liste );
+void afficher_bateau_touche_et_pv( boat liste_bateaux[],int nb_bateaux);
+int choix_missile_tire( Inventory * l_missile);
 int aleatoir_deplacer_ou_pas( int difficulte);
 
 #endif //PROJET_IFB_ARBITRE_DE_LA_PARTIE_H

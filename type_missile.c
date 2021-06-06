@@ -6,7 +6,7 @@
 #include "tire.h"
 
 
-void fire_tactical(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[],  missile *liste_missile){
+void fire_tactical(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile){
     int numero_bateau=hitscan(X,Y,boat_grid,user_grid,liste), i;
     if(liste_missile->nb_missile_tactique == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");
@@ -30,7 +30,7 @@ void fire_tactical(int X, int Y, tableau  * boat_grid, tableau * user_grid, bate
 }
 
 
-void fire_artillery(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[], missile *liste_missile){
+void fire_artillery(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[], Inventory *liste_missile){
     int i;
     if(liste_missile->nb_missile_artillerie == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");
@@ -44,27 +44,27 @@ void fire_artillery(int X, int Y, tableau  * boat_grid, tableau * user_grid, bat
     }
 }
 
-void fire_bomb(int X, int Y, tableau * boat, tableau * user_grid, bateau liste[],  missile *liste_missile){
+void fire_bomb(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile ){
     int i,j;
     if(liste_missile->nb_missile_bombe == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");
     } else {
         if (X >= 0 && Y - 2 >= 0 && X < 10 && Y - 2 < 10) {
-            hitscan(X, Y - 2, boat, user_grid, liste);
+            hitscan(X, Y - 2, boat_grid, user_grid, liste);
         }
         if (X - 2 >= 0 && Y >= 0 && X - 2 < 10 && Y < 10) {
-            hitscan(X - 2, Y, boat, user_grid, liste);
+            hitscan(X - 2, Y, boat_grid, user_grid, liste);
         }
         if (X + 2 >= 0 && Y >= 0 && X + 2 < 10 && Y < 10) {
-            hitscan(X + 2, Y, boat, user_grid, liste);
+            hitscan(X + 2, Y, boat_grid, user_grid, liste);
         }
         if (X >= 0 && Y + 2 >= 0 && X < 10 && Y + 2 < 10) {
-            hitscan(X, Y + 2, boat, user_grid, liste);
+            hitscan(X, Y + 2, boat_grid, user_grid, liste);
         }
         for (i = 0; i < 3; i++) {
             for (j = 0; j < 3; j++) {
                 if (X - 1 + i >= 0 && Y - 1 + j >= 0 && X - 1 + i < 10 && Y - 1 + j < 10)
-                    hitscan(X - 1 + i, Y - 1 + j, boat, user_grid, liste);
+                    hitscan(X - 1 + i, Y - 1 + j, boat_grid, user_grid, liste);
             }
         }
         liste_missile->nb_missile_bombe--;

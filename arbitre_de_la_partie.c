@@ -8,7 +8,7 @@
 #include <time.h>
 #include "gestion_bateau.h"
 
-int win(bateau liste[], int nb_bateaux) {
+int win(boat liste[], int nb_bateaux) {
     int i, nb_bateau_vivant=0;
 
     for(i=0; i < nb_bateaux;i++){
@@ -20,10 +20,23 @@ int win(bateau liste[], int nb_bateaux) {
     return(nb_bateau_vivant);
 }
 
+void afficher_bateau_touche_et_pv( boat liste_bateaux[],int nb_bateaux){
+    int i =0 ;
+
+    for (i = 0; i < nb_bateaux; i++) {
+        if (liste_bateaux[i].pv == 0)
+        {printf("Le bateau %c touche le fond !\n", liste_bateaux[i].id_dead);}
+        else
+        {printf("%c longueur %d: %d %c.\n", liste_bateaux[i].id_dead,liste_bateaux[i].length, liste_bateaux[i].pv, 3);}
+    }
+
+
+}
 
 
 
-void modifier_nombre_missile (int difficulte, missile * liste ){
+
+void modifier_nombre_missile (int difficulte, Inventory * liste ){
 
 
     switch (difficulte){
@@ -65,7 +78,7 @@ void modifier_nombre_missile (int difficulte, missile * liste ){
 
 
 
-int choix_missile_tire( missile * l_missile){
+int choix_missile_tire( Inventory * l_missile){
     int missile ; // stock le choix du joeur
 
         printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
@@ -87,7 +100,7 @@ int aleatoir_deplacer_ou_pas( int difficulte){
     alea= rand() % 100 +1;
 
 
-
+return 1 ;
     if ( alea <= difficulte*20){
         return 1; // 1 equivau a dire"oui un bateau est deplace"
     }

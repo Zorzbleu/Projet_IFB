@@ -9,16 +9,16 @@
 // gestion_bateau
 
 
-void generation_bateau(bateau * boat, tableau * grid  );
-void implentation_bateau(bateau * boat, tableau * grid);
-int verification_emplacement_bateau(bateau * boat, tableau * grid);
+void generation_bateau(boat * boat, Grid * grid  );
+void implentation_bateau(boat * boat, Grid * grid);
+int verification_emplacement_bateau(boat * boat, Grid * grid);
 
-void generer_caracteristique_bateaux (bateau * l_bateaux,int i );
+void generer_caracteristique_bateaux (boat * l_bateaux,int i );
 
 
 
-void initialisation_pv_detaille (bateau * baot);
-void sauvegarde_pv_detaille (bateau * baot,tableau  * user);
+void initialisation_pv_detaille (boat * baot);
+void sauvegarde_pv_detaille (boat * baot,Grid  * user);
 
 
 

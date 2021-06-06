@@ -7,23 +7,14 @@
 #include "tire.h"
 
 
-//}
 
 
-
-
-
-
-
-
-
-
-void debug_coo(bateau * boat){
+void debug_coo(boat * boat){
     printf("%d,%d,%d,%d,%c,%*c\n", boat->CooX+1,boat->CooY+1,boat->length,boat->orientation,boat->id,boat->id,boat->id_dead);
 }
 
 
-void fire_missile(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[],  missile *liste_missile){
+void fire_missile(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile){
     if(liste_missile->nb_missile_default == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");
     } else {

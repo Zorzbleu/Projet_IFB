@@ -16,12 +16,12 @@
 
 
 
-void generation_flotte(bateau * liste[], tableau * grid, int nb_bateaux);
-void debug(bateau * boat);
-int check_inventory(missile *liste_missile, int type_missile);
+void generation_flotte(boat * liste[], Grid * grid, int nb_bateaux);
+void debug(boat * boat);
+int check_inventory(Inventory *liste_missile, int type_missile);
 void clear_text(int lines);
 void error_message(char variable);
-void sauvegarder (missile *liste_missile,int choix_difficulte_rep, save *sauvegarde);
+void sauvegarder (Inventory *liste_missile,int choix_difficulte_rep, save *sauvegarde);
 int is_alive();
 
 

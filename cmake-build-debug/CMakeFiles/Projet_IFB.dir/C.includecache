@@ -6,25 +6,67 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Admin/CLionProjects/Projet_IFB/arbitre_de_la_partie.c
-arbitre_de_la_partie.h
 C:/Users/Admin/CLionProjects/Projet_IFB/arbitre_de_la_partie.h
+structure.h
+C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
+
+C:/Users/Admin/CLionProjects/Projet_IFB/donnees_du_jeux.h
+structure.h
+C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
+
+C:/Users/Admin/CLionProjects/Projet_IFB/fonctions initialisation bataille.h
+structure.h
+C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
+
+C:/Users/Admin/CLionProjects/Projet_IFB/gestion_bateau.h
+structure.h
+C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
+
+C:/Users/Admin/CLionProjects/Projet_IFB/initialisation_interface.h
+structure.h
+C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
+
+C:/Users/Admin/CLionProjects/Projet_IFB/load sauvegarde.h
+structure.h
+C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
+gestion_bateau.h
+C:/Users/Admin/CLionProjects/Projet_IFB/gestion_bateau.h
 stdio.h
-C:/Users/Admin/CLionProjects/Projet_IFB/stdio.h
+-
+stdlib.h
+-
+
+C:/Users/Admin/CLionProjects/Projet_IFB/main.c
+stdio.h
+-
 stdlib.h
 -
 time.h
 -
+fonctions initialisation bataille.h
+C:/Users/Admin/CLionProjects/Projet_IFB/fonctions initialisation bataille.h
 gestion_bateau.h
 C:/Users/Admin/CLionProjects/Projet_IFB/gestion_bateau.h
-
+initialisation_interface.h
+C:/Users/Admin/CLionProjects/Projet_IFB/initialisation_interface.h
+type_missile.h
+C:/Users/Admin/CLionProjects/Projet_IFB/type_missile.h
+arbitre_de_la_partie.h
 C:/Users/Admin/CLionProjects/Projet_IFB/arbitre_de_la_partie.h
+donnees_du_jeux.h
+C:/Users/Admin/CLionProjects/Projet_IFB/donnees_du_jeux.h
+sauvegarde.h
+C:/Users/Admin/CLionProjects/Projet_IFB/sauvegarde.h
+load sauvegarde.h
+C:/Users/Admin/CLionProjects/Projet_IFB/load sauvegarde.h
+
+C:/Users/Admin/CLionProjects/Projet_IFB/sauvegarde.h
 structure.h
 C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
 
-C:/Users/Admin/CLionProjects/Projet_IFB/gestion_bateau.h
-structure.h
 C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
 
+C:/Users/Admin/CLionProjects/Projet_IFB/type_missile.h
+structure.h
 C:/Users/Admin/CLionProjects/Projet_IFB/structure.h
 

@@ -7,9 +7,9 @@
 #include "structure.h"
 
 // initialisation_interface
-void initialization_grille(tableau * grid);
-void show_grid(tableau * grid);
-void regler_dimention (tableau * boat , tableau *  grid);
+void initialization_grille(Grid * grid);
+void show_grid(Grid * grid);
+void regler_dimention (Grid * boat , Grid *  grid);
 
 
 

@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 
-int hitscan(int X, int Y, tableau *boat_grid, tableau *user_grid, bateau  liste[]) {
+int hitscan(int X, int Y, Grid *boat_grid, Grid *user_grid, boat  liste[]) {
     int i;
     if (boat_grid->grid[X][Y] == '_') {
         user_grid->grid[X][Y] = 'X';

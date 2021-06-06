@@ -6,12 +6,12 @@
 #include <stdio.h>
 #include <time.h>
 
-void generation_bateau(bateau * boat, tableau *grid ) {
+void generation_bateau(boat * boat, Grid *grid ) {
     int i=0;
 
 
 
-    srand(time(NULL)*boat->id);
+    srand(time(0));
 
     do {
         boat->orientation = rand() % 2;
@@ -39,7 +39,7 @@ void generation_bateau(bateau * boat, tableau *grid ) {
 }
 
 
-void implentation_bateau(bateau  * boat, tableau * grid) {
+void implentation_bateau(boat  * boat, Grid * grid) {
     int i;
     if(boat->orientation == 0) { //implentation verticale (axe des x)
         for (i=0; i < boat->length ; i++) {
@@ -55,7 +55,7 @@ void implentation_bateau(bateau  * boat, tableau * grid) {
 
 
 
-int verification_emplacement_bateau(bateau * boat, tableau * grid) {
+int verification_emplacement_bateau(boat * boat, Grid * grid) {
     int X = boat->CooX, Y = boat->CooY;
 
 
@@ -85,7 +85,7 @@ int verification_emplacement_bateau(bateau * boat, tableau * grid) {
 
 
 
-void generer_caracteristique_bateaux (bateau * l_bateaux,int i){
+void generer_caracteristique_bateaux (boat * l_bateaux,int i){
     if (l_bateaux == NULL){
         exit(1);
         }
