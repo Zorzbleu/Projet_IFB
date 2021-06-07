@@ -61,7 +61,7 @@ void fonction_ecriture_sauvegarde(save sauvegarde){
 
 void fonction_sauvegarde( save * sauvegarde, boat liste_bateaux[],Inventory liste_missile , Grid user_grid,Grid boat_grid,int nb_bateaux,int choix_mode_de_jeux ){
 
-    int i=0;
+
     int deux_case = 0 ; // utile a la sauvegarde de coordonnés
     int cent_case =0 ; //permet la sauegard du tableau user et tableau boat
 

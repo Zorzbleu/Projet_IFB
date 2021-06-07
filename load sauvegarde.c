@@ -123,7 +123,7 @@ void load_Coo (boat  * liste_bateaux, save   sauvegarde,int deux_case){
 void load_orientation (boat  * liste_bateaux,save * sauvegarde,int i  ){
 
 
-        liste_bateaux->orientation = sauvegarde->orientation_save   ;
+        liste_bateaux->orientation = sauvegarde->orientation_save[i]   ;
 
 }
 

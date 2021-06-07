@@ -23,6 +23,7 @@ CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj: ../initialisation_inte
 CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj: ../initialisation_interface.h
 CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj: ../structure.h
 
+CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: ../gestion_bateau.h
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: ../load\ sauvegarde.c
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: ../load\ sauvegarde.h
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: ../structure.h
