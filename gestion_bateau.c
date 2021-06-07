@@ -62,8 +62,9 @@ int verification_emplacement_bateau(boat * boat, Grid * grid) {
     if(boat->orientation == 0) { //regarde pour orientation verticale
         for (; X - boat->CooX < boat->length; X++) { //la vérification doit être fait pour toutes les cases occupées par le bateau
             if (grid->grid[X][Y] != '_') { //'_' représente une case vide : si elle n'est pas vide, un bateau est déjà à cette endroit là et on ne peut donc pas générer le nouveau bateau
-
-                return(0);
+                if ( grid->grid[X][Y] != boat->id ||grid->grid[X][Y] != boat->id_dead  ){
+                    return(0);
+                }
             }
         }
         return(1);
@@ -73,7 +74,9 @@ int verification_emplacement_bateau(boat * boat, Grid * grid) {
             for (; Y - boat->CooY < boat->length; Y++ ) {
 
                 if (grid->grid[X][Y] != '_') {
-                    return(0);
+                    if ( grid->grid[X][Y] != boat->id ||grid->grid[X][Y] != boat->id_dead  ){
+                        return(0);
+                    }
                 }
             }
             return(1);
