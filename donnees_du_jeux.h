@@ -10,6 +10,6 @@
 int affichage_menu_difficulte();
 int affichage_menu_mode_de_jeux();
 int affichage_menu_demarrage();
-
+void initialisation_caracteristiques_bateaux(boat *liste_bateau);
 
 #endif //PROJET_IFB_DONNEES_DU_JEUX_H

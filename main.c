@@ -47,31 +47,8 @@ int main() {
     initialization_grille(&boat_grid);
 
 
-// a remplacer (génération des bateaux)
-    liste_bateaux[0].length = 2;
-    liste_bateaux[0].id = 'a' ;
-    liste_bateaux[0].id_dead = 'A' ;
-    liste_bateaux[0].pv = 2;
 
-    liste_bateaux[1].length = 3;
-    liste_bateaux[1].id = 'b' ;
-    liste_bateaux[1].id_dead = 'B' ;
-    liste_bateaux[1].pv = 3;
 
-    liste_bateaux[2].length = 3;
-    liste_bateaux[2].id = 'c' ;
-    liste_bateaux[2].id_dead = 'C' ;
-    liste_bateaux[2].pv = 3;
-
-    liste_bateaux[3].length = 4;
-    liste_bateaux[3].id = 'd' ;
-    liste_bateaux[3].id_dead = 'D' ;
-    liste_bateaux[3].pv = 4;
-
-    liste_bateaux[4].length = 5;
-    liste_bateaux[4].id = 'e' ;
-    liste_bateaux[4].id_dead = 'E' ;
-    liste_bateaux[4].pv = 5;
 
 
 
@@ -89,7 +66,11 @@ int main() {
        fonction_load (sauvegarde,&liste_missile,&liste_bateaux,&user_grid ,&boat_grid,nb_bateaux,&choix_mode_de_jeux);
 
 
-
+    i = 0;
+       do {
+           i++;
+           implentation_bateau(&liste_bateaux[i], &boat_grid);
+       } while (boat_grid.grid[liste_bateaux[i].CooX][liste_bateaux[i].CooY] == '_');
 
    }else{
        // si le joueur a choisie de load une partie il ne faux pas : generer des bateaux , demander le mode de jeux et el difficulté de jeux
@@ -114,10 +95,10 @@ int main() {
 
         printf( " Voullez vous continuer a jouer ? O/N ?\n ");
         scanf (  " %c" , &J_Q);
-        while (J_Q != 'O' && J_Q != 'N'){
+        do{
             printf("Erreure  : sasie  incorrecte \n");
         scanf (  " %c" , &J_Q);
-        }
+        }while (J_Q != 'O' && J_Q != 'N');
 
         if ( J_Q == 'N' ){ //le joueur a choisie d'arete de jouer, donc on sauvegard avant de "fermer" le programme
 
@@ -169,73 +150,65 @@ int main() {
             if( deplacer_ou_pas == 1 ){
 
                 printf (" Un bateau a ete deplace !!!!\n");
-                int alea1,alea2,alea3,alea4;
+                int axe_XY,nb_bateau,nb_deplacement,sens_deplacement;
 
                 srand(time(0));
                 do{
-                alea1 = rand () % 2;
-                alea2 = rand () % 6 ;
-                alea3 = rand () % 2 + 1  ;
-                alea4 = rand () % 2+1;
-                for (i=0 ; i< liste_bateaux[alea2].length ; i++){
-                    if (alea1 == 0){
+                axe_XY = rand () % 2; //alea1 axe x ou y
+                    nb_bateau = rand () % 6 ; //numero du bateau
+                nb_deplacement = rand () % 2 + 1  ; //nombre de deplacement
+                sens_deplacement = rand () % 2+1;
+                    if (axe_XY == 0){
 
-                        if (alea4 == 1 ){
-                            boat_grid.grid[liste_bateaux[alea2].CooX+alea3+i][liste_bateaux[alea2].CooY] = boat_grid.grid[liste_bateaux[alea2].CooX+i][liste_bateaux[alea2].CooY];
-
+                        if (sens_deplacement == 1 ){
+                            liste_bateaux[nb_bateau].CooX += nb_deplacement;
                         } else{
-                            boat_grid.grid[liste_bateaux[alea2].CooX-alea3+i][liste_bateaux[alea2].CooY]  =  boat_grid.grid[liste_bateaux[alea2].CooX+i][liste_bateaux[alea2].CooY] ;
+                            liste_bateaux[nb_bateau].CooX -= nb_deplacement;
 
                         }
 
                     }else{
 
 
-                        if (alea4 == 1 ){
-                            boat_grid.grid[liste_bateaux[alea1].CooX] [liste_bateaux[alea2].CooY+alea3+i] = boat_grid.grid[liste_bateaux[alea2].CooX] [liste_bateaux[alea2].CooY+i];
+                        if (sens_deplacement == 1 ){
+                            liste_bateaux[nb_bateau].CooY +=  nb_deplacement ;
                         }else{
-                            boat_grid.grid[liste_bateaux[alea1].CooX][liste_bateaux[alea2].CooY-alea3+i] = boat_grid.grid[liste_bateaux[alea2].CooX][liste_bateaux[alea2].CooY+i] ;
-
+                            liste_bateaux[nb_bateau].CooY -=  nb_deplacement ;
                         }
 
                     }
-                }
-                    }while(verification_emplacement_bateau(&liste_bateaux[alea2], &boat_grid) != 1);
+                    }while(verification_emplacement_bateau(&liste_bateaux[axe_XY], &boat_grid) != 1);
                     i=0;
+
+                //initialization_grille(&boat_grid);
+                for (i=0 ; i< nb_deplacement ; i++){
+                    if( liste_bateaux[axe_XY].orientation == 1 ){
+                        if (sens_deplacement == 1 ){
+                            boat_grid.grid[liste_bateaux[axe_XY].CooX-nb_deplacement+i][liste_bateaux[axe_XY].CooY] = 'z';
+                        }else{
+                            boat_grid.grid[liste_bateaux[axe_XY].CooX+nb_deplacement+i][liste_bateaux[axe_XY].CooY] = 'z';
+                            }
+                        }else{
+                            if (sens_deplacement == 1 ){
+                                boat_grid.grid[liste_bateaux[axe_XY].CooX][liste_bateaux[axe_XY].CooY-nb_deplacement+i] = 'z';
+                            }else{
+                                boat_grid.grid[liste_bateaux[axe_XY].CooX] [liste_bateaux[axe_XY].CooY+nb_deplacement+i]= 'z';
+                        }
+
+                    }
                 }
 
                 i=0;
                 do {
-                    i++;
-                    implentation_bateau(&liste_bateaux[i], &boat_grid);
-                } while (boat_grid.grid[liste_bateaux[i].CooX][liste_bateaux[i].CooY] == '_');
+                        i++;
+                        implentation_bateau(&liste_bateaux[i], &boat_grid);
+                    } while (boat_grid.grid[liste_bateaux[i].CooX][liste_bateaux[i].CooY] == '_');
 
-
-
-/**
-                //initialization_grille(&boat_grid);
-                for (i=0 ; i< alea3 ; i++){
-                    if( alea1 == 0 ){
-                        if (alea4 == 1 ){
-                            boat_grid.grid[liste_bateaux[alea1].CooX-alea3+i][liste_bateaux[alea1].CooY] = '_';
-                        }else{
-                            boat_grid.grid[liste_bateaux[alea1].CooX+alea3+i][liste_bateaux[alea1].CooY] = '_';
-                            }
-                        }else{
-                            if (alea4 == 1 ){
-                                boat_grid.grid[liste_bateaux[alea1].CooX][liste_bateaux[alea1].CooY-alea3+i] = '_';
-                            }else{
-                                boat_grid.grid[liste_bateaux[alea1].CooX] [liste_bateaux[alea1].CooY+alea3+i]= '_';
-                        }
-
-                    }
-                }
-*/
 
 
                 }
 
-
+            }
 
     } while(win(liste_bateaux, nb_bateaux) != 0);
 

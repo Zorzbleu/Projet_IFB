@@ -2,6 +2,7 @@
 // Created by Admin on 27/05/2021.
 //
 #include "gestion_bateau.h"
+#include "structure.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -11,7 +12,7 @@ void generation_bateau(boat * boat, Grid *grid ) {
 
 
 
-    srand(time(0));
+    srand(time(NULL)*boat->id);
 
     do {
         boat->orientation = rand() % 2;

@@ -67,10 +67,10 @@ void modifier_nombre_missile (int difficulte, Inventory * liste ){
                     "-1- Facile : 10 de chaque categorie\n"
                     "-2- Moyen :  3 missiles de artilleries, 5 bombes, 5 missiles tactiques, 10 missiles simples\n"
                     "-3- Difficile : 1 missile de artillerie, 2 bombes, 4 missiles tactiques, 15 missiles simples\n\n\n");
-            printf("Qu elle difficulte voulez vous ?\n");
+            printf("Qu'elle difficulte voulez-vous ?\n");
             break;
         default :
-            printf( "Erreur : la valeur saise n'est pas bonne.\nVeuillez saisire un chiffre compris enttre 1  et 4\n");
+            printf( "Erreur : la valeur saisie n'est pas bonne.\nVeuillez saisir un chiffre compris entre 1 et 4.\n");
 
 
     }
@@ -79,15 +79,17 @@ void modifier_nombre_missile (int difficulte, Inventory * liste ){
 
 
 int choix_missile_tire( Inventory * l_missile){
-    int missile ; // stock le choix du joeur
+    int missile ; // stock le choix du joueur
 
         printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
                l_missile->nb_missile_default, l_missile->nb_missile_tactique, l_missile->nb_missile_bombe, l_missile->nb_missile_artillerie);
+        fflush(stdin);
         scanf(" %d", &missile);
 
 
     while( missile < 0 || missile > 4){
         printf ( "Erreur : le type de missile choisie n'existe pas ");
+        fflush(stdin);
         scanf(" %d", &missile);
     }
 

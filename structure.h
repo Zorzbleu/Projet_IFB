@@ -14,7 +14,7 @@ typedef struct{
     char id;
     char id_dead;
     int pv;
-    char pv_detaille[5];
+    int pv_detaille[5];
 } boat ;
 
 typedef struct {

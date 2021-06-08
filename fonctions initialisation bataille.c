@@ -10,7 +10,7 @@
 
 
 void debug_coo(boat * boat){
-    printf("%d,%d,%d,%d,%c,%*c\n", boat->CooX+1,boat->CooY+1,boat->length,boat->orientation,boat->id,boat->id,boat->id_dead);
+
 }
 
 

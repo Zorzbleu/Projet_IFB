@@ -47,3 +47,22 @@ int affichage_menu_demarrage(){
     }
     return demarrer;
 }
+
+void initialisation_caracteristiques_bateaux(bateau *liste_bateaux){
+    liste_bateaux[0].length = 2;
+    liste_bateaux[1].length = 3;
+    liste_bateaux[2].length = 3;
+    liste_bateaux[3].length = 4;
+    liste_bateaux[4].length = 5;
+
+    for (int i = 0; i < 5 ;++i) {
+        liste_bateaux[i].id = 'a' + i;
+        liste_bateaux[i].id_dead = 'A' + i;
+        liste_bateaux[i].pv = liste_bateaux[i].length;
+        for (int j = 0; j < 5; ++j) {
+            liste_bateaux[i].pv_detaille[j] = 0;
+        }
+    }
+
+
+}
