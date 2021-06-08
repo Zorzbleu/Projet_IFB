@@ -20,7 +20,7 @@
  * @param nb_bateaux
  * @param choix_mode_de_jeux
  */
-void fonction_load (save  sauvegarde, Inventory * liste_missile,Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux);
+void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bateaux[],Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux);
 
 /**
  *

@@ -48,7 +48,7 @@ void fonction_lecture_sauvegarde(save  * sauvegarde){
 
 }
 
-void fonction_load (save  sauvegarde, Inventory * liste_missile,Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux ){
+void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bateaux[],Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux ){
     int  deux_case = 0  , cent_case =0; //// pour sauvegarder les pv des bateaux / pou sauvegarder les Coo des bateaux
     int i =0 ;
 
@@ -58,6 +58,13 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,Grid * user_grid
     cent_case += 100; //besoin pour la fonction loaad_caracteristique qui utilise une matrice de 200 pour sauvegarder deux fois une tableau dans le même matrice
     load_caracteristique_grid(user_grid, sauvegarde,cent_case); // sauvegard la grille des bateaux
     *choix_mode_de_jeux = sauvegarde.mode_rep_save;
+
+    for (i =0  ; i < nb_bateaux ; i++ ){
+        load_orientation(&liste_bateaux[i],&sauvegarde,i );
+        load_pv (&liste_bateaux[i],&sauvegarde,i);
+        load_Coo ( &liste_bateaux[i],sauvegarde, deux_case);
+        deux_case += 2;
+    }
 
     //load les coordonés de chaque bateau
     // sauvegarder les coordonees de chaque bateau

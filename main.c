@@ -86,13 +86,8 @@ int main() {
    if (choix_demarrage == 2){
        // le joueur a choisie de charger sa dernier partie
        fonction_lecture_sauvegarde(&sauvegarde);
-       fonction_load (sauvegarde,&liste_missile,&user_grid ,&boat_grid,nb_bateaux,&choix_mode_de_jeux);
-       for (i =0  ; i < nb_bateaux ; i++ ){
-           load_orientation(&liste_bateaux[i],&sauvegarde,i );
-           load_pv (&liste_bateaux[i],&sauvegarde,i);
-           load_Coo ( &liste_bateaux[i],sauvegarde, deux_case);
-           deux_case += 2;
-       }
+       fonction_load (sauvegarde,&liste_missile,&liste_bateaux,&user_grid ,&boat_grid,nb_bateaux,&choix_mode_de_jeux);
+
 
 
 
