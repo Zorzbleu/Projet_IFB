@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "tire.h"
 
-void fire_missile(int X, int Y, tableau  * boat_grid, tableau * user_grid, bateau liste[],  missile *liste_missile){
+void fire_missile(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile){
     if(liste_missile->nb_missile_default == 0) {
         printf("Vous n'avez plus de ce missile !!!!\n");
     } else {

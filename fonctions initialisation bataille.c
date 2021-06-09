@@ -14,18 +14,6 @@ void debug_coo(boat * boat){
 }
 
 
-void fire_missile(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile){
-    if(liste_missile->nb_missile_default == 0) {
-        printf("Vous n'avez plus de ce missile !!!!\n");
-    } else {
-        if (hitscan(X, Y, boat_grid, user_grid, liste) == -1)
-            printf("Miss !\n");
-        liste_missile->nb_missile_default--;
-    }
-}
-
-
-
 
 void clear_text(int lines) {
     if (lines == 0) {

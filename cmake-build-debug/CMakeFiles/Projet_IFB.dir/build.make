@@ -61,10 +61,10 @@ RM = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Admin\CLionProjects\Projet_IFB
+CMAKE_SOURCE_DIR = C:\Users\Admin\CLionProjects\Projet_IFBxxx
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Projet_IFB.dir/depend.make
@@ -77,133 +77,133 @@ include CMakeFiles/Projet_IFB.dir/flags.make
 
 CMakeFiles/Projet_IFB.dir/main.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Projet_IFB.dir/main.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\main.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Projet_IFB.dir/main.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\main.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\main.c
 
 CMakeFiles/Projet_IFB.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/main.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\main.c > CMakeFiles\Projet_IFB.dir\main.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\main.c > CMakeFiles\Projet_IFB.dir\main.c.i
 
 CMakeFiles/Projet_IFB.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/main.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\main.c -o CMakeFiles\Projet_IFB.dir\main.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\main.c -o CMakeFiles\Projet_IFB.dir\main.c.s
 
 CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.obj: ../fonctions\ initialisation\ bataille.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\fonctions_initialisation_bataille.c.obj -c "C:\Users\Admin\CLionProjects\Projet_IFB\fonctions initialisation bataille.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\fonctions_initialisation_bataille.c.obj -c "C:\Users\Admin\CLionProjects\Projet_IFBxxx\fonctions initialisation bataille.c"
 
 CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Admin\CLionProjects\Projet_IFB\fonctions initialisation bataille.c" > CMakeFiles\Projet_IFB.dir\fonctions_initialisation_bataille.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Admin\CLionProjects\Projet_IFBxxx\fonctions initialisation bataille.c" > CMakeFiles\Projet_IFB.dir\fonctions_initialisation_bataille.c.i
 
 CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Admin\CLionProjects\Projet_IFB\fonctions initialisation bataille.c" -o CMakeFiles\Projet_IFB.dir\fonctions_initialisation_bataille.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Admin\CLionProjects\Projet_IFBxxx\fonctions initialisation bataille.c" -o CMakeFiles\Projet_IFB.dir\fonctions_initialisation_bataille.c.s
 
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../arbitre_de_la_partie.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\arbitre_de_la_partie.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\arbitre_de_la_partie.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\arbitre_de_la_partie.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\arbitre_de_la_partie.c
 
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\arbitre_de_la_partie.c > CMakeFiles\Projet_IFB.dir\arbitre_de_la_partie.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\arbitre_de_la_partie.c > CMakeFiles\Projet_IFB.dir\arbitre_de_la_partie.c.i
 
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\arbitre_de_la_partie.c -o CMakeFiles\Projet_IFB.dir\arbitre_de_la_partie.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\arbitre_de_la_partie.c -o CMakeFiles\Projet_IFB.dir\arbitre_de_la_partie.c.s
 
 CMakeFiles/Projet_IFB.dir/gestion_bateau.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/gestion_bateau.c.obj: ../gestion_bateau.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Projet_IFB.dir/gestion_bateau.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\gestion_bateau.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\gestion_bateau.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Projet_IFB.dir/gestion_bateau.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\gestion_bateau.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\gestion_bateau.c
 
 CMakeFiles/Projet_IFB.dir/gestion_bateau.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/gestion_bateau.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\gestion_bateau.c > CMakeFiles\Projet_IFB.dir\gestion_bateau.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\gestion_bateau.c > CMakeFiles\Projet_IFB.dir\gestion_bateau.c.i
 
 CMakeFiles/Projet_IFB.dir/gestion_bateau.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/gestion_bateau.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\gestion_bateau.c -o CMakeFiles\Projet_IFB.dir\gestion_bateau.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\gestion_bateau.c -o CMakeFiles\Projet_IFB.dir\gestion_bateau.c.s
 
 CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj: ../initialisation_interface.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\initialisation_interface.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\initialisation_interface.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\initialisation_interface.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\initialisation_interface.c
 
 CMakeFiles/Projet_IFB.dir/initialisation_interface.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/initialisation_interface.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\initialisation_interface.c > CMakeFiles\Projet_IFB.dir\initialisation_interface.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\initialisation_interface.c > CMakeFiles\Projet_IFB.dir\initialisation_interface.c.i
 
 CMakeFiles/Projet_IFB.dir/initialisation_interface.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/initialisation_interface.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\initialisation_interface.c -o CMakeFiles\Projet_IFB.dir\initialisation_interface.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\initialisation_interface.c -o CMakeFiles\Projet_IFB.dir\initialisation_interface.c.s
 
 CMakeFiles/Projet_IFB.dir/tire.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/tire.c.obj: ../tire.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Projet_IFB.dir/tire.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\tire.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\tire.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Projet_IFB.dir/tire.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\tire.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\tire.c
 
 CMakeFiles/Projet_IFB.dir/tire.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/tire.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\tire.c > CMakeFiles\Projet_IFB.dir\tire.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\tire.c > CMakeFiles\Projet_IFB.dir\tire.c.i
 
 CMakeFiles/Projet_IFB.dir/tire.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/tire.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\tire.c -o CMakeFiles\Projet_IFB.dir\tire.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\tire.c -o CMakeFiles\Projet_IFB.dir\tire.c.s
 
 CMakeFiles/Projet_IFB.dir/type_missile.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/type_missile.c.obj: ../type_missile.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Projet_IFB.dir/type_missile.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\type_missile.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\type_missile.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Projet_IFB.dir/type_missile.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\type_missile.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\type_missile.c
 
 CMakeFiles/Projet_IFB.dir/type_missile.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/type_missile.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\type_missile.c > CMakeFiles\Projet_IFB.dir\type_missile.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\type_missile.c > CMakeFiles\Projet_IFB.dir\type_missile.c.i
 
 CMakeFiles/Projet_IFB.dir/type_missile.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/type_missile.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\type_missile.c -o CMakeFiles\Projet_IFB.dir\type_missile.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\type_missile.c -o CMakeFiles\Projet_IFB.dir\type_missile.c.s
 
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: ../donnees_du_jeux.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\donnees_du_jeux.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\donnees_du_jeux.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\donnees_du_jeux.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\donnees_du_jeux.c
 
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\donnees_du_jeux.c > CMakeFiles\Projet_IFB.dir\donnees_du_jeux.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\donnees_du_jeux.c > CMakeFiles\Projet_IFB.dir\donnees_du_jeux.c.i
 
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\donnees_du_jeux.c -o CMakeFiles\Projet_IFB.dir\donnees_du_jeux.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\donnees_du_jeux.c -o CMakeFiles\Projet_IFB.dir\donnees_du_jeux.c.s
 
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj: ../sauvegarde.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\sauvegarde.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFB\sauvegarde.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\sauvegarde.c.obj -c C:\Users\Admin\CLionProjects\Projet_IFBxxx\sauvegarde.c
 
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/sauvegarde.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFB\sauvegarde.c > CMakeFiles\Projet_IFB.dir\sauvegarde.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\Admin\CLionProjects\Projet_IFBxxx\sauvegarde.c > CMakeFiles\Projet_IFB.dir\sauvegarde.c.i
 
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/sauvegarde.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFB\sauvegarde.c -o CMakeFiles\Projet_IFB.dir\sauvegarde.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\Admin\CLionProjects\Projet_IFBxxx\sauvegarde.c -o CMakeFiles\Projet_IFB.dir\sauvegarde.c.s
 
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: CMakeFiles/Projet_IFB.dir/flags.make
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: ../load\ sauvegarde.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\load_sauvegarde.c.obj -c "C:\Users\Admin\CLionProjects\Projet_IFB\load sauvegarde.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Projet_IFB.dir\load_sauvegarde.c.obj -c "C:\Users\Admin\CLionProjects\Projet_IFBxxx\load sauvegarde.c"
 
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Admin\CLionProjects\Projet_IFB\load sauvegarde.c" > CMakeFiles\Projet_IFB.dir\load_sauvegarde.c.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Admin\CLionProjects\Projet_IFBxxx\load sauvegarde.c" > CMakeFiles\Projet_IFB.dir\load_sauvegarde.c.i
 
 CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Admin\CLionProjects\Projet_IFB\load sauvegarde.c" -o CMakeFiles\Projet_IFB.dir\load_sauvegarde.c.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Admin\CLionProjects\Projet_IFBxxx\load sauvegarde.c" -o CMakeFiles\Projet_IFB.dir\load_sauvegarde.c.s
 
 # Object files for target Projet_IFB
 Projet_IFB_OBJECTS = \
@@ -235,7 +235,7 @@ Projet_IFB.exe: CMakeFiles/Projet_IFB.dir/build.make
 Projet_IFB.exe: CMakeFiles/Projet_IFB.dir/linklibs.rsp
 Projet_IFB.exe: CMakeFiles/Projet_IFB.dir/objects1.rsp
 Projet_IFB.exe: CMakeFiles/Projet_IFB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable Projet_IFB.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable Projet_IFB.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Projet_IFB.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -248,6 +248,6 @@ CMakeFiles/Projet_IFB.dir/clean:
 .PHONY : CMakeFiles/Projet_IFB.dir/clean
 
 CMakeFiles/Projet_IFB.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Admin\CLionProjects\Projet_IFB C:\Users\Admin\CLionProjects\Projet_IFB C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug C:\Users\Admin\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles\Projet_IFB.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Admin\CLionProjects\Projet_IFBxxx C:\Users\Admin\CLionProjects\Projet_IFBxxx C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug C:\Users\Admin\CLionProjects\Projet_IFBxxx\cmake-build-debug\CMakeFiles\Projet_IFB.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Projet_IFB.dir/depend
 

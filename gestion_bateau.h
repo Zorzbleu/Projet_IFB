@@ -9,9 +9,9 @@
 // gestion_bateau
 
 
-void generation_bateau(boat * boat, Grid * grid  );
-void implentation_bateau(boat * boat, Grid * grid);
-int verification_emplacement_bateau(boat * boat, Grid * grid);
+void generation_bateau(boat * bateaux, Grid * boat_grid  );
+void implentation_bateau(boat * bateaux, Grid * boat_grid);
+int verification_emplacement_bateau(boat * bateaux, Grid * boat_grid);
 
 void generer_caracteristique_bateaux (boat * l_bateaux,int i );
 

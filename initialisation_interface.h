@@ -10,7 +10,7 @@
 void initialization_grille(Grid * grid);
 void show_grid(Grid * grid);
 void regler_dimention (Grid * boat , Grid *  grid);
-void initialization_caracteristiques_bateaux(boat liste_bateau[5]);
+void initialization_caracteristiques_bateaux(boat * liste_bateau[]);
 
 
 

@@ -38,18 +38,19 @@ void regler_dimention (Grid * boat, Grid * grid){
     grid->largeur = 10;
 }
 
-void initialization_caracteristiques_bateaux(boat liste_bateaux[5]) {
-    liste_bateaux[0].length = 2;
-    liste_bateaux[1].length = 3;
+void initialization_caracteristiques_bateaux(boat  *liste_bateaux[]) {
+    int i =0;
+    liste_bateaux[0]->length = 2;
+    liste_bateaux[1]->length = 3;
 
     for (int i = 2; i < 5; ++i) {
-        liste_bateaux[i].length = i+1;
+        liste_bateaux[i]->length = i+1;
     }
 
     for (int i = 0; i < 5; ++i) {
 
-        liste_bateaux[i].id = 'a' +i;
-        liste_bateaux[i].id_dead = 'A' +i;
-        liste_bateaux[i].pv = liste_bateaux[i].pv;
+        liste_bateaux[i]->id = 'a' +i;
+        liste_bateaux[i]->id_dead = 'A' +i;
+        liste_bateaux[i]->pv = liste_bateaux[i]->pv;
     }
 }

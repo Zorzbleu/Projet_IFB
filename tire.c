@@ -17,8 +17,9 @@ int hitscan(int X, int Y, Grid *boat_grid, Grid *user_grid, boat  liste[]) {
         else {
             for (i = 0; i < 5; i++) {
                 if (boat_grid->grid[X][Y] == liste[i].id) {
-                    printf("Le bateau %c est touche en %c%d!\n", i + 'A', Y + 'A', X + 1);
+                   // printf("Le bateau %c est touche en %c%d!\n", i + 'A', Y + 'A', X + 1);
                     liste[i].pv--;
+                    /**
                     if(liste[i].orientation == 0){
                         printf("\n%d,%d\n",X,liste[i].CooX);
                         liste[i].pv_detaille[X - liste[i].CooX] = 1;
@@ -27,11 +28,15 @@ int hitscan(int X, int Y, Grid *boat_grid, Grid *user_grid, boat  liste[]) {
                         liste[i].pv_detaille[Y - liste[i].CooY] = 1;
                     }
 
-                    printf("\nBateau %c a pour pv : ", liste[i].id);
+                    printf("\nBateau %c a pour pv : ", liste[i].id_dead);
                     for (int j = 0; j < 5; ++j) {
                         printf("%d",liste[i].pv_detaille[j]);
-                    }
-                    printf("\n");
+                    }*/
+                    printf("\nBateau %c a pour pv : %d %c\n ", liste[i].id_dead,liste[i].pv,3);
+
+
+
+                   // printf("\n");
                     if (liste[i].pv == 0)
                         printf("Le bateau coule !\n");
                     user_grid->grid[X][Y] = 'O';

@@ -7,48 +7,48 @@
 #include <stdio.h>
 #include <time.h>
 
-void generation_bateau(boat * boat, Grid *grid ) {
+void generation_bateau(boat * bateaux, Grid *boat_grid ) {
     int i=0;
 
 
 
-    srand(time(NULL)*boat->id);
+    srand(time(NULL)*bateaux->id);
 
     do {
-        boat->orientation = rand() % 2;
-        switch(boat->orientation) {
+        bateaux->orientation = rand() % 2;
+        switch(bateaux->orientation) {
             case 1 :
-                boat->CooX = rand() % N ;
-                boat->CooY = rand() % (N-boat->length) ;
+                bateaux->CooX = rand() % N ;
+                bateaux->CooY = rand() % (N-bateaux->length) ;
                 break;
             case 0 :
-                boat->CooX = rand() % (N-boat->length) ;
-                boat->CooY = rand() % N ;
+                bateaux->CooX = rand() % (N-bateaux->length) ;
+                bateaux->CooY = rand() % N ;
                 break;
             default :
                 printf("Erreur : orientation ni 0 ni 1");
                 exit(0);
         }
-    } while(verification_emplacement_bateau(boat, grid) != 1);
+    } while(verification_emplacement_bateau(bateaux, boat_grid) != 1);
 
     do {
         i++;
-        implentation_bateau(boat, grid);
-    } while (grid->grid[boat->CooX][boat->CooY] == '_');
+        implentation_bateau(bateaux, boat_grid);
+    } while (boat_grid->grid[bateaux->CooX][bateaux->CooY] == '_');
     if (i<1)
         printf("%d implementations !\n",i);
 }
 
 
-void implentation_bateau(boat  * boat, Grid * grid) {
+void implentation_bateau(boat  * boat, Grid * boat_grid) {
     int i;
     if(boat->orientation == 0) { //implentation verticale (axe des x)
         for (i=0; i < boat->length ; i++) {
-            grid->grid[boat->CooX+i][boat->CooY] = boat->id;
+            boat_grid->grid[boat->CooX+i][boat->CooY] = boat->id;
         }
     } else {
         for (i=0; i < boat->length; i++) { //implentation horizontale (axe des y)
-            grid->grid[boat->CooX][boat->CooY+i] = boat->id;
+            boat_grid->grid[boat->CooX][boat->CooY+i] = boat->id;
         }
     }
 
@@ -56,26 +56,26 @@ void implentation_bateau(boat  * boat, Grid * grid) {
 
 
 
-int verification_emplacement_bateau(boat * boat, Grid * grid) {
-    int X = boat->CooX, Y = boat->CooY;
+int verification_emplacement_bateau(boat * bateaux, Grid * boat_grid) {
+    int X = bateaux->CooX, Y = bateaux->CooY;
 
 
-    if(boat->orientation == 0) { //regarde pour orientation verticale
-        for (; X - boat->CooX < boat->length; X++) { //la vérification doit être fait pour toutes les cases occupées par le bateau
-            if (grid->grid[X][Y] != '_') { //'_' représente une case vide : si elle n'est pas vide, un bateau est déjà à cette endroit là et on ne peut donc pas générer le nouveau bateau
-                if ( grid->grid[X][Y] != boat->id ||grid->grid[X][Y] != boat->id_dead  ){
+    if(bateaux->orientation == 0) { //regarde pour orientation verticale
+        for (; X - bateaux->CooX < bateaux->length; X++) { //la vérification doit être fait pour toutes les cases occupées par le bateau
+            if (boat_grid->grid[X][Y] != '_') { //'_' représente une case vide : si elle n'est pas vide, un bateau est déjà à cette endroit là et on ne peut donc pas générer le nouveau bateau
+                if ( boat_grid->grid[X][Y] != bateaux->id ||boat_grid->grid[X][Y] != bateaux->id_dead  ){
                     return(0);
                 }
             }
         }
         return(1);
 
-    } else {if(boat->orientation == 1) {
+    } else {if(bateaux->orientation == 1) {
 
-            for (; Y - boat->CooY < boat->length; Y++ ) {
+            for (; Y - bateaux->CooY < bateaux->length; Y++ ) {
 
-                if (grid->grid[X][Y] != '_') {
-                    if ( grid->grid[X][Y] != boat->id ||grid->grid[X][Y] != boat->id_dead  ){
+                if (boat_grid->grid[X][Y] != '_') {
+                    if ( boat_grid->grid[X][Y] != bateaux->id ||boat_grid->grid[X][Y] != bateaux->id_dead  ){
                         return(0);
                     }
                 }

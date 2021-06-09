@@ -48,7 +48,7 @@ int affichage_menu_demarrage(){
     return demarrer;
 }
 
-void initialisation_caracteristiques_bateaux(bateau *liste_bateaux){
+void initialisation_caracteristiques_bateaux(boat *liste_bateaux){
     liste_bateaux[0].length = 2;
     liste_bateaux[1].length = 3;
     liste_bateaux[2].length = 3;

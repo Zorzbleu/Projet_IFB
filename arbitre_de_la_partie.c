@@ -112,3 +112,10 @@ return 1 ;
 
 
 
+
+void mode_active_deplacer_bateaux ( boat * liste_bateaux , Grid * boat_grid){
+
+}
+
+
+

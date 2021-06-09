@@ -59,12 +59,7 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bat
     load_caracteristique_grid(user_grid, sauvegarde,cent_case); // sauvegard la grille des bateaux
     *choix_mode_de_jeux = sauvegarde.mode_rep_save;
 
-    for (i =0  ; i < nb_bateaux ; i++ ){
-        load_orientation(&liste_bateaux[i],&sauvegarde,i );
-        load_pv (&liste_bateaux[i],&sauvegarde,i);
-        load_Coo ( &liste_bateaux[i],sauvegarde, deux_case);
-        deux_case += 2;
-    }
+
 
     //load les coordonés de chaque bateau
     // sauvegarder les coordonees de chaque bateau
