@@ -31,26 +31,35 @@ void show_grid(Grid * grid) {
 
 }
 
-void regler_dimention (Grid * boat, Grid * grid){
-    boat->hauteur = 10;
-    boat->largeur = 10;
-    grid->hauteur = 10;
-    grid->largeur = 10;
+void dimension_tableau(Grid *grid, int hauteur, int largeur){
+    grid->hauteur = hauteur;
+    grid->largeur = largeur;
 }
 
-void initialization_caracteristiques_bateaux(boat  *liste_bateaux[]) {
-    int i =0;
-    liste_bateaux[0]->length = 2;
-    liste_bateaux[1]->length = 3;
 
-    for (int i = 2; i < 5; ++i) {
-        liste_bateaux[i]->length = i+1;
+void initialization_boats_characteristics(boat *liste_bateaux, int nb_bateaux){
+    liste_bateaux[0].length = 2;
+    liste_bateaux[1].length = 3;
+    for (int i = 2; i < nb_bateaux; ++i) {
+        liste_bateaux[i].length = i + 1;
     }
 
-    for (int i = 0; i < 5; ++i) {
-
-        liste_bateaux[i]->id = 'a' +i;
-        liste_bateaux[i]->id_dead = 'A' +i;
-        liste_bateaux[i]->pv = liste_bateaux[i]->pv;
+    for (int i = 0; i < nb_bateaux ;++i) {
+        liste_bateaux[i].id = 'a' + i;
+        liste_bateaux[i].id_dead = 'A' + i;
+        liste_bateaux[i].pv = liste_bateaux[i].length;
+        for (int j = 0; j < 5; ++j) {
+            liste_bateaux[i].pv_detaille[j] = 0;
+        }
     }
+
+
+}
+
+void initialization_default(Grid *boat_grid, Grid *user_grid, boat *liste_bateaux, int nb_bateaux){
+    dimension_tableau(boat_grid, 10, 10);
+    dimension_tableau(user_grid, 10, 10);
+    initialization_grille(user_grid);
+    initialization_grille(boat_grid);
+    initialization_boats_characteristics(liste_bateaux, nb_bateaux);
 }

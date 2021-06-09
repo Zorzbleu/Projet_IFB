@@ -1,5 +1,5 @@
 //
-// Created by Peterrr on 14/05/2021.
+// Created by Pierre-Olivier on 14/05/2021.
 //
 
 #ifndef PROJET_IFB_FONCTIONS_INITIALISATION_BATAILLE_H
@@ -7,12 +7,6 @@
 #define N 10
 #include "structure.h"
 
-
-
-
-/////
-
-// sauvergard_load
 
 
 

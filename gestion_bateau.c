@@ -2,7 +2,6 @@
 // Created by Admin on 27/05/2021.
 //
 #include "gestion_bateau.h"
-#include "structure.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -93,14 +92,10 @@ void generer_caracteristique_bateaux (boat * l_bateaux,int i){
     if (l_bateaux == NULL){
         exit(1);
         }
-
         l_bateaux->length = i + 1;
         l_bateaux->id = 'a' + i;
         l_bateaux->id_dead = 'A' + i;
         l_bateaux->pv = l_bateaux->length;
-
-
-
 }
 
 

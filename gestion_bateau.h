@@ -21,6 +21,6 @@ void initialisation_pv_detaille (boat * baot);
 void sauvegarde_pv_detaille (boat * baot,Grid  * user);
 void effacer_bateau (Grid *boat_grid, boat bateau, int numero_bateau);
 
-void active_mode(Grid *boat_grid, boat boat_list[], int difficulte);
+
 
 #endif //PROJET_IFB_GESTION_BATEAU_H

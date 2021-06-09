@@ -48,9 +48,9 @@ void fonction_lecture_sauvegarde(save  * sauvegarde){
 
 }
 
-void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bateaux[],Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux ){
+void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bateaux[5],Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux ){
     int  deux_case = 0  , cent_case =0; //// pour sauvegarder les pv des bateaux / pou sauvegarder les Coo des bateaux
-    int i =0 ;
+    int i;
 
 
     load_inventory (liste_missile,sauvegarde); //sauvegarder le nombre de chaque missile
@@ -59,7 +59,12 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bat
     load_caracteristique_grid(user_grid, sauvegarde,cent_case); // sauvegard la grille des bateaux
     *choix_mode_de_jeux = sauvegarde.mode_rep_save;
 
-
+    for (i =0  ; i < nb_bateaux ; i++ ){
+        load_orientation(liste_bateaux[i],sauvegarde,i );
+        load_pv (liste_bateaux[i],sauvegarde,i);
+        load_Coo (liste_bateaux[i],sauvegarde, deux_case);
+        deux_case += 2;
+    }
 
     //load les coordonés de chaque bateau
     // sauvegarder les coordonees de chaque bateau
@@ -77,7 +82,7 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bat
 
 
 
-void load_inventory (Inventory * liste,  save sauvegarde ){
+void load_inventory (Inventory *liste,  save sauvegarde ){
 
 
     liste->nb_missile_artillerie=sauvegarde.inventory_save[0] ;
@@ -92,7 +97,7 @@ void load_inventory (Inventory * liste,  save sauvegarde ){
 
 void load_caracteristique_grid (Grid * grid , save sauvegarde , int cent_case){
 
-    int i = 0,j=0;
+    int i,j;
     int dix_case=0;
 
     for (j=0 ; j<10 ; j++ ){
@@ -106,10 +111,10 @@ void load_caracteristique_grid (Grid * grid , save sauvegarde , int cent_case){
 
 }
 
-void load_Coo (boat  * liste_bateaux, save   sauvegarde,int deux_case){
+void load_Coo (boat  *liste_bateaux, save   sauvegarde,int deux_case){
 
      // sauvegarder les coordonees de chaque bateau
-        liste_bateaux->CooX=sauvegarde.Coo_save[deux_case ] ;
+        liste_bateaux->CooX=sauvegarde.Coo_save[deux_case] ;
         liste_bateaux->CooY=sauvegarde.Coo_save[deux_case +1] ;
         deux_case += 2;
 
@@ -122,18 +127,15 @@ void load_Coo (boat  * liste_bateaux, save   sauvegarde,int deux_case){
 
 
 
-void load_orientation (boat  * liste_bateaux,save * sauvegarde,int i  ){
-
-
-        liste_bateaux->orientation = sauvegarde->orientation_save[i]   ;
-
+void load_orientation (boat  *liste_bateaux,save  sauvegarde,int i  ){
+        liste_bateaux->orientation = sauvegarde.orientation_save[i]   ;
 }
 
 
-void load_pv(boat  * liste_bateaux,save  * sauvegarde,int i ){
+void load_pv(boat * liste_bateaux,save  sauvegarde,int i ){
 
 
-        liste_bateaux->pv= sauvegarde->pv_save[i];
+        liste_bateaux->pv= sauvegarde.pv_save[i];
 
 
 }

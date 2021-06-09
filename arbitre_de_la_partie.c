@@ -83,14 +83,16 @@ int choix_missile_tire( Inventory * l_missile){
 
         printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
                l_missile->nb_missile_default, l_missile->nb_missile_tactique, l_missile->nb_missile_bombe, l_missile->nb_missile_artillerie);
-        fflush(stdin);
-        scanf(" %d", &missile);
+    do{
+        missile = fgetc(stdin) - 48;
+    }while( getchar() != '\n');
 
 
     while( missile < 0 || missile > 4){
         printf ( "Erreur : le type de missile choisie n'existe pas ");
-        fflush(stdin);
-        scanf(" %d", &missile);
+        do{
+            missile = fgetc(stdin) - 48;
+        }while( getchar() != '\n');
     }
 
     return missile;

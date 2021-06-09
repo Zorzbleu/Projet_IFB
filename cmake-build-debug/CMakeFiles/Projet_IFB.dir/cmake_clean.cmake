@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj"
   "CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj"
-  "CMakeFiles/Projet_IFB.dir/fonctions_initialisation_bataille.c.obj"
+  "CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj"
   "CMakeFiles/Projet_IFB.dir/gestion_bateau.c.obj"
   "CMakeFiles/Projet_IFB.dir/initialisation_interface.c.obj"
   "CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj"

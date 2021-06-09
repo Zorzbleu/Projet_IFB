@@ -48,7 +48,11 @@ typedef struct{
     int orientation_save[5];
 } save ;
 
-
+typedef  struct{
+    char Given_Coordinates[3];
+    int X_Coordinates;
+    int Y_Coordinates;
+} Missile_Coordinates;
 
 
 #endif //PROJET_IFB_STRUCTURE_H

@@ -8,133 +8,138 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Projet_IFB">
-				<Option output="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Projet_IFB.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug"/>
+				<Option output="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Projet_IFB.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projet_IFB"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projet_IFB"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Projet_IFB/fast">
-				<Option output="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Projet_IFB.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug"/>
+				<Option output="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Projet_IFB.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projet_IFB/fast"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Projet_IFB/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Admin/CLionProjects/Projet_IFBxxx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Peterrr/CLionProjects/Projet_IFB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/arbitre_de_la_partie.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/arbitre_de_la_partie.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/arbitre_de_la_partie.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/arbitre_de_la_partie.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/donnees_du_jeux.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/donnees_du_jeux.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/donnees_du_jeux.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/donnees_du_jeux.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/fonctions initialisation bataille.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/fonctions initialisation bataille.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/fonctions initialisation bataille.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/fonctions_tour_de_jeu.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/gestion_bateau.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/fonctions_tour_de_jeu.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/gestion_bateau.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/gestion_bateau.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/initialisation_interface.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/gestion_bateau.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/initialisation_interface.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/initialisation_interface.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/load sauvegarde.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/initialisation_interface.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/load sauvegarde.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/load sauvegarde.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/main.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/load sauvegarde.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/sauvegarde.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/main.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/sauvegarde.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/sauvegarde.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/structure.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/sauvegarde.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/tire.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/structure.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/tire.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/tire.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/type_missile.c">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/tire.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/type_missile.h">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/type_missile.c">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxx/CMakeLists.txt">
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/type_missile.h">
+			<Option target="Projet_IFB"/>
+		</Unit>
+		<Unit filename="C:/Users/Peterrr/CLionProjects/Projet_IFB/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
