@@ -173,215 +173,42 @@ int main() {
         if (choix_mode_de_jeux == 3 ){
             deplacer_ou_pas  = aleatoir_deplacer_ou_pas(choix_difficulte);
             if( deplacer_ou_pas == 1 ){
-
-
                 int axe_XY,nb_bateau,nb_deplacement,sens_deplacement;
 
                 srand(time(0));
                 do{
-                axe_XY = rand () % 2; //alea1 axe x ou y exemple : si axe_XY = 0 alors ons ce deplace dans le sens des X
+                    axe_XY = rand () % 2; //alea1 axe x ou y exemple : si axe_XY = 0 alors ons ce deplace dans le sens des X
                     nb_bateau = rand () % 6 ; //numero du bateau
-                nb_deplacement = rand () % 2 + 1  ; //nombre de deplacement
-                sens_deplacement = rand () % 2+1; // + ou - Exemple si sens_deplacement = 1 alors le bateau avance si non il recule
-                    if (axe_XY == 0){
+                    nb_deplacement = rand () % 2 + 1  ; //nombre de deplacement
+                    sens_deplacement = rand () % 2+1; // + ou - Exemple si sens_deplacement = 1 alors le bateau avance si non il recule
 
-                        if (sens_deplacement == 1 ){
-                            liste_bateaux[nb_bateau].CooX = liste_bateaux[nb_bateau].CooX + nb_deplacement;
-                        } else{
-                            liste_bateaux[nb_bateau].CooX = liste_bateaux[nb_bateau].CooX - nb_deplacement;
+                    ajouter_coordonne(&liste_bateaux, axe_XY,nb_bateau,nb_deplacement,sens_deplacement);
 
-                        }
-
-                    }else{
-
-
-                        if (sens_deplacement == 1 ){
-                            liste_bateaux[nb_bateau].CooY = liste_bateaux[nb_bateau].CooY +  nb_deplacement ;
-                        }else{
-                            liste_bateaux[nb_bateau].CooY = liste_bateaux[nb_bateau].CooY - nb_deplacement ;
-                        }
-
-                    }
 
                     if (verification_emplacement_bateau(&liste_bateaux[nb_bateau], &boat_grid) != 1){/// si le ne pouvais pas ce deplacer , il faut le redonner ses coordoné d'origine
-                        if (axe_XY == 0){
 
-                            if (sens_deplacement == 1 ){
-                                liste_bateaux[nb_bateau].CooX = liste_bateaux[nb_bateau].CooX - nb_deplacement;
-                            } else{
-                                liste_bateaux[nb_bateau].CooX = liste_bateaux[nb_bateau].CooX + nb_deplacement;
-
-                            }
-
-                        }else{
-
-
-                            if (sens_deplacement == 1 ){
-                                liste_bateaux[nb_bateau].CooY = liste_bateaux[nb_bateau].CooY -  nb_deplacement ;
-                            }else{
-                                liste_bateaux[nb_bateau].CooY = liste_bateaux[nb_bateau].CooY + nb_deplacement ;
-                            }
-
-                        }
-
-
+                        retirer_coordonner(&liste_bateaux, axe_XY,nb_bateau,nb_deplacement,sens_deplacement);
                     }
-                    }while(verification_emplacement_bateau(&liste_bateaux[nb_bateau], &boat_grid) != 1);
-                    printf (" Un bateau a ete deplace !!!!\n");
-                    i=0;
+
+                }while(verification_emplacement_bateau(&liste_bateaux[nb_bateau], &boat_grid) != 1);
 
 
-
-                //initialization_grille(&boat_grid);
-
-                ///sauvegarde des bateaux
-                char tampon [5];
+                    char tampon [5]= {0};
                 for ( i = 0 ; i < liste_bateaux[nb_bateau].length; i++){
-                if (liste_bateaux[nb_bateau].orientation == 0 ){
-                    if (axe_XY == 0){
-                    if (sens_deplacement == 1 ){
-                        tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX-nb_deplacement+i][liste_bateaux[nb_bateau].CooY];
-                    }else{
-                        tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX+nb_deplacement+i][liste_bateaux[nb_bateau].CooY];
-                    }
-                }else{
-                    if (sens_deplacement == 1 ){
-                        tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX+i][liste_bateaux[nb_bateau].CooY-nb_deplacement];//
-                    }else{
-                        tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX+i] [liste_bateaux[nb_bateau].CooY+nb_deplacement];//
-                    }
-                    }
-                }else{//////////////// bateau orienter selon l'axe des Y
-
-                    if (axe_XY == 0){
-                        if (sens_deplacement == 1 ){
-                            tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX-nb_deplacement][liste_bateaux[nb_bateau].CooY+i];
-                        }else{
-                            tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX+nb_deplacement+i][liste_bateaux[nb_bateau].CooY+i];
-                        }
-                    }else{
-                        if (sens_deplacement == 1 ){
-                            tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX][liste_bateaux[nb_bateau].CooY-nb_deplacement+i];//
-                        }else{
-                            tampon[0+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX] [liste_bateaux[nb_bateau].CooY+nb_deplacement+i];//
-                        }
-                    }
-                    // la memoire tampon a enregister tous les caractère du bateau dans un tableau
-                }
-                }
-
-                /// placer les bateaux
-
-                    for ( i=0 ; i< liste_bateaux[nb_bateau].length ; i++){
-                        if (liste_bateaux[nb_bateau].orientation == 0 ){
-                        boat_grid.grid[liste_bateaux[nb_bateau].CooX+i][liste_bateaux[nb_bateau].CooY] = tampon[0+i];
-                        }else{
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX][liste_bateaux[nb_bateau].CooY+i] = tampon[0+i];
-                        }
-                        show_grid(&boat_grid);
-
-                    }
-
-
-
-
-
-///récriture de la grille pour affacer les bateaux
-
-/**
-                for (i=0 ; i< liste_bateaux[nb_bateau].length ; i++){
-                    if (liste_bateaux[nb_bateau].orientation == 0 ){
-                    if( axe_XY == 0 ){
-                        if (sens_deplacement == 1 ){
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX+i][liste_bateaux[nb_bateau].CooY] = tampon[0+i];
-                        }else{
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX+i][liste_bateaux[nb_bateau].CooY] = tampon[0+i];
-                        }
-                    }else{
-                        if (sens_deplacement == 1 ){
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX][liste_bateaux[nb_bateau].CooY+i] = boat_grid.grid[liste_bateaux[nb_bateau].CooX-nb_deplacement][liste_bateaux[nb_bateau].CooY+i];//
-                        }else{
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX] [liste_bateaux[nb_bateau].CooY+i]= boat_grid.grid[liste_bateaux[nb_bateau].CooX+nb_deplacement] [liste_bateaux[nb_bateau].CooY+i];//
-                        }
-
-                    }
-                    /// bateau orienter selon Y
-                }else{
-
-                    }
-                    show_grid(&boat_grid);
-                }
-                */
-
-                for ( i = 0 ; i < liste_bateaux[nb_bateau].length; i++){
-                    if (liste_bateaux[nb_bateau].orientation == 0 ){
-                        if (axe_XY == 0){
-                            if (sens_deplacement == 1 ){
-                                boat_grid.grid[liste_bateaux[nb_bateau].CooX-nb_deplacement+i][liste_bateaux[nb_bateau].CooY] = '_';
-                            }else{
-                                 boat_grid.grid[liste_bateaux[nb_bateau].CooX+nb_deplacement+i][liste_bateaux[nb_bateau].CooY] = '_';
-                            }
-                        }else{
-                            if (sens_deplacement == 1 ){
-                                boat_grid.grid[liste_bateaux[nb_bateau].CooX+i][liste_bateaux[nb_bateau].CooY-nb_deplacement] = '_';//
-                            }else{
-                                 boat_grid.grid[liste_bateaux[nb_bateau].CooX+i] [liste_bateaux[nb_bateau].CooY+nb_deplacement] = '_';//
-                            }
-                        }
-                    }else{//////////////// bateau orienter selon l'axe des Y
-
-                    if (axe_XY == 0){
-                        if (sens_deplacement == 1 ){
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX-nb_deplacement][liste_bateaux[nb_bateau].CooY+i]='_';
-                        }else{
-                           boat_grid.grid[liste_bateaux[nb_bateau].CooX+nb_deplacement+i][liste_bateaux[nb_bateau].CooY+i]='_';
-                        }
-                    }else{
-                        if (sens_deplacement == 1 ){
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX][liste_bateaux[nb_bateau].CooY-nb_deplacement+i]='_';//
-                        }else{
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX] [liste_bateaux[nb_bateau].CooY+nb_deplacement+i]='_';//
-                        }
-                    }
-                    // la memoire tampon a enregister tous les caractère du bateau dans un tableau
-                    show_grid(&boat_grid);
-                }
+                    sauvegarde_caracter_bateau(&liste_bateaux,&boat_grid,nb_bateau,nb_deplacement,axe_XY,sens_deplacement,&tampon[i]);
                 }
 
 
-/**
-                for (i=0 ; i< liste_bateaux[nb_bateau].length ; i++){
-                    if( liste_bateaux[axe_XY].orientation == 1 ){
-                        if (sens_deplacement == 1 ){
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX-nb_deplacement+i][liste_bateaux[nb_bateau].CooY] = 'z';
-                        }else{
-                            boat_grid.grid[liste_bateaux[nb_bateau].CooX+nb_deplacement+i][liste_bateaux[nb_bateau].CooY] = 'z';
-                            }
-                        }else{
-                            if (sens_deplacement == 1 ){
-                                boat_grid.grid[liste_bateaux[nb_bateau].CooX][liste_bateaux[nb_bateau].CooY-nb_deplacement+i] = 'z';
-                            }else{
-                                boat_grid.grid[liste_bateaux[nb_bateau].CooX] [liste_bateaux[nb_bateau].CooY+nb_deplacement+i]= 'z';
-                        }
 
-                    }
-                    show_grid(&boat_grid);
+                for ( i=0 ; i< liste_bateaux[nb_bateau].length ; i++){
+                    placer_carater_sauvegarder_bateau(&liste_bateaux,&user_grid,&tampon[i],nb_bateau);
                 }
-                */
 
 
-/**
-                i=0;
-                do {
-                        i++;
-                        implentation_bateau(&liste_bateaux[i], &boat_grid);
-                    } while (boat_grid.grid[liste_bateaux[i].CooX][liste_bateaux[i].CooY] == '_');
-                    */
-             //   implentation_bateau(&liste_bateaux[nb_bateau], &boat_grid);
-
-
+                effacer_encien_bateau(&liste_bateaux,&boat_grid,nb_bateau,nb_deplacement,axe_XY,sens_deplacement);
 
                 }
+            printf (" Un bateau a ete deplace !!!!\n");
 
             }
 

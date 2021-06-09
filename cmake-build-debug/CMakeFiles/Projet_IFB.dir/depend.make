@@ -3,7 +3,7 @@
 
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../arbitre_de_la_partie.c
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../arbitre_de_la_partie.h
-CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../gestion_bateau.h
+CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../initialisation_interface.h
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../structure.h
 
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: ../donnees_du_jeux.c
