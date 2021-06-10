@@ -19,17 +19,12 @@
 int main() {
     int i;
     int nb_bateaux=5; //donne le nombre de bateau sur la grille (dans notre cas, 5)
-
-
     int missile_choisie;
-
     int choix_mode_de_jeux=0,choix_difficulte=0,choix_demarrage=0; //choix par défaut
     int deplacer_ou_pas; //gère la probabilité de déplacement d'un bateau en mode active
     int deux_case = 0; // pour sauvegarder les pv des bateaux / pour sauvegarder les Coo des bateaux
-
-
     int J_Q; // jouer ou quitter(et sauvegarde)
-    save sauvegarde;
+
 
 
 
@@ -38,6 +33,7 @@ int main() {
     Grid boat_grid, user_grid;
     Inventory liste_missile;
     Missile_Coordinates Coordonnees_missile;
+    save sauvegarde;
     //initialisation de la liste des 5 bateaux
     boat *liste_bateaux = NULL;
     liste_bateaux = malloc(sizeof(boat) * nb_bateaux);
@@ -47,14 +43,10 @@ int main() {
 
 
 
-
-
-
-
     //Le programme démarre : menu principal
 
-    choix_demarrage=affichage_menu_demarrage();
-    switch(choix_demarrage) {
+
+    switch(affichage_menu_demarrage()) {
 
         case 3 :
             return 0;
@@ -119,7 +111,24 @@ int main() {
         missile_choisie = choix_missile_tire(&liste_missile);
 
         coordonnees_tir(&Coordonnees_missile);
-        lancement_tir(Coordonnees_missile, missile_choisie, &boat_grid, &user_grid, &liste_bateaux, &liste_missile);
+
+        switch (missile_choisie) {
+            case 1 :
+                fire_missile(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
+                break;
+            case 2 :
+                fire_tactical(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
+                break;
+            case 3 :
+                fire_bomb(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
+                break;
+            case 4 :
+                fire_artillery(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
+                break;
+            default :
+                printf("Erreur : valeur 'type_missile' invalide");
+        }
+        //lancement_tir(Coordonnees_missile, missile_choisie, boat_grid, user_grid, liste_bateaux, liste_missile);
 
 
 

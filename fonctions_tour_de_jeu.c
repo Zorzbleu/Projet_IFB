@@ -17,13 +17,13 @@ void coordonnees_tir(Missile_Coordinates* Coordonnees_missile){
     do {
         printf("Ou voulez-vous tirer ? Exemple : C7\n");
         do{
-            fgets(Coordonnees_missile->Given_Coordinates, 3, stdin);
+            fgets(Coordonnees_missile->Given_Coordinates, 4, stdin);
             Coordonnees_missile->Given_Coordinates[strcspn(Coordonnees_missile->Given_Coordinates, "\n")] = '\0';
         }while((getchar()) != '\n');
 
         Coordonnees_missile->Y_Coordinates = (toupper(Coordonnees_missile->Given_Coordinates[0]) - 'A');
 
-        if (Coordonnees_missile->Given_Coordinates[1] == '1' && Coordonnees_missile->Given_Coordinates[2] == '0') { // si le joueur a entré 3 caractères alors il a décidé de tirer dans la 10ème colonne
+        if (Coordonnees_missile->Given_Coordinates[1] == '1' && Coordonnees_missile->Given_Coordinates[2] == '0') {
             Coordonnees_missile->X_Coordinates = 9;
         }else{
             Coordonnees_missile->X_Coordinates = Coordonnees_missile->Given_Coordinates[1]-48 -1 ;
@@ -32,20 +32,20 @@ void coordonnees_tir(Missile_Coordinates* Coordonnees_missile){
     } while (Coordonnees_missile->X_Coordinates > 10 || Coordonnees_missile->X_Coordinates <= -1 || Coordonnees_missile->Y_Coordinates > 10 || Coordonnees_missile->Y_Coordinates <= -1);
 }
 
-void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie, Grid* boat_grid, Grid* user_grid, boat* liste_bateaux[], Inventory* liste_missile){
+void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie, Grid boat_grid, Grid user_grid, boat liste_bateaux[], Inventory liste_missile){
 
     switch (missile_choisie) {
         case 1 :
-            fire_missile(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,boat_grid,user_grid,*liste_bateaux,liste_missile);
+            fire_missile(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, &boat_grid, &user_grid, liste_bateaux, &liste_missile);
             break;
         case 2 :
-            fire_tactical(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,boat_grid,user_grid,*liste_bateaux,liste_missile);
+            fire_tactical(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, &boat_grid, &user_grid, liste_bateaux, &liste_missile);
             break;
         case 3 :
-            fire_bomb(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,boat_grid,user_grid,*liste_bateaux,liste_missile);
+            fire_bomb(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, &boat_grid, &user_grid, liste_bateaux, &liste_missile);
             break;
         case 4 :
-            fire_artillery(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,boat_grid,user_grid,*liste_bateaux,liste_missile);
+            fire_artillery(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, &boat_grid, &user_grid, liste_bateaux, &liste_missile);
             break;
         default :
             printf("Erreur : valeur 'type_missile' invalide");
