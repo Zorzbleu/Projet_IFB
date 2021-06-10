@@ -48,9 +48,6 @@ void initialization_boats_characteristics(boat *liste_bateaux, int nb_bateaux){
         liste_bateaux[i].id = 'a' + i;
         liste_bateaux[i].id_dead = 'A' + i;
         liste_bateaux[i].pv = liste_bateaux[i].length;
-        for (int j = 0; j < 5; ++j) {
-            liste_bateaux[i].pv_detaille[j] = 0;
-        }
     }
 
 

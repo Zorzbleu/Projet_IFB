@@ -59,26 +59,7 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bat
     load_caracteristique_grid(user_grid, sauvegarde,cent_case); // sauvegard la grille des bateaux
     *choix_mode_de_jeux = sauvegarde.mode_rep_save;
 
-    for (i =0  ; i < nb_bateaux ; i++ ){
-        load_orientation(liste_bateaux[i],sauvegarde,i );
-        load_pv (liste_bateaux[i],sauvegarde,i);
-        load_Coo (liste_bateaux[i],sauvegarde, deux_case);
-        deux_case += 2;
-    }
-
-    //load les coordonés de chaque bateau
-    // sauvegarder les coordonees de chaque bateau
-
-   // load les orientations
-
-
-
-
-
-
 }
-
-
 
 
 
@@ -113,11 +94,10 @@ void load_caracteristique_grid (Grid * grid , save sauvegarde , int cent_case){
 
 void load_Coo (boat  *liste_bateaux, save   sauvegarde,int deux_case){
 
-     // sauvegarder les coordonees de chaque bateau
+
         liste_bateaux->CooX=sauvegarde.Coo_save[deux_case] ;
         liste_bateaux->CooY=sauvegarde.Coo_save[deux_case +1] ;
         deux_case += 2;
-
 
 
 

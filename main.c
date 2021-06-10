@@ -19,7 +19,7 @@ int main() {
     int missile_choisie;
     int choix_mode_de_jeux=0,choix_difficulte=0,choix_demarrage=0; //choix par défaut
     int deplacer_ou_pas; //gère la probabilité de déplacement d'un bateau en mode active
-    int deux_case = 0; // pour sauvegarder les pv des bateaux / pour sauvegarder les Coo des bateaux
+    int deux_case = 0; // pour sauvegarder les Coo des bateaux
 
 
 
@@ -42,7 +42,6 @@ int main() {
 
     //Le programme démarre : menu principal
 
-
     switch(affichage_menu_demarrage()) {
 
         case 3 :
@@ -54,9 +53,11 @@ int main() {
             for (i =0  ; i < nb_bateaux ; i++ ){
                 load_orientation(&liste_bateaux[i],sauvegarde,i );
                 load_pv (&liste_bateaux[i],sauvegarde,i);
-                load_Coo ( &liste_bateaux[i],sauvegarde, deux_case);
+                load_Coo (&liste_bateaux[i],sauvegarde, deux_case);
                 deux_case += 2;
             }
+
+
 
 
             i = 0;
@@ -75,11 +76,18 @@ int main() {
             choix_difficulte= affichage_menu_difficulte();
             modifier_nombre_missile (choix_difficulte, &liste_missile );
 
+            break;
+        default:
+
+            break;
+    }
+
+
+
 
     ///Boucle principale du jeu
 
     do{
-
         if(check_lose_condition(liste_missile) == 0){printf("Vous avez perdu !"); exit(0);}
 
         if (choix_mode_de_jeux != 2 ){
@@ -99,9 +107,7 @@ int main() {
 
         coordonnees_tir(&Coordonnees_missile);
 
-        lancement_tir(Coordonnees_missile, missile_choisie, &boat_grid, &user_grid, &liste_bateaux, &liste_missile);
-
-
+        lancement_tir(Coordonnees_missile, missile_choisie, &boat_grid, &user_grid, &liste_bateaux, &liste_missile,choix_mode_de_jeux);
 
         if (choix_mode_de_jeux == 3 ){
             active_mode(choix_difficulte, liste_bateaux, &boat_grid);
@@ -110,15 +116,7 @@ int main() {
     } while(check_win_condition(liste_bateaux, nb_bateaux) != 0);
     printf("Vous avez gagne !\n");
 
-            break;
-        default:
-            break;
-    }
 
-
-
-
-       // si le joueur a choisie de load une partie, il ne faut pas : generer des bateaux , demander le mode de jeux, demander la difficulté de jeu
 
 
 

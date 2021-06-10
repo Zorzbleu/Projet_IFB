@@ -5,7 +5,7 @@
 #ifndef PROJET_IFB_STRUCTURE_H
 #define PROJET_IFB_STRUCTURE_H
 #define N 10
-  // .h qi stock toutes les structures
+
 typedef struct{
     int orientation;
     int length;
@@ -14,7 +14,6 @@ typedef struct{
     char id;
     char id_dead;
     int pv;
-    int pv_detaille[5];
 } boat ;
 
 typedef struct {
@@ -22,13 +21,6 @@ typedef struct {
     int hauteur;
     char grid[N][N];
 } Grid ;
-/**
-typedef struct {
-    int largeur;
-    int hauteur;
-    char grid[];
-} grid ;
-*/
 
 
 typedef struct{

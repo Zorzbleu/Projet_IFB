@@ -10,6 +10,6 @@
 // tire
 
 
-int hitscan(int X, int Y, Grid *grid, Grid *user_grid, boat  liste[]);
+int hitscan(int X, int Y, Grid *grid, Grid *user_grid, boat  liste[],int mode_de_jeux);
 
 #endif //PROJET_IFB_TIRE_H

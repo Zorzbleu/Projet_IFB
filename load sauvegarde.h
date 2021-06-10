@@ -29,17 +29,13 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bat
  */
 void fonction_lecture_sauvegarde(save * sauvegarde);
 
-// les
+// fonction utilier par "fonction_load"
 void load_inventory (Inventory * liste,save  sauvegarde);
 void load_caracteristique_grid (Grid * user_grid ,save sauvegarde , int cent_case);
 
 void load_orientation(boat   *liste_bateaux,save sauvegarde, int i );
 void load_pv(boat   *liste_bateaux,save  sauvegarde , int i );
 void load_Coo (boat  *liste_bateaux,save  sauvegarde,int deux_case);
-
-void load_life_bateaux( boat * liste_bateaux ,save  sauvegarde, int cinq_case );
-void load_mode (int  * mode_rep,save  sauvegarde);
-
 
 
 #endif //PROJET_IFB_LOAD_SAUVEGARDE_H

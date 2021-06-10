@@ -21,11 +21,13 @@ int choix_missile_tire( Inventory * l_missile);
 int aleatoir_deplacer_ou_pas( int difficulte);
 
 
-
-
-void retirer_coordonner ( boat * liste_bateaux,int axe_XY,int nb_deplacement, int sens_deplacement);
-void sauvegarde_caracter_bateau (  boat * liste_bateaux[] , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement ,char * tampon);
-void placer_carater_sauvegarder_bateau (  boat * liste_bateaux[] , Grid * boat_grid,char * tampon,int nb_bateau);
-void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement,int axe_XY,int sens_deplacement  );
 void active_mode(int choix_difficulte, boat liste_bateaux[], Grid* boat_grid);
+
+void modifier_coordonne ( boat * bateaux,int axe_XY,int nb_deplacement, int sens_deplacement);
+void retirer_coordonner ( boat * liste_bateaux,int axe_XY,int nb_deplacement, int sens_deplacement);
+void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement,int axe_XY,int sens_deplacement  );
+void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement);
+
+
+
 #endif //PROJET_IFB_ARBITRE_DE_LA_PARTIE_H

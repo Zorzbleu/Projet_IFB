@@ -81,7 +81,7 @@ void fonction_sauvegarde( save * sauvegarde, boat liste_bateaux[],Inventory list
     cent_case += 100;
     save_caracteristique_grid(&user_grid, sauvegarde,cent_case); // sauvegard la grille des bateaux
 
-    //save orientation ( ne marche pas pk ??? pour le bateaux n1 ca marche mais pour les bateaux 2.3.4.5 l'orientationest de 257 ??? )
+
     save_orientation(liste_bateaux,sauvegarde,nb_bateaux);
 
 
@@ -106,7 +106,7 @@ void save_inventory (Inventory * liste,  save * sauvegarde ){
 
 void save_Coo (boat  liste[], save * sauvegarde,int deux_case,int nb_bateaux){
     int i = 0 ;
-    for (i=0 ; i<nb_bateaux ; i ++ ){ // sauvegarder les coordonees de chaque bateau
+    for (i=0 ; i<nb_bateaux ; i ++ ){
         sauvegarde->Coo_save[deux_case ] = liste[i].CooX;
         sauvegarde->Coo_save[deux_case +1] = liste[i].CooY;
 

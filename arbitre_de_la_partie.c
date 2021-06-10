@@ -22,10 +22,10 @@ int check_win_condition(boat liste[], int nb_bateaux) {
 
 int check_lose_condition(Inventory liste_missiles){
     if(liste_missiles.nb_missile_artillerie == 0 && liste_missiles.nb_missile_bombe == 0 && liste_missiles.nb_missile_tactique == 0 && liste_missiles.nb_missile_default ==0){
-        return(0);
+        return(0); // le joueur a perdu
     }
     else{
-        return(1);
+        return(1); // le joueur n'a as perdu
     }
 }
 
@@ -71,7 +71,7 @@ void modifier_nombre_missile (int difficulte, Inventory * liste ){
 
 
             break;
-        case 4 : // discitife des differances des differentes diffiucultes
+        case 4 : // discritife  des differentes difficultes
             printf (
                     "-1- Facile : 10 de chaque categorie\n"
                     "-2- Moyen :  3 missiles de artilleries, 5 bombes, 5 missiles tactiques, 10 missiles simples\n"
@@ -94,25 +94,12 @@ int aleatoir_deplacer_ou_pas( int difficulte){
     srand(time(0));
     alea= rand() % 100 +1;
 
-
-return 1 ;
     if ( alea <= difficulte*20){
-        return 1; // 1 equivau a dire"oui un bateau est deplace"
+        return 1; // 1 equivau a dire "oui un bateau ves être deplace"
     }
     return 0;
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -257,7 +244,7 @@ void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,
 
 
 void active_mode(int choix_difficulte, boat liste_bateaux[], Grid *boat_grid){
-    int deplacer_ou_pas;
+    int deplacer_ou_pas ;
 
     deplacer_ou_pas  = aleatoir_deplacer_ou_pas(choix_difficulte);
     if( deplacer_ou_pas == 1 ){
@@ -270,17 +257,12 @@ void active_mode(int choix_difficulte, boat liste_bateaux[], Grid *boat_grid){
             nb_deplacement = rand () % 2 + 1  ; //nombre de deplacement
             sens_deplacement = rand () % 2+1; // + ou - Exemple si sens_deplacement = 1 alors le bateau avance si non il recule
 
+
             modifier_coordonne(&liste_bateaux[nb_bateau], axe_XY,nb_deplacement,sens_deplacement);
 
-
-            //     boat * bateaux,int axe_XY,int nb_deplacement, int sens_deplacement
-
-
             if (verification_emplacement_bateau(&liste_bateaux[nb_bateau], boat_grid) != 1){/// si le ne pouvais pas ce deplacer , il faut le redonner ses coordoné d'origine
-
                 retirer_coordonner(&liste_bateaux[nb_bateau], axe_XY,nb_deplacement,sens_deplacement);
             }
-
         }while(verification_emplacement_bateau(&liste_bateaux[nb_bateau], boat_grid) != 1);
 
 

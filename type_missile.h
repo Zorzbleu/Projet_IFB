@@ -6,11 +6,13 @@
 #define PROJET_IFB_TYPE_MISSILE_H
 #include "structure.h"
 
-//type_missile
-void fire_artillery(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile);
-void fire_bomb(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile );
-void fire_tactical(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile);
-void fire_missile(int X, int Y, Grid *grid, Grid *user_grid, boat  liste[],  Inventory *liste_missile);
+
+
+void fire_artillery(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile,int mode_de_jeux);
+void fire_bomb(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile ,int mode_de_jeux);
+void fire_tactical(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[],  Inventory *liste_missile,int mode_de_jeux);
+void fire_missile(int X, int Y, Grid *grid, Grid *user_grid, boat  liste[],  Inventory *liste_missile,int mode_de_jeux); // missile de base
+
 
 
 #endif //PROJET_IFB_TYPE_MISSILE_H
