@@ -89,7 +89,7 @@ void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement
 
 
 
-void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement);
+void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,int nb_deplacement,int axe_XY,int sens_deplacement);
 
 
 

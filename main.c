@@ -17,8 +17,7 @@ int main() {
     int i;
     int nb_bateaux=5; //donne le nombre de bateau sur la grille (dans notre cas, 5)
     int missile_choisie;
-    int choix_mode_de_jeux=0,choix_difficulte=0,choix_demarrage=0; //choix par défaut
-    int deplacer_ou_pas; //gère la probabilité de déplacement d'un bateau en mode active
+    int choix_mode_de_jeux=0,choix_difficulte=0;
     int deux_case = 0; // pour sauvegarder les Coo des bateaux
 
 

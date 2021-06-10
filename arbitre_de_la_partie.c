@@ -192,7 +192,7 @@ void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement
 }
 
 
-void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement){
+void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,int nb_deplacement,int axe_XY,int sens_deplacement){
     int i =0;
     char sauvegards_des_caracters [5];
 
@@ -266,7 +266,7 @@ void active_mode(int choix_difficulte, boat liste_bateaux[], Grid *boat_grid){
         }while(verification_emplacement_bateau(&liste_bateaux[nb_bateau], boat_grid) != 1);
 
 
-        sauvegarder_et_placer_caracter_bateau(&liste_bateaux[nb_bateau],boat_grid,nb_bateau,nb_deplacement,axe_XY,sens_deplacement);
+        sauvegarder_et_placer_caracter_bateau(&liste_bateaux[nb_bateau],boat_grid,nb_deplacement,axe_XY,sens_deplacement);
 
 
 
