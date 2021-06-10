@@ -3,32 +3,60 @@
 //
 #include <stdio.h>
 #include "donnees_du_jeux.h"
+#define e_accent_aigu 130
 
 int affichage_menu_difficulte(){
-    printf("Quelle difficulte voulez-vous ?\n"
-           "1-Facile\n"
-           "2-Moyen\n"
-           "3-Difficile\n"
-           "4- Rappel des difference entre les modes\n");
+    printf("                                                                                                                       \n"
+           "                                              Choisissez la difficult%c :                                               \n"
+           "                                                                                                                       \n"
+           "1-Facile                    2-Moyen                  3-Difficile               4- Rappel des diff%crences entre les modes\n"
+           "                                                                                         \n",e_accent_aigu,e_accent_aigu);
     return(choix_menu_multiple(4));
 }
 
 
 int  affichage_menu_mode_de_jeux(){
-    printf("Bienvenue ! \n Pret a jouer a la bataille navale ?\n"
-           "Dans quel mode de jeu voulez-vous jouer ?\n"
-           "Choisissez le mode de jeu :\n1. Normal\n2. Blind\n3. Active\n");
+    printf("                                                                                                                       \n"
+           "                                              Choisissez le mode de jeu :                                              \n"
+           "                                                                                                                       \n"
+           "1- Normal                                               2- Blind                                              3- Active\n"
+           "                                                                                         \n");
     return(choix_menu_multiple(3));
 }
 
 int affichage_menu_demarrage(){
-    printf ("1- Demarrer une nouvelle partie\n2- Charger une partie existante\n3- Quitter\n");
+    printf ("                                                                                                                       \n"
+            "1- Nouvelle partie                              2- Charger une partie existante                              3- Quitter\n"
+            "                                                                                                                       \n");
     return(choix_menu_multiple(3));
 }
 
-int affichage_choix_missile( Inventory l_missile){
-    printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
-           l_missile.nb_missile_default, l_missile.nb_missile_tactique, l_missile.nb_missile_bombe, l_missile.nb_missile_artillerie);
+void affichage_choix_missile( Inventory l_missile){
+    printf("\n                      Inventory\n"
+           "   ______________________________________________\n"
+           "   |                                            |\n"
+           "   |    1 - Normal :              %d restant",l_missile.nb_missile_default);
+    if(l_missile.nb_missile_default < 10) {printf(" ");}
+    printf(                                         "    |\n"
+           "   |                                            |\n"
+           "   |    2 - Tactique :            %d restant",l_missile.nb_missile_tactique);
+    if(l_missile.nb_missile_tactique < 10) {printf(" ");}
+    printf(                                         "    |\n"
+           "   |                                            |\n"
+           "   |    3 - Bombe :               %d restant ",l_missile.nb_missile_bombe);
+    if(l_missile.nb_missile_bombe < 10)
+        printf(" ");
+    printf(                                          "   |\n"
+           "   |                                            |\n"
+           "   |    4 - Artillerie :          %d restant ",l_missile.nb_missile_artillerie);
+    if(l_missile.nb_missile_artillerie < 10) {printf(" ");}
+    printf(                                         "   |\n"
+           "   |____________________________________________|\n");
+
+}
+
+int choix_missile(){
+    printf("\nChoisissez votre missile.\n");
     return(choix_menu_multiple(4));
 }
 

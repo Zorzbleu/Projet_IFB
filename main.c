@@ -20,15 +20,25 @@ int main() {
     int choix_mode_de_jeux=0,choix_difficulte=0;
     int deux_case = 0; // pour sauvegarder les Coo des bateaux
 
-
-
-
+    printf("\n"
+           "                   ____  ___  _________    ______    __    ______   _   _____ _    _____    __    ______               \n"
+           "                  / __ )/   |/_  __/   |  /  _/ /   / /   / ____/  / | / /   | |  / /   |  / /   / ____/               \n"
+           "                 / __  / /| | / / / /| |  / // /   / /   / __/    /  |/ / /| | | / / /| | / /   / __/                  \n"
+           "                / /_/ / ___ |/ / / ___ |_/ // /___/ /___/ /___   / /|  / ___ | |/ / ___ |/ /___/ /___                  \n"
+           "               /_____/_/  |_/_/ /_/  |_/___/_____/_____/_____/  /_/ |_/_/  |_|___/_/  |_/_____/_____/                  \n"
+           "                                                                                                                       \n"
+           "                                                       Bienvenue !                                                     \n"
+           "                                                                                                                       \n"
+           "                                                                                                                       \n"
+           "CAYETANOT Pierre-Olivier                             CHAINTRON Louis                                       ANTONY Louis\n"
+           "                                                                                                                       \n"
+           );
 
 
     //déclaration des structures utilisées par le jeu
     Grid boat_grid, user_grid;
-    Inventory liste_missile;
-    Missile_Coordinates Coordonnees_missile;
+    Inventory liste_missile = {0,0,0,0};
+    Missile_Coordinates Coordonnees_missile = {'\0',0,0};
     save sauvegarde;
     //initialisation de la liste des 5 bateaux
     boat *liste_bateaux = NULL;
@@ -72,8 +82,12 @@ int main() {
             }
 
             choix_mode_de_jeux= affichage_menu_mode_de_jeux();
-            choix_difficulte= affichage_menu_difficulte();
-            modifier_nombre_missile (choix_difficulte, &liste_missile );
+            do {
+                choix_difficulte= affichage_menu_difficulte();
+                modifier_nombre_missile (choix_difficulte, &liste_missile);
+            } while(choix_difficulte > 3 && choix_difficulte > 0);
+
+
 
             break;
         default:
@@ -88,9 +102,17 @@ int main() {
     do{
         if(check_lose_condition(liste_missile) == 0){printf("Vous avez perdu !"); exit(0);}
 
-        if (choix_mode_de_jeux != 2 ){show_grid(&user_grid);} //Si on n'est pas en mode blind, on affiche la grille à k=l'utilisateur
-        afficher_bateau_couler_et_pv(liste_bateaux,nb_bateaux);
 
+        if (choix_mode_de_jeux != 2 )
+        {
+            show_grid(&user_grid, liste_bateaux);
+        }
+        else{
+            afficher_bateau_couler_et_pv(liste_bateaux,nb_bateaux);
+        }
+        //Si on n'est pas en mode blind, on affiche la grille à l'utilisateur
+
+        affichage_choix_missile(liste_missile);
 
         if ( continuer_partie() == 'N' ){ //le joueur a choisie d'arreter de jouer, donc on sauvegarde avant de "fermer" le programme
             // On choisit d'abord de sauvegarder toues les donné utiles dans une structure.
@@ -98,12 +120,11 @@ int main() {
             fonction_ecriture_sauvegarde(sauvegarde);
             return 0 ; // on quitte le programme après avoir écrit dans un fichier.txt la sauvegarde
         }
-
-        missile_choisie = affichage_choix_missile(liste_missile);
+        missile_choisie = choix_missile();
 
         coordonnees_tir(&Coordonnees_missile);
 
-        lancement_tir(Coordonnees_missile, missile_choisie, &boat_grid, &user_grid, &liste_bateaux, &liste_missile,choix_mode_de_jeux);
+        lancement_tir(Coordonnees_missile, missile_choisie, &boat_grid, &user_grid, &liste_bateaux, &liste_missile);
 
         if (choix_mode_de_jeux == 3 ){
             active_mode(choix_difficulte, liste_bateaux, &boat_grid);
@@ -111,7 +132,8 @@ int main() {
 
     } while(check_win_condition(liste_bateaux, nb_bateaux) != 0);
 
-    printf("Vous avez gagne !\n");
-    show_grid(&user_grid);
+    printf("Vous avez gagne%d !\n",130);
+    show_grid(&user_grid,liste_bateaux);
+    show_grid(&boat_grid,liste_bateaux);
     return (0);
 }

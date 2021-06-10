@@ -31,12 +31,23 @@ int check_lose_condition(Inventory liste_missiles){
 
 void afficher_bateau_couler_et_pv( boat liste_bateaux[],int nb_bateaux){
     int i  ;
-
-    for (i = 0; i < nb_bateaux; i++) {
-        if (liste_bateaux[i].pv == 0)
-        {printf("Le bateau %c touche le fond !\n", liste_bateaux[i].id_dead);}
+    printf(" ____________________\n");
+    for (i = 0; i < nb_bateaux*2; i++) {
+        if( (i+1) % 2 == 1)
+        {
+            printf(" |%c longueur %d: %d %c |",liste_bateaux[i/2].id_dead,liste_bateaux[i/2].length, liste_bateaux[i/2].pv, 3);
+        }
         else
-        {printf("%c longueur %d: %d %c.\n", liste_bateaux[i].id_dead,liste_bateaux[i].length, liste_bateaux[i].pv, 3);}
+        {
+            if(i==nb_bateaux*2-1)
+            {
+                printf(" |__________________|\n");
+            }
+            else{
+                printf(" |                  |");
+            }
+        }
+        printf("\n");
     }
 
 
@@ -72,14 +83,17 @@ void modifier_nombre_missile (int difficulte, Inventory * liste ){
 
             break;
         case 4 : // discritife  des differentes difficultes
-            printf (
-                    "-1- Facile : 10 de chaque categorie\n"
-                    "-2- Moyen :  3 missiles de artilleries, 5 bombes, 5 missiles tactiques, 10 missiles simples\n"
-                    "-3- Difficile : 1 missile de artillerie, 2 bombes, 4 missiles tactiques, 15 missiles simples\n\n\n");
-            printf("Qu'elle difficulte voulez-vous ?\n");
+            printf ("                                                                                                                       \n"
+                    "                                                                                                                       \n"
+                    "-1- Facile :    10 de chaque categorie.                                                                                 \n"
+                    "                                                                                                                       \n"
+                    "-2- Moyen :     3 missiles d'artilleries, 5 bombes, 5 missiles tactiques, 10 missiles simples.\n"
+                    "                                                                                                                       \n"
+                    "-3- Difficile : 1 missile d'artillerie,   2 bombes, 4 missiles tactiques, 15 missiles simples.\n\n\n");
+
             break;
         default :
-            printf( "Erreur : la valeur saisie n'est pas bonne.\nVeuillez saisir un chiffre compris entre 1 et 4.\n");
+            printf( "\nErreur : la valeur saisie n'est pas bonne.\n\nVeuillez saisir un chiffre compris entre 1 et 4.\n");
 
 
     }

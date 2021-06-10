@@ -21,7 +21,7 @@ void coordonnees_tir(Missile_Coordinates* Missile);
  * @param liste_missile
  * @param mode_de_jeux
  */
-void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie, Grid* boat_grid, Grid* user_grid, boat* liste_bateaux[], Inventory* liste_missile,int mode_de_jeux);
+void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie, Grid* boat_grid, Grid* user_grid, boat* liste_bateaux[], Inventory* liste_missile);
 /**
  *
  * @return

@@ -15,19 +15,37 @@ void initialization_grille(Grid * grid) {
     }
 }
 
-void show_grid(Grid * grid) {
+void show_grid(Grid * grid,boat liste_bateaux[]) {
     int x, y;
     for(x=0 ; x < grid->largeur; x++) {
-        printf("  %d", x+1);
+        if (x < 10) {printf(" ");}
+        printf(" %d", x+1);
     }
+    printf("  ____________________");
     printf("\n");
     for (y = 0; y < grid->hauteur; y++) {
         printf("%c ", 'A'+ y);
         for (x = 0; x < grid->largeur; x++) {
             printf("%c  ", grid->grid[x][y]);
         }
+        if( (y+1) % 2 == 1)
+        {
+            printf(" |%c longueur %d: %d %c |",liste_bateaux[y/2].id_dead,liste_bateaux[y/2].length, liste_bateaux[y/2].pv, 3);
+        }
+        else
+        {
+           if(y==grid->hauteur-1)
+           {
+               printf(" |__________________|\n");
+           }
+           else{
+               printf(" |                  |");
+           }
+        }
         printf("\n");
     }
+
+
 
 }
 

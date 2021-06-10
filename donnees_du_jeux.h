@@ -23,15 +23,11 @@ int affichage_menu_mode_de_jeux();
  */
 int affichage_menu_demarrage();
 /**
- *  affiche le menu des missiles à l'utilisateur  et lui demande le missile choisie
- * @return 1 missile normal
- * @return 2 tactical
- * @return 3 bomb
- * @return 4 artillery
+ *  affiche le menu des missiles à l'utilisateur
  * @param l_missile Permet l'affichage des missiles restants
  * @return
  */
-int affichage_choix_missile( Inventory l_missile);
+void affichage_choix_missile( Inventory l_missile);
 
 
 /**
@@ -42,4 +38,13 @@ int affichage_choix_missile( Inventory l_missile);
  */
 int choix_menu_multiple(int nombre_de_choix);
 
+/**
+ * demande le missile choisie
+ * @return 1 missile normal
+ * @return 2 tactical
+ * @return 3 bomb
+ * @return 4 artillery
+ * @return
+ */
+int choix_missile();
 #endif //PROJET_IFB_DONNEES_DU_JEUX_H

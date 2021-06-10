@@ -6,13 +6,14 @@
 #include "structure.h"
 #include "fonctions_tour_de_jeu.h"
 #include "type_missile.h"
-#include "arbitre_de_la_partie.h"
-
+#define u_accent 151
+#define e_circonflexe 136
 
 void coordonnees_tir(Missile_Coordinates* Coordonnees_missile){
 
     do {
-        printf("Ou voulez-vous tirer ? Exemple : C7\n");
+        printf("O%c voulez-vous tirer ? Exemple : C7\n",u_accent );
+
 
         fflush(stdin);
         fgets(Coordonnees_missile->Given_Coordinates, 4, stdin);
@@ -29,20 +30,20 @@ void coordonnees_tir(Missile_Coordinates* Coordonnees_missile){
     } while (Coordonnees_missile->X_Coordinates > 10 || Coordonnees_missile->X_Coordinates <= -1 || Coordonnees_missile->Y_Coordinates > 10 || Coordonnees_missile->Y_Coordinates <= -1);
 }
 
-void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie, Grid* boat_grid, Grid* user_grid, boat* liste_bateaux[], Inventory* liste_missile,int mode_de_jeux ){
+void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie, Grid* boat_grid, Grid* user_grid, boat* liste_bateaux[], Inventory* liste_missile){
 
     switch (missile_choisie) {
         case 1 :
-            fire_missile(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile,mode_de_jeux);
+            fire_missile(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile);
             break;
         case 2 :
-            fire_tactical(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile,mode_de_jeux);
+            fire_tactical(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile);
             break;
         case 3 :
-            fire_bomb(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile,mode_de_jeux);
+            fire_bomb(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile);
             break;
         case 4 :
-            fire_artillery(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile,mode_de_jeux);
+            fire_artillery(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile);
             break;
         default :
             printf("Erreur : valeur 'type_missile' invalide\n");
@@ -52,7 +53,9 @@ void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie,
 
 int continuer_partie(){
     int J_Q; // jouer ou quitter(et sauvegarde)
-    printf( "Voulez-vous continuer a jouer ? O/N ?\n ");
+    printf( "\n"
+            "                                         Voulez-vous continuer de jouer ?                                              \n"
+            "                    Continuer : O                                                     Arr%cter : N                      \n\n", e_circonflexe);
     fflush(stdin);
     J_Q = fgetc(stdin);
 

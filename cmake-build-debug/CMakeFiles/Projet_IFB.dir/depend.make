@@ -11,10 +11,8 @@ CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: ../donnees_du_jeux.c
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: ../donnees_du_jeux.h
 CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: ../structure.h
 
-CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../arbitre_de_la_partie.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../fonctions_tour_de_jeu.c
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../fonctions_tour_de_jeu.h
-CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../initialisation_interface.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../structure.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../type_missile.h
 

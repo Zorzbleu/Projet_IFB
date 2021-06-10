@@ -16,7 +16,7 @@ void initialization_grille(Grid * grid);
 /**Affiche une grille à l'écran ainsi que les axes X (A,B,C...) et Y (1,2,3...) de la bataille navale.
  *@param grid Grille affichée
  */
-void show_grid(Grid * grid);
+void show_grid(Grid * grid,boat liste_bateaux[]);
 
 
 /**Donne les valeurs de la largeur et de la hauteur d'une structure grid
