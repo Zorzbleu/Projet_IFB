@@ -3,6 +3,7 @@
 
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../arbitre_de_la_partie.c
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../arbitre_de_la_partie.h
+CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../gestion_bateau.h
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../initialisation_interface.h
 CMakeFiles/Projet_IFB.dir/arbitre_de_la_partie.c.obj: ../structure.h
 
@@ -13,7 +14,6 @@ CMakeFiles/Projet_IFB.dir/donnees_du_jeux.c.obj: ../structure.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../arbitre_de_la_partie.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../fonctions_tour_de_jeu.c
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../fonctions_tour_de_jeu.h
-CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../gestion_bateau.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../initialisation_interface.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../structure.h
 CMakeFiles/Projet_IFB.dir/fonctions_tour_de_jeu.c.obj: ../type_missile.h
@@ -33,7 +33,6 @@ CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj: ../structure.h
 
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../arbitre_de_la_partie.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../donnees_du_jeux.h
-CMakeFiles/Projet_IFB.dir/main.c.obj: ../fonctions\ initialisation\ bataille.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../fonctions_tour_de_jeu.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../gestion_bateau.h
 CMakeFiles/Projet_IFB.dir/main.c.obj: ../initialisation_interface.h

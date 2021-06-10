@@ -13,7 +13,7 @@ int hitscan(int X, int Y, Grid *boat_grid, Grid *user_grid, boat  liste[]) {
         boat_grid->grid[X][Y] = 'X';
         return (-1);
     } else {
-        if (boat_grid->grid[X][Y] == 'X') { printf("Tu as deja tire a cet endroit !"); }
+        if (boat_grid->grid[X][Y] == 'X') { printf("Tu as deja tire a cet endroit !"); return (-1);}
         else {
             for (i = 0; i < 5; i++) {
                 if (boat_grid->grid[X][Y] == liste[i].id) {

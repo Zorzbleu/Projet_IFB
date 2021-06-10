@@ -6,9 +6,9 @@
 #include "stdio.h"
 #include <stdlib.h>
 #include <time.h>
+#include "gestion_bateau.h"
 
-
-int win(boat liste[], int nb_bateaux) {
+int check_win_condition(boat liste[], int nb_bateaux) {
     int i, nb_bateau_vivant=0;
 
     for(i=0; i < nb_bateaux;i++){
@@ -18,6 +18,15 @@ int win(boat liste[], int nb_bateaux) {
     }
 
     return(nb_bateau_vivant);
+}
+
+int check_lose_condition(Inventory liste_missiles){
+    if(liste_missiles.nb_missile_artillerie == 0 && liste_missiles.nb_missile_bombe == 0 && liste_missiles.nb_missile_tactique == 0 && liste_missiles.nb_missile_default ==0){
+        return(0);
+    }
+    else{
+        return(1);
+    }
 }
 
 void afficher_bateau_touche_et_pv( boat liste_bateaux[],int nb_bateaux){
@@ -78,25 +87,7 @@ void modifier_nombre_missile (int difficulte, Inventory * liste ){
 
 
 
-int choix_missile_tire( Inventory * l_missile){
-    int missile ; // stock le choix du joueur
 
-        printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
-               l_missile->nb_missile_default, l_missile->nb_missile_tactique, l_missile->nb_missile_bombe, l_missile->nb_missile_artillerie);
-    do{
-        missile = fgetc(stdin) - 48;
-    }while( getchar() != '\n');
-
-
-    while( missile < 0 || missile > 4){
-        printf ( "Erreur : le type de missile choisie n'existe pas ");
-        do{
-            missile = fgetc(stdin) - 48;
-        }while( getchar() != '\n');
-    }
-
-    return missile;
-}
 
 int aleatoir_deplacer_ou_pas( int difficulte){
     int alea;
@@ -117,33 +108,41 @@ return 1 ;
 
 
 
-void ajouter_coordonne ( boat * liste_bateaux[],int axe_XY, int nb_bateau,int nb_deplacement, int sens_deplacement){
+
+
+
+
+
+
+
+
+void modifier_coordonne ( boat * bateaux,int axe_XY,int nb_deplacement, int sens_deplacement){
 
     if (axe_XY == 0){
 
         if (sens_deplacement == 1 ){
-            liste_bateaux[nb_bateau]->CooX = liste_bateaux[nb_bateau]->CooX + nb_deplacement;
+            bateaux->CooX = bateaux->CooX + nb_deplacement;
         } else{
-            liste_bateaux[nb_bateau]->CooX = liste_bateaux[nb_bateau]->CooX - nb_deplacement;
+            bateaux->CooX = bateaux->CooX - nb_deplacement;
         }
     }else{
         if (sens_deplacement == 1 ){
-            liste_bateaux[nb_bateau]->CooY = liste_bateaux[nb_bateau]->CooY +  nb_deplacement ;
+            bateaux->CooY = bateaux->CooY +  nb_deplacement ;
         }else{
-            liste_bateaux[nb_bateau]->CooY = liste_bateaux[nb_bateau]->CooY - nb_deplacement ;
+            bateaux->CooY = bateaux->CooY - nb_deplacement ;
         }
 
     }
 
 
 }
-void retirer_coordonner (  boat * liste_bateaux[],int axe_XY, int nb_bateau,int nb_deplacement, int sens_deplacement){
+void retirer_coordonner (  boat * liste_bateaux,int axe_XY, int nb_deplacement, int sens_deplacement){
     if (axe_XY == 0){
 
         if (sens_deplacement == 1 ){
-            liste_bateaux[nb_bateau]->CooX = liste_bateaux[nb_bateau]->CooX - nb_deplacement;
+            liste_bateaux->CooX = liste_bateaux->CooX - nb_deplacement;
         } else{
-            liste_bateaux[nb_bateau]->CooX = liste_bateaux[nb_bateau]->CooX + nb_deplacement;
+            liste_bateaux->CooX = liste_bateaux->CooX + nb_deplacement;
 
         }
 
@@ -151,9 +150,9 @@ void retirer_coordonner (  boat * liste_bateaux[],int axe_XY, int nb_bateau,int 
 
 
         if (sens_deplacement == 1 ){
-            liste_bateaux[nb_bateau]->CooY = liste_bateaux[nb_bateau]->CooY -  nb_deplacement ;
+            liste_bateaux->CooY = liste_bateaux->CooY -  nb_deplacement ;
         }else{
-            liste_bateaux[nb_bateau]->CooY = liste_bateaux[nb_bateau]->CooY + nb_deplacement ;
+            liste_bateaux->CooY = liste_bateaux->CooY + nb_deplacement ;
         }
 
     }
@@ -162,94 +161,38 @@ void retirer_coordonner (  boat * liste_bateaux[],int axe_XY, int nb_bateau,int 
 
 
 
-void sauvegarde_caracter_bateau ( boat * liste_bateaux[] , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement ,char * tampon){
-    int i =0;
 
+void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement,int axe_XY,int sens_deplacement ){
+    int i;
 
-
-        if (liste_bateaux[nb_bateau]->orientation == 0 ){
+    for ( i = 0 ; i < bateaux->length; i++){
+        if (bateaux->orientation == 0 ){
             if (axe_XY == 0){
                 if (sens_deplacement == 1 ){
-                  *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX-nb_deplacement+i][liste_bateaux[nb_bateau]->CooY];
+                    boat_grid->grid[bateaux->CooX-nb_deplacement+i][bateaux->CooY] = '_';
                 }else{
-                   * tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX+nb_deplacement+i][liste_bateaux[nb_bateau]->CooY];
+                    boat_grid->grid[bateaux->CooX+nb_deplacement+i][bateaux->CooY] = '_';
                 }
             }else{
                 if (sens_deplacement == 1 ){
-                    *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX+i][liste_bateaux[nb_bateau]->CooY-nb_deplacement];//
+                    boat_grid->grid[bateaux->CooX+i][bateaux->CooY-nb_deplacement] = '_';//
                 }else{
-                    *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX+i] [liste_bateaux[nb_bateau]->CooY+nb_deplacement];//
-                }
-            }
-        }else{//////////////// bateau orienter selon l'axe des Y
-
-            if (axe_XY == 0){
-                if (sens_deplacement == 1 ){
-                    *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX-nb_deplacement][liste_bateaux[nb_bateau]->CooY+i];
-                }else{
-                    *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX+nb_deplacement+i][liste_bateaux[nb_bateau]->CooY+i];
-                }
-            }else{
-                if (sens_deplacement == 1 ){
-                   *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX][liste_bateaux[nb_bateau]->CooY-nb_deplacement+i];//
-                }else{
-                    *tampon = boat_grid->grid[liste_bateaux[nb_bateau]->CooX] [liste_bateaux[nb_bateau]->CooY+nb_deplacement+i];//
-                }
-            }
-
-        }
-
-
-
-}
-void placer_carater_sauvegarder_bateau ( boat * liste_bateaux[] , Grid * boat_grid,char * tampon,int nb_bateau){
-    int i =0;
-
-        if (liste_bateaux[nb_bateau]->orientation == 0 ){
-            boat_grid->grid[liste_bateaux[nb_bateau]->CooX+i][liste_bateaux[nb_bateau]->CooY] = *tampon;
-        }else{
-            boat_grid->grid[liste_bateaux[nb_bateau]->CooX][liste_bateaux[nb_bateau]->CooY+i] = *tampon;
-        }
-        show_grid(boat_grid);
-
-
-
-
-
-}
-
-
-void effacer_encien_bateau (boat * liste_bateaux[] , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement ){
-    int i = 0 ;
-
-    for ( i = 0 ; i < liste_bateaux[nb_bateau]->length; i++){
-        if (liste_bateaux[nb_bateau]->orientation == 0 ){
-            if (axe_XY == 0){
-                if (sens_deplacement == 1 ){
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX-nb_deplacement+i][liste_bateaux[nb_bateau]->CooY] = '_';
-                }else{
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX+nb_deplacement+i][liste_bateaux[nb_bateau]->CooY] = '_';
-                }
-            }else{
-                if (sens_deplacement == 1 ){
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX+i][liste_bateaux[nb_bateau]->CooY-nb_deplacement] = '_';//
-                }else{
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX+i] [liste_bateaux[nb_bateau]->CooY+nb_deplacement] = '_';//
+                    boat_grid->grid[bateaux->CooX+i] [bateaux->CooY+nb_deplacement] = '_';//
                 }
             }
         }else{
 
             if (axe_XY == 0){
                 if (sens_deplacement == 1 ){
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX-nb_deplacement][liste_bateaux[nb_bateau]->CooY+i]='_';
+                    boat_grid->grid[bateaux->CooX-nb_deplacement][bateaux->CooY+i]='_';
                 }else{
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX+nb_deplacement+i][liste_bateaux[nb_bateau]->CooY+i]='_';
+                    boat_grid->grid[bateaux->CooX+nb_deplacement+i][bateaux->CooY+i]='_';
                 }
             }else{
                 if (sens_deplacement == 1 ){
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX][liste_bateaux[nb_bateau]->CooY-nb_deplacement+i]='_';//
+                    boat_grid->grid[bateaux->CooX][bateaux->CooY-nb_deplacement+i]='_';//
                 }else{
-                    boat_grid->grid[liste_bateaux[nb_bateau]->CooX] [liste_bateaux[nb_bateau]->CooY+nb_deplacement+i]='_';//
+                    boat_grid->grid[bateaux->CooX] [bateaux->CooY+nb_deplacement+i]='_';//
                 }
             }
 
@@ -260,3 +203,94 @@ void effacer_encien_bateau (boat * liste_bateaux[] , Grid * boat_grid,int nb_bat
 
 
 }
+
+
+void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,int nb_bateau,int nb_deplacement,int axe_XY,int sens_deplacement){
+    int i =0;
+    char sauvegards_des_caracters [5];
+
+    for ( i = 0 ; i < bateaux->length; i++){
+
+        if (bateaux->orientation == 0 ){ /// bateau orienter selon l'axe des x
+            if (axe_XY == 0){
+                if (sens_deplacement == 1 ){
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX-nb_deplacement+i][bateaux->CooY];
+                }else{
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX+nb_deplacement+i][bateaux->CooY];
+                }
+            }else{
+                if (sens_deplacement == 1 ){
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX+i][bateaux->CooY-nb_deplacement];//
+                }else{
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX+i] [bateaux->CooY+nb_deplacement];//
+                }
+            }
+        }else{/// bateau orienter selon l'axe des Y
+
+            if (axe_XY == 0){
+                if (sens_deplacement == 1 ){
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX-nb_deplacement][bateaux->CooY+i];
+                }else{
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX+nb_deplacement+i][bateaux->CooY+i];
+                }
+            }else{
+                if (sens_deplacement == 1 ){
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX-nb_deplacement][bateaux->CooY+i];//
+                }else{
+                    sauvegards_des_caracters[i] = boat_grid->grid[bateaux->CooX+nb_deplacement] [bateaux->CooY+i];//
+                }
+            }
+
+        }
+    }
+
+    for ( i = 0 ; i < bateaux->length; i++){
+        if (bateaux->orientation == 0 ){
+            boat_grid->grid[bateaux->CooX+i][bateaux->CooY] = sauvegards_des_caracters[i];
+        }else{
+            boat_grid->grid[bateaux->CooX][bateaux->CooY+i] = sauvegards_des_caracters[i];
+        }
+    }
+}
+
+
+
+
+void active_mode(int choix_difficulte, boat liste_bateaux[], Grid *boat_grid){
+    int deplacer_ou_pas;
+
+    deplacer_ou_pas  = aleatoir_deplacer_ou_pas(choix_difficulte);
+    if( deplacer_ou_pas == 1 ){
+        int axe_XY,nb_bateau,nb_deplacement,sens_deplacement;
+
+        srand(time(0));
+        do{
+            axe_XY = rand () % 2; //alea1 axe x ou y exemple : si axe_XY = 0 alors ons ce deplace dans le sens des X
+            nb_bateau = rand () % 6 ; //numero du bateau
+            nb_deplacement = rand () % 2 + 1  ; //nombre de deplacement
+            sens_deplacement = rand () % 2+1; // + ou - Exemple si sens_deplacement = 1 alors le bateau avance si non il recule
+
+            modifier_coordonne(&liste_bateaux[nb_bateau], axe_XY,nb_deplacement,sens_deplacement);
+
+
+            //     boat * bateaux,int axe_XY,int nb_deplacement, int sens_deplacement
+
+
+            if (verification_emplacement_bateau(&liste_bateaux[nb_bateau], boat_grid) != 1){/// si le ne pouvais pas ce deplacer , il faut le redonner ses coordoné d'origine
+
+                retirer_coordonner(&liste_bateaux[nb_bateau], axe_XY,nb_deplacement,sens_deplacement);
+            }
+
+        }while(verification_emplacement_bateau(&liste_bateaux[nb_bateau], boat_grid) != 1);
+
+
+        sauvegarder_et_placer_caracter_bateau(&liste_bateaux[nb_bateau],boat_grid,nb_bateau,nb_deplacement,axe_XY,sens_deplacement);
+
+
+
+        effacer_ancien_bateau(&liste_bateaux[nb_bateau],boat_grid,nb_deplacement,axe_XY,sens_deplacement);
+
+    }
+    printf (" Un bateau a ete deplace !!!!\n");
+}
+

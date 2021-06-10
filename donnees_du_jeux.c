@@ -26,18 +26,26 @@ int affichage_menu_demarrage(){
     return(choix_menu_multiple(3));
 }
 
+int affichage_choix_missile( Inventory l_missile){
+    printf("\nQuel missile voulez-vous tirer ?\n1 - Missile normal : %d restant\n2 - Missile tactique : %d restant\n3 - Bombe : %d restant\n4 - Missile d'artillerie : %d restant\n",
+           l_missile.nb_missile_default, l_missile.nb_missile_tactique, l_missile.nb_missile_bombe, l_missile.nb_missile_artillerie);
+    return(choix_menu_multiple(4));
+}
 
 int choix_menu_multiple(int nombre_de_choix){
     int choix;
 
     do{
+        fflush(stdin);
+
         choix = getchar() - 48; //en code ASCII, '0' a le numéro 48. On "transforme" ici un 0 "char" en 0 "int"
     }while( getchar() != '\n');
 
     while(choix < 1 || choix > nombre_de_choix){ // contrôle du mode de jeu
-        printf ( "Erreur : veuillez entrer un chiffre entre 1 et 3.\n");
-        printf("char choix : %c, int choix %d\n", choix, (int)choix);
+        printf( "Erreur : veuillez entrer un chiffre entre 1 et %d.\n", nombre_de_choix);
+
         do{
+            fflush(stdin);
             choix = getchar() - 48;//même logique que précédement
         }while( getchar() != '\n');
     }

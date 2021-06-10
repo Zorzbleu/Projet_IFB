@@ -12,6 +12,7 @@
 int affichage_menu_difficulte();
 int affichage_menu_mode_de_jeux();
 int affichage_menu_demarrage();
+int affichage_choix_missile( Inventory l_missile);
 
 /*Transforme le choix utilisateur de char venant du stdin en int entre 1 et n
  *Donne un message d'erreur si le choix n'est pas compris entre 1 et n

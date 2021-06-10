@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <string.h>
-#include <ctype.h>
+
 
 #include "type_missile.h"
-#include "fonctions initialisation bataille.h"
 #include "gestion_bateau.h"
 #include "initialisation_interface.h"
 #include "arbitre_de_la_partie.h"
@@ -23,7 +20,7 @@ int main() {
     int choix_mode_de_jeux=0,choix_difficulte=0,choix_demarrage=0; //choix par défaut
     int deplacer_ou_pas; //gère la probabilité de déplacement d'un bateau en mode active
     int deux_case = 0; // pour sauvegarder les pv des bateaux / pour sauvegarder les Coo des bateaux
-    int J_Q; // jouer ou quitter(et sauvegarde)
+
 
 
 
@@ -79,107 +76,44 @@ int main() {
             modifier_nombre_missile (choix_difficulte, &liste_missile );
 
 
+    ///Boucle principale du jeu
+
     do{
+
+        if(check_lose_condition(liste_missile) == 0){printf("Vous avez perdu !"); exit(0);}
+
         if (choix_mode_de_jeux != 2 ){
-            show_grid(&user_grid);
-            show_grid(&boat_grid);
+            show_grid(&user_grid);      //Si on n'est pas en mode blind, on affiche la grille à k=l'utilisateur
         }
         afficher_bateau_touche_et_pv(liste_bateaux,nb_bateaux);
 
 
-
-        printf( "Voulez-vous continuer a jouer ? O/N ?\n ");
-        do{
-            J_Q = fgetc(stdin);
-        }while( getchar() != '\n');
-        while (J_Q != 'O' && J_Q != 'N'){
-            printf("Erreur  : saisie  incorrecte \n");
-            do{
-                J_Q = fgetc(stdin);
-            }while( getchar() != '\n');
-        }
-
-        if ( J_Q == 'N' ){ //le joueur a choisie d'arreter de jouer, donc on sauvegarde avant de "fermer" le programme
-
-
+        if ( continuer_partie() == 'N' ){ //le joueur a choisie d'arreter de jouer, donc on sauvegarde avant de "fermer" le programme
             // On choisit d'abord de sauvegarder toues les donné utiles dans une structure.
             fonction_sauvegarde(&sauvegarde,liste_bateaux,liste_missile,user_grid,boat_grid,nb_bateaux,choix_mode_de_jeux);
             fonction_ecriture_sauvegarde(sauvegarde);
             return 0 ; // on quitte le programme après avoir écrit dans un fichier.txt la sauvegarde
         }
 
-        missile_choisie = choix_missile_tire(&liste_missile);
+        missile_choisie = affichage_choix_missile(liste_missile);
 
         coordonnees_tir(&Coordonnees_missile);
 
-        switch (missile_choisie) {
-            case 1 :
-                fire_missile(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
-                break;
-            case 2 :
-                fire_tactical(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
-                break;
-            case 3 :
-                fire_bomb(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
-                break;
-            case 4 :
-                fire_artillery(Coordonnees_missile.X_Coordinates,Coordonnees_missile.Y_Coordinates,&boat_grid,&user_grid,liste_bateaux,&liste_missile);
-                break;
-            default :
-                printf("Erreur : valeur 'type_missile' invalide");
-        }
-        //lancement_tir(Coordonnees_missile, missile_choisie, boat_grid, user_grid, liste_bateaux, liste_missile);
+        lancement_tir(Coordonnees_missile, missile_choisie, &boat_grid, &user_grid, &liste_bateaux, &liste_missile);
 
 
 
         if (choix_mode_de_jeux == 3 ){
-            //active_mode(choix_difficulte, liste_bateaux, &boat_grid, &user_grid);
-            deplacer_ou_pas  = aleatoir_deplacer_ou_pas(choix_difficulte);
-            if( deplacer_ou_pas == 1 ){
-                int axe_XY,nb_bateau,nb_deplacement,sens_deplacement;
-
-                srand(time(0));
-                do{
-                    axe_XY = rand () % 2; //alea1 axe x ou y exemple : si axe_XY = 0 alors ons ce deplace dans le sens des X
-                    nb_bateau = rand () % 6 ; //numero du bateau
-                    nb_deplacement = rand () % 2 + 1  ; //nombre de deplacement
-                    sens_deplacement = rand () % 2+1; // + ou - Exemple si sens_deplacement = 1 alors le bateau avance si non il recule
-
-                    ajouter_coordonne(&liste_bateaux, axe_XY,nb_bateau,nb_deplacement,sens_deplacement);
-
-
-                    if (verification_emplacement_bateau(&liste_bateaux[nb_bateau], &boat_grid) != 1){/// si le ne pouvais pas ce deplacer , il faut le redonner ses coordoné d'origine
-
-                        retirer_coordonner(&liste_bateaux, axe_XY,nb_bateau,nb_deplacement,sens_deplacement);
-                    }
-
-                }while(verification_emplacement_bateau(&liste_bateaux[nb_bateau], &boat_grid) != 1);
-
-
-                char tampon [5]= {0};
-                for ( i = 0 ; i < liste_bateaux[nb_bateau].length; i++){
-                    sauvegarde_caracter_bateau(&liste_bateaux,&boat_grid,nb_bateau,nb_deplacement,axe_XY,sens_deplacement,&tampon[i]);
-                }
-
-
-
-                for ( i=0 ; i< liste_bateaux[nb_bateau].length ; i++){
-                    placer_carater_sauvegarder_bateau(&liste_bateaux,&user_grid,&tampon[i],nb_bateau);
-                }
-
-
-                effacer_encien_bateau(&liste_bateaux,&boat_grid,nb_bateau,nb_deplacement,axe_XY,sens_deplacement);
-
-            }
-            printf (" Un bateau a ete deplace !!!!\n");
+            active_mode(choix_difficulte, liste_bateaux, &boat_grid);
         }
 
-    } while(win(liste_bateaux, nb_bateaux) != 0);
+    } while(check_win_condition(liste_bateaux, nb_bateaux) != 0);
+    printf("Vous avez gagne !\n");
+
             break;
         default:
             break;
     }
-
 
 
 
