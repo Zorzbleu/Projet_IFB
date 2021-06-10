@@ -46,12 +46,7 @@ CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj: ../sauvegarde.c
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj: ../sauvegarde.h
 CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj: ../structure.h
 
-CMakeFiles/Projet_IFB.dir/tire.c.obj: ../structure.h
-CMakeFiles/Projet_IFB.dir/tire.c.obj: ../tire.c
-CMakeFiles/Projet_IFB.dir/tire.c.obj: ../tire.h
-
 CMakeFiles/Projet_IFB.dir/type_missile.c.obj: ../structure.h
-CMakeFiles/Projet_IFB.dir/type_missile.c.obj: ../tire.h
 CMakeFiles/Projet_IFB.dir/type_missile.c.obj: ../type_missile.c
 CMakeFiles/Projet_IFB.dir/type_missile.c.obj: ../type_missile.h
 

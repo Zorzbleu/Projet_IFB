@@ -25,7 +25,7 @@ int check_lose_condition(Inventory liste_missiles){
         return(0); // le joueur a perdu
     }
     else{
-        return(1); // le joueur n'a as perdu
+        return(1); // le joueur n'a pas perdu
     }
 }
 
@@ -89,13 +89,13 @@ void modifier_nombre_missile (int difficulte, Inventory * liste ){
 
 
 
-int aleatoir_deplacer_ou_pas( int difficulte){
+int aleatoire_deplacer_ou_pas( int difficulte){
     int alea;
     srand(time(0));
     alea= rand() % 100 +1;
 
     if ( alea <= difficulte*20){
-        return 1; // 1 equivau a dire "oui un bateau ves être deplace"
+        return 1; // 1 equivaut à dire "oui un bateau vas être deplace"
     }
     return 0;
 
@@ -246,7 +246,7 @@ void sauvegarder_et_placer_caracter_bateau (  boat * bateaux , Grid * boat_grid,
 void active_mode(int choix_difficulte, boat liste_bateaux[], Grid *boat_grid){
     int deplacer_ou_pas ;
 
-    deplacer_ou_pas  = aleatoir_deplacer_ou_pas(choix_difficulte);
+    deplacer_ou_pas  = aleatoire_deplacer_ou_pas(choix_difficulte);
     if( deplacer_ou_pas == 1 ){
         int axe_XY,nb_bateau,nb_deplacement,sens_deplacement;
 

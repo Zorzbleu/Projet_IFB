@@ -7,26 +7,28 @@
 #include "structure.h"
 
 /**
- * affiche le menue des difficultes a l'utilisateur  et lui demande en qu'elle difficulte il veux jeux
- * @return la difficulte choisie
+ * affiche le menu des difficultées à l'utilisateur  et lui demande la difficultée choisie
+ * @return la difficulté choisie
  */
 int affichage_menu_difficulte();
 /**
  *
- * affiche le menue des modse a l'utilisateur  et lui demande en qu'elle mod il veux jeux
- * @return  le mode de jeux choisie
+ * affiche le menu des modes à l'utilisateur  et lui demande le mode de jeu choisie
+ * @return  le mode de jeu choisie
  */
 int affichage_menu_mode_de_jeux();
 /**
- * affiche le menue de démarrage  a l'utilisateur  et lui demande si il veux commencer une nuovelle partie ou charger la précedante partie ou quitter le programme .
- * @return 1 pour commencez une nouvelle partie / 2 pour cargé la precedante partie / 3 pour quitter le jeux
+ * affiche le menu de démarrage  à l'utilisateur  et lui demande si il veut commencer une nouvelle partie ou charger la précédante partie ou quitter le programme .
+ * @return 1 pour commencez une nouvelle partie / 2 pour charger la précédante partie / 3 pour quitter le jeu
  */
 int affichage_menu_demarrage();
 /**
- *  affiche le menue des missiles a l'utilisateur  et le demande en qu'elle missile il veux tirer
- *
- *
- * @param l_missile
+ *  affiche le menu des missiles à l'utilisateur  et lui demande le missile choisie
+ * @return 1 missile normal
+ * @return 2 tactical
+ * @return 3 bomb
+ * @return 4 artillery
+ * @param l_missile Permet l'affichage des missiles restants
  * @return
  */
 int affichage_choix_missile( Inventory l_missile);
@@ -36,7 +38,7 @@ int affichage_choix_missile( Inventory l_missile);
  * Transforme le choix utilisateur de char venant du stdin en int entre 1 et n
  * Donne un message d'erreur si le choix n'est pas compris entre 1 et n
  * @param nombre_de_choix
- * @return
+ * @return Le numéro de l'option choisit par l'user (exemple : Mode de jeu 3, active)
  */
 int choix_menu_multiple(int nombre_de_choix);
 

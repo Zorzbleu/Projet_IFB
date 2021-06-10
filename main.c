@@ -25,7 +25,7 @@ int main() {
 
 
 
-    //déclaration des structures utilisées par défaut dans le jeu
+    //déclaration des structures utilisées par le jeu
     Grid boat_grid, user_grid;
     Inventory liste_missile;
     Missile_Coordinates Coordonnees_missile;
@@ -77,7 +77,6 @@ int main() {
 
             break;
         default:
-
             break;
     }
 
@@ -89,9 +88,7 @@ int main() {
     do{
         if(check_lose_condition(liste_missile) == 0){printf("Vous avez perdu !"); exit(0);}
 
-        if (choix_mode_de_jeux != 2 ){
-            show_grid(&user_grid);      //Si on n'est pas en mode blind, on affiche la grille à k=l'utilisateur
-        }
+        if (choix_mode_de_jeux != 2 ){show_grid(&user_grid);} //Si on n'est pas en mode blind, on affiche la grille à k=l'utilisateur
         afficher_bateau_couler_et_pv(liste_bateaux,nb_bateaux);
 
 
@@ -113,11 +110,8 @@ int main() {
         }
 
     } while(check_win_condition(liste_bateaux, nb_bateaux) != 0);
+
     printf("Vous avez gagne !\n");
-
-
-
-
-
+    show_grid(&user_grid);
     return (0);
 }

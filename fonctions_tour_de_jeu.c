@@ -45,7 +45,7 @@ void lancement_tir(Missile_Coordinates Coordonnees_missile, int missile_choisie,
             fire_artillery(Coordonnees_missile.X_Coordinates, Coordonnees_missile.Y_Coordinates, boat_grid, user_grid, *liste_bateaux, liste_missile,mode_de_jeux);
             break;
         default :
-            printf("Erreur : valeur 'type_missile' invalide");
+            printf("Erreur : valeur 'type_missile' invalide\n");
     }
 }
 

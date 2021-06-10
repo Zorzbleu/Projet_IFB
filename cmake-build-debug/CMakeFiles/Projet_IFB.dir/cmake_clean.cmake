@@ -7,7 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Projet_IFB.dir/load_sauvegarde.c.obj"
   "CMakeFiles/Projet_IFB.dir/main.c.obj"
   "CMakeFiles/Projet_IFB.dir/sauvegarde.c.obj"
-  "CMakeFiles/Projet_IFB.dir/tire.c.obj"
   "CMakeFiles/Projet_IFB.dir/type_missile.c.obj"
   "Projet_IFB.exe"
   "Projet_IFB.exe.manifest"

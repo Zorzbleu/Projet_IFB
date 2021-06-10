@@ -57,19 +57,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\Outils\IFB\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "D:\Outils\IFB\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Admin\CLionProjects\Projet_IFBxxxxxxxxxxx
+CMAKE_SOURCE_DIR = C:\Users\Peterrr\CLionProjects\Projet_IFB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Admin\CLionProjects\Projet_IFBxxxxxxxxxxx\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Peterrr\CLionProjects\Projet_IFB\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -77,7 +77,7 @@ CMAKE_BINARY_DIR = C:\Users\Admin\CLionProjects\Projet_IFBxxxxxxxxxxx\cmake-buil
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"D:\Outils\IFB\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -88,7 +88,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"D:\Outils\IFB\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -98,9 +98,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\CLionProjects\Projet_IFBxxxxxxxxxxx\cmake-build-debug\CMakeFiles C:\Users\Admin\CLionProjects\Projet_IFBxxxxxxxxxxx\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Peterrr\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles C:\Users\Peterrr\CLionProjects\Projet_IFB\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\CLionProjects\Projet_IFBxxxxxxxxxxx\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Peterrr\CLionProjects\Projet_IFB\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -357,33 +357,6 @@ sauvegarde.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet_IFB.dir\build.make CMakeFiles/Projet_IFB.dir/sauvegarde.c.s
 .PHONY : sauvegarde.c.s
 
-tire.obj: tire.c.obj
-
-.PHONY : tire.obj
-
-# target to build an object file
-tire.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet_IFB.dir\build.make CMakeFiles/Projet_IFB.dir/tire.c.obj
-.PHONY : tire.c.obj
-
-tire.i: tire.c.i
-
-.PHONY : tire.i
-
-# target to preprocess a source file
-tire.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet_IFB.dir\build.make CMakeFiles/Projet_IFB.dir/tire.c.i
-.PHONY : tire.c.i
-
-tire.s: tire.c.s
-
-.PHONY : tire.s
-
-# target to generate assembly for a file
-tire.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet_IFB.dir\build.make CMakeFiles/Projet_IFB.dir/tire.c.s
-.PHONY : tire.c.s
-
 type_missile.obj: type_missile.c.obj
 
 .PHONY : type_missile.obj
@@ -444,9 +417,6 @@ help:
 	@echo ... sauvegarde.obj
 	@echo ... sauvegarde.i
 	@echo ... sauvegarde.s
-	@echo ... tire.obj
-	@echo ... tire.i
-	@echo ... tire.s
 	@echo ... type_missile.obj
 	@echo ... type_missile.i
 	@echo ... type_missile.s

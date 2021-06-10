@@ -12,13 +12,29 @@
 
 //arbitre_de_la_parti
 
+/**
+ * Vérifie si tous les bateaux sont détruits ou non. Pour cela, on vérifie si les PV de chaque bateau sont égaux à 0 (ou non).
+ * @param liste La liste contient l'ensemble des structures bateaux et donc leurs PV
+ * @param nb_bateaux Permet de parcourir l'ensemble des bateaux présent dans la liste (dans le cas d'une implémentation dynamique non existante)
+ * @return Le nombre de bateau vivant
+ */
 int check_win_condition(boat liste[], int nb_bateaux);
+
+/**Vérifie si il reste des missiles à l'utilisateur
+ * Il ne reste plus aucun de chaque type de missile, l'user à perdu.
+ * @param liste_missiles Contient le nombre de chaque missile.
+ * @return 0 si le joueur à perdu, 1 si il lui reste encore des missiles
+ */
 int check_lose_condition(Inventory liste_missiles);
 
 
 
 
-
+/**Change le nombre de missile que l'user possède en fonction de la difficulté choisie
+ * 10 de chaque pour facile, 10 normaux, 5 bombes, 5 tactiques et 3 artilleries en mode normal, 15 normaux, 2 bombes, 4 tactiques et 1 artillerie en mode difficile.
+ * @param difficulte Difficulté choisie par l'utilisateur
+ * @param liste Liste des missile (inventory) dont le nombre de missile est changé
+ */
 void modifier_nombre_missile (int difficulte, Inventory * liste );
 
 /**
@@ -34,7 +50,7 @@ void afficher_bateau_couler_et_pv( boat liste_bateaux[],int nb_bateaux);
  * @param difficulte
  * @return : 1 si on deplace un bateau sinon 0
  */
-int aleatoir_deplacer_ou_pas( int difficulte);
+int aleatoire_deplacer_ou_pas( int difficulte);
 
 /**
  *
@@ -45,7 +61,7 @@ int aleatoir_deplacer_ou_pas( int difficulte);
  */
 void active_mode(int choix_difficulte, boat liste_bateaux[], Grid* boat_grid);
 
-// fonction utilisé par "active_mode"
+//Ci-dessous: fonctions utilisées par "active_mode"
 
 /**
  * modifie les coordonnées du bateau deplacé
@@ -58,7 +74,7 @@ void modifier_coordonne ( boat * bateaux,int axe_XY,int nb_deplacement, int sens
 
 /**
  *
- * remer les coordonné du bateau d'origie si celui si n'a pas pue être déplacé
+ * remet les coordonnée du bateau d'origine si celui-ci n'a pas put être déplacé
  * @param liste_bateaux
  * @param axe_XY
  * @param nb_deplacement
@@ -66,7 +82,7 @@ void modifier_coordonne ( boat * bateaux,int axe_XY,int nb_deplacement, int sens
  */
 void retirer_coordonner ( boat * liste_bateaux,int axe_XY,int nb_deplacement, int sens_deplacement);
 /**
- * efface "l'encien bateau" qui a été deplacé
+ * efface "l'ancien bateau" qui a été deplacé
  *
  * @param bateaux
  * @param boat_grid
@@ -76,8 +92,8 @@ void retirer_coordonner ( boat * liste_bateaux,int axe_XY,int nb_deplacement, in
  */
 void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement,int axe_XY,int sens_deplacement  );
 /**
- * sauvegarde le bateaux dans un tableau de caratère
- * place le bateau sur la grill des bateaux
+ * sauvegarde le bateaux dans un tableau de caractère
+ * place le bateau sur la grille des bateaux
  *
  * @param bateaux
  * @param boat_grid
