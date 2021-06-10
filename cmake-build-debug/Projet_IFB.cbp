@@ -86,9 +86,6 @@
 		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxxxxxxxxxx/donnees_du_jeux.h">
 			<Option target="Projet_IFB"/>
 		</Unit>
-		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxxxxxxxxxx/fonctions initialisation bataille.h">
-			<Option target="Projet_IFB"/>
-		</Unit>
 		<Unit filename="C:/Users/Admin/CLionProjects/Projet_IFBxxxxxxxxxxx/fonctions_tour_de_jeu.c">
 			<Option target="Projet_IFB"/>
 		</Unit>

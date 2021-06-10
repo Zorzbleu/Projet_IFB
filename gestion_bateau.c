@@ -85,17 +85,3 @@ int verification_emplacement_bateau(boat * bateaux, Grid * boat_grid) {
 
     return(0);
 }
-
-
-
-void generer_caracteristique_bateaux (boat * l_bateaux,int i){
-    if (l_bateaux == NULL){
-        exit(1);
-        }
-        l_bateaux->length = i + 1;
-        l_bateaux->id = 'a' + i;
-        l_bateaux->id_dead = 'A' + i;
-        l_bateaux->pv = l_bateaux->length;
-}
-
-

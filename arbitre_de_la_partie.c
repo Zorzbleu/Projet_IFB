@@ -29,7 +29,7 @@ int check_lose_condition(Inventory liste_missiles){
     }
 }
 
-void afficher_bateau_touche_et_pv( boat liste_bateaux[],int nb_bateaux){
+void afficher_bateau_couler_et_pv( boat liste_bateaux[],int nb_bateaux){
     int i  ;
 
     for (i = 0; i < nb_bateaux; i++) {
@@ -272,7 +272,13 @@ void active_mode(int choix_difficulte, boat liste_bateaux[], Grid *boat_grid){
 
         effacer_ancien_bateau(&liste_bateaux[nb_bateau],boat_grid,nb_deplacement,axe_XY,sens_deplacement);
 
+        if (choix_difficulte <= 2 ){ // si le joueur joue en moyen ou en facile on lui dit qu'elle bateau a été deplacé
+            printf ("Le bateau %c a ete deplacé !\n",  liste_bateaux[nb_bateau].id_dead);
+        }else{
+            printf (" Un bateau a ete deplace !!!!\n");
+        }
+
     }
-    printf (" Un bateau a ete deplace !!!!\n");
+
 }
 

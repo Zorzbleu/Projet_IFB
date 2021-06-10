@@ -93,7 +93,7 @@ int main() {
         if (choix_mode_de_jeux != 2 ){
             show_grid(&user_grid);      //Si on n'est pas en mode blind, on affiche la grille à k=l'utilisateur
         }
-        afficher_bateau_touche_et_pv(liste_bateaux,nb_bateaux);
+        afficher_bateau_couler_et_pv(liste_bateaux,nb_bateaux);
 
 
         if ( continuer_partie() == 'N' ){ //le joueur a choisie d'arreter de jouer, donc on sauvegarde avant de "fermer" le programme
