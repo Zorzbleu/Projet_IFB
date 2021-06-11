@@ -5,6 +5,29 @@
 #include "donnees_du_jeux.h"
 #define e_accent_aigu 130
 
+
+
+
+void affichage_titre_credit(){
+
+
+    printf("\n"
+           "                   ____  ___  _________    ______    __    ______   _   _____ _    _____    __    ______               \n"
+           "                  / __ )/   |/_  __/   |  /  _/ /   / /   / ____/  / | / /   | |  / /   |  / /   / ____/               \n"
+           "                 / __  / /| | / / / /| |  / // /   / /   / __/    /  |/ / /| | | / / /| | / /   / __/                  \n"
+           "                / /_/ / ___ |/ / / ___ |_/ // /___/ /___/ /___   / /|  / ___ | |/ / ___ |/ /___/ /___                  \n"
+           "               /_____/_/  |_/_/ /_/  |_/___/_____/_____/_____/  /_/ |_/_/  |_|___/_/  |_/_____/_____/                  \n"
+           "                                                                                                                       \n"
+           "                                                       Bienvenue !                                                     \n"
+           "                                                                                                                       \n"
+           "                                                                                                                       \n"
+           "CAYETANOT Pierre-Olivier                             CHAINTRON Louis                                       ANTONY Louis\n"
+           "                                                                                                                       \n"
+    );
+
+
+}
+
 int affichage_menu_difficulte(){
     printf("                                                                                                                       \n"
            "                                              Choisissez la difficult%c :                                               \n"

@@ -6,22 +6,37 @@
 #define PROJET_IFB_DONNEES_DU_JEUX_H
 #include "structure.h"
 
+
+/**
+ * affiche le titre du jeux et le bom des personne qui on travailler sur le projet
+ *
+ */
+void affichage_titre_credit();
+
+
+
 /**
  * affiche le menu des difficultées à l'utilisateur  et lui demande la difficultée choisie
  * @return la difficulté choisie
  */
 int affichage_menu_difficulte();
+
+
 /**
  *
  * affiche le menu des modes à l'utilisateur  et lui demande le mode de jeu choisie
  * @return  le mode de jeu choisie
  */
 int affichage_menu_mode_de_jeux();
+
+
 /**
  * affiche le menu de démarrage  à l'utilisateur  et lui demande si il veut commencer une nouvelle partie ou charger la précédante partie ou quitter le programme .
  * @return 1 pour commencez une nouvelle partie / 2 pour charger la précédante partie / 3 pour quitter le jeu
  */
 int affichage_menu_demarrage();
+
+
 /**
  *  affiche le menu des missiles à l'utilisateur
  * @param l_missile Permet l'affichage des missiles restants
@@ -47,4 +62,6 @@ int choix_menu_multiple(int nombre_de_choix);
  * @return
  */
 int choix_missile();
+
+
 #endif //PROJET_IFB_DONNEES_DU_JEUX_H

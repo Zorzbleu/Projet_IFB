@@ -48,7 +48,7 @@ void fonction_lecture_sauvegarde(save  * sauvegarde){
 
 }
 
-void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bateaux[5],Grid * user_grid ,Grid *  boat_grid, int nb_bateaux, int * choix_mode_de_jeux ){
+void fonction_load (save  sauvegarde, Inventory * liste_missile,Grid * user_grid ,Grid *  boat_grid, int * choix_mode_de_jeux){
     int  deux_case = 0  , cent_case =0; //// pour sauvegarder les pv des bateaux / pou sauvegarder les Coo des bateaux
     int i;
 
@@ -58,6 +58,12 @@ void fonction_load (save  sauvegarde, Inventory * liste_missile,boat * liste_bat
     cent_case += 100; //besoin pour la fonction loaad_caracteristique qui utilise une matrice de 200 pour sauvegarder deux fois une tableau dans le même matrice
     load_caracteristique_grid(user_grid, sauvegarde,cent_case); // sauvegard la grille des bateaux
     *choix_mode_de_jeux = sauvegarde.mode_rep_save;
+
+
+
+
+
+
 
 }
 
@@ -92,7 +98,7 @@ void load_caracteristique_grid (Grid * grid , save sauvegarde , int cent_case){
 
 }
 
-void load_Coo (boat  *liste_bateaux, save   sauvegarde,int deux_case){
+void load_Coo (boat * liste_bateaux, save   sauvegarde,int deux_case){
 
 
         liste_bateaux->CooX=sauvegarde.Coo_save[deux_case] ;
@@ -107,7 +113,7 @@ void load_Coo (boat  *liste_bateaux, save   sauvegarde,int deux_case){
 
 
 
-void load_orientation (boat  *liste_bateaux,save  sauvegarde,int i  ){
+void load_orientation (boat * liste_bateaux,save  sauvegarde,int i  ){
         liste_bateaux->orientation = sauvegarde.orientation_save[i]   ;
 }
 
@@ -120,23 +126,3 @@ void load_pv(boat * liste_bateaux,save  sauvegarde,int i ){
 
 }
 
-/**
-void load_life_bateaux (boat * liste_boat, save sauvegarde,int cinq_case){ /// la vie des bateaux est sauvegarder dans 5 case (matrice)
-    int i =0;
-    for (i=0 ; i< 5 ; i++){
-        liste_boat->pv_detaille[i] = sauvegarde.boat_live_save[cinq_case+i] ;
-
-
-    }
-
-}
-
-
-void load_mode (int * rep_mode, save  sauvegarde){
-
-    *rep_mode= sauvegarde.mode_rep_save  ; // on utilise la conversion ASCII
-
-}
-
-
-*/
