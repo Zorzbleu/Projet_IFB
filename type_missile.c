@@ -17,7 +17,7 @@ void fire_missile(int X, int Y, Grid  * boat_grid, Grid * user_grid, boat liste[
             printf("Il n'y a pas de bateau %c cet endroit !\n", a_accent);
         else
             if (memoire == -2)
-                printf("Tu as d%cj%c tir%c %c cet endroit !",e_accent_aigu,a_accent,e_accent_aigu,a_accent);
+                printf("Tu as d%cj%c tir%c %c cet endroit !\n",e_accent_aigu,a_accent,e_accent_aigu,a_accent);
         liste_missile->nb_missile_default--;
     }
 }

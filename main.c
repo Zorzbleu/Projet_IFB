@@ -11,7 +11,6 @@
 #include "load sauvegarde.h"
 #include "fonctions_tour_de_jeu.h"
 
-#define N 10
 
 int main() {
     int i;
@@ -110,6 +109,8 @@ int main() {
         else{
             afficher_bateau_couler_et_pv(liste_bateaux,nb_bateaux);
         }
+
+        show_grid(&boat_grid,liste_bateaux);
 
 
         affichage_choix_missile(liste_missile);

@@ -187,7 +187,7 @@ void effacer_ancien_bateau (boat * bateaux , Grid * boat_grid,int nb_deplacement
                 if (sens_deplacement == 1 ){
                     boat_grid->grid[bateaux->CooX-nb_deplacement][bateaux->CooY+i]='_';
                 }else{
-                    boat_grid->grid[bateaux->CooX+nb_deplacement+i][bateaux->CooY+i]='_';
+                    boat_grid->grid[bateaux->CooX+nb_deplacement][bateaux->CooY+i]='_';
                 }
             }else{
                 if (sens_deplacement == 1 ){
